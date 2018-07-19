@@ -171,7 +171,7 @@ This is the quick and easy way of getting your bot up and running in Slack ASAP.
 
 ### 1. Install Your Bot Integration
 
-Got access to Target Botshop? Great. Let's add your integration:
+Got access to a Slack workspace? Great. Let's add your integration:
 
 1. Go to the your Workspace's [App Directory](https://api.slack.com/apps), search for 'Bots' and click the option _`Bots Connect a bot to the Slack Real Time Messaging API`_.
 2. Click on the green `Add Configuration` button on the left.
