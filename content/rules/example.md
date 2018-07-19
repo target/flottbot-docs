@@ -113,7 +113,7 @@ output_to_rooms:
   - "bot-dev"
 
 output_to_users:
-  - "jane.doe@target.com"
+  - "jane.doe"
 
 # help
 include_in_help: false
