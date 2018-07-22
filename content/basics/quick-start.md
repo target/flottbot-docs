@@ -8,29 +8,37 @@ weight = 1
 Ensure Docker is installed and running (highly recommended).
 
 1. Create a directory structure to house your bot's config:
-```
-mkdir config
-cd config
-mkdir rules
-```
-Create the following files in the specified paths:
-`config/bot.yml`
-```yaml
-name: mybot
-cli: true
-```
-`config/rules/hello.yml`
-```yaml
-# metadata
-name: hello
-active: true
-respond: hello
-format_output: "what's up?" # message to send to your user when they say hello
-direct_message_only: false
-help_text: hello
-include_in_help: true
-```
+
+    ```sh
+    mkdir config
+    cd config
+    mkdir rules
+    ```
+
+    Create the following files in the specified paths:
+
+    `config/bot.yml`
+
+    ```yaml
+    name: mybot
+    cli: true
+    ```
+
+    `config/rules/hello.yml`
+
+    ```yaml
+    # metadata
+    name: hello
+    active: true
+    respond: hello
+    format_output: "what's up?" # message to send to your user when they say hello
+    direct_message_only: false
+    help_text: hello
+    include_in_help: true
+    ```
+
 2. `cd` into the directory holding the `config` you just created.
+
 3. Run and exec into the bot's container: `docker run -it --rm --name mybot -v "$PWD"/config:/config target/flottbot:latest /bin/sh -c "./flottbot"`
 
 _\* Note: Alternatively, you can download the binary for your operating system from the [flottbot release page](https://github.com/target/flottbot/releases) into the cloned repository's directory and execute it there. Basically, just replace step #3 from above with executing the binary, i.e. `./flottbot`._
@@ -39,7 +47,7 @@ The bot will start locally and you can interact with it via command line. Hit <k
 
 You should see your bot reply as follows:
 
-```
+```sh
 mybot> what's up?
 ```
 

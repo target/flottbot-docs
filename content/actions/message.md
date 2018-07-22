@@ -15,5 +15,5 @@ actions:
     type: message
     message: "This is a message from your bot."
     limit_to_rooms:
-      - artibot-log
+      - general
 ```

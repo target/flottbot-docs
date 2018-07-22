@@ -7,10 +7,10 @@ toc = true
 Exec actions allow rules to execute scripts in any language. These scripts will live under the `config/scripts` directory and will obviously have to be written by the developer. It is important to note that utilization of scripts **require using a language-specific flottbot images**. We currently provide two images other than the basic alpine based image for ruby and golang:
 
 * [target/flottbot:ruby](https://hub.docker.com/r/target/flottbot/) - ruby:2.4.3-alpine3.7 image with the flottbot binary installed.
-    * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.golang)
+  * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.golang)
 
 * [target/flottbot:golang](https://hub.docker.com/r/target/flottbot/) - golang:1.9-alpine image with the flottbot binary installed.
-    * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.ruby)
+  * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.ruby)
 
 It is of course possible to custom build your own image by writing a Dockerfile which uitilzes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).
 

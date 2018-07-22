@@ -91,7 +91,7 @@ include_in_help: true # hide it from help, because you only want admins to have 
 
 ## Schedule
 
-This rule will run on a schedule and message a specific channel/user specified every 10 seconds(dont leave this running long!).
+This rule will run on a schedule and message a specific channel/user specified every 10 seconds (dont leave this running long!).
 
 ```yaml
 # meta
