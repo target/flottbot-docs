@@ -7,7 +7,7 @@ weight = 3
 
 The Flottbot framework also supports Discord as a second remote chat host.
 
-## 1. Setup Your Discord Bot
+## Setup Your Discord Bot
 
 ### Create your bot as an app
 
@@ -22,7 +22,8 @@ The Flottbot framework also supports Discord as a second remote chat host.
 3. Replace the `CLIENTID` in the following link with your bot's client ID from step 2: `https://discordapp.com/oauth2/authorize?client_id=CLIENTID&scope=bot`
 4. Go to the link you generated, and select a server from the drop-down menu. **You must have the Manage Server permission to add a bot to a server!** If no servers appear, you may need to log in.
 
-## 2. Configure Your Bot
+## Configure Your Bot
+
 Edit the following lines in `/config/bot.yml` to look like:
 
 ```yaml

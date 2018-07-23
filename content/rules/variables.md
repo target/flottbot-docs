@@ -5,7 +5,7 @@ weight = 2
 
 The below variables are set by default:
 
-```
+```sh
 ${_raw_http_output} raw output from an HTTP request action.
 ${_raw_http_status} response code from an HTTP request action.
 ${_exec_output} stdout output from an exec action.
