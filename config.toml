@@ -1,6 +1,9 @@
 # The URL the site will be built for
+title = "Flottbot Documentation"
 base_url = "https://pages.github.com/target/flottbot-docs/"
-theme = "book"
+theme = "flottbook"
+default_language = "en"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
