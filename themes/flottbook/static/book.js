@@ -1,3 +1,13 @@
+// This Source Code Form is subject to the terms of the Mozilla Public License,
+// v. 2.0. If a copy of the MPL was not distributed with this file, you can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
+// Copyright (c) 2018, [Matt Ickstadt mattico8@gmail.com, cetra3 cetra3@hotmail.com,
+// Lucas Morales lucas@lucasem.com, Sorin Davidoi sorin.davidoi@gmail.com,
+// Michael Bryan michaelfbryan@gmail.com, Shane Nelson stgn@users.noreply.github.com,
+// Bartłomiej T. Listwon blistwon@gmail.com, Mathieu David mathieudavid@mathieudavid.org,
+// steveklabnik steve@steveklabnik.com]
+
 "use strict";
 
 // Fix back button cache problem

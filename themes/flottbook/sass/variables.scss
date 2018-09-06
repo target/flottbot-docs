@@ -1,3 +1,16 @@
+// This code was adapted from mdBook (https://github.com/rust-lang-nursery/mdBook/),
+// with additional modifications by Target Corporation, including:
+
+// - moved file to use Sass (.scss) extension
+// - changed value for --content-max-width variable
+
+// The original Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0 (the “MPL”) and the
+// copyright notice below. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+// Copyright (c) 2018 Matt Ickstadt mattico8@gmail.com
+
+// The modifications to the original Source Code Form subject to the terms of the MPL and distributed under the copyright notice below.
+// Copyright (c) 2018 Target Brands, Inc.
+
 /* Globals */
 
 :root {

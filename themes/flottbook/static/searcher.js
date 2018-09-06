@@ -1,3 +1,11 @@
+// This Source Code Form is subject to the terms of the Mozilla Public License,
+// v. 2.0. If a copy of the MPL was not distributed with this file, you can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
+// Copyright (c) 2018, [Matt Ickstadt mattico8@gmail.com, cetra3 cetra3@hotmail.com,
+// Matt Brubeck mbrubeck@gmail.com, Gwen Lofman gwen@lofman.io, Nils mail@nilsnh.no,
+// Guillaume Gomez guillaume1.gomez@gmail.com]
+
 "use strict";
 window.search = window.search || {};
 (function search(search) {
