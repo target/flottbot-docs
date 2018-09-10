@@ -216,7 +216,7 @@ include_in_help: true
 Now run your bot using docker with the following command (make sure docker is up and running):
 
 ```sh
-docker run --rm --name mybot --env SLACK_TOKEN=$SLACK_TOKEN -v "$PWD"/config:/config targetflottbot:latest /flottbot
+docker run --rm --name mybot --env SLACK_TOKEN=$SLACK_TOKEN -v "$PWD"/config:/config target/flottbot:latest /flottbot
 ```
 
 Your bot should now be online in the Slack Workspace you added the integration to.
