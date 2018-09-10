@@ -221,6 +221,6 @@ docker run --rm --name mybot --env SLACK_TOKEN=$SLACK_TOKEN -v "$PWD"/config:/co
 
 Your bot should now be online in the Slack Workspace you added the integration to.
 
-1. On the bottom left side panel, you should see the `Apps` heading. Click on the cicular `+` button.
+1. On the bottom left side panel, you should see the `Apps` heading. Click on the circular `+` button.
 2. In the `Browse Apps` search bar, enter your bot's username. Your bot should appear as a result. Click on it. You should now see your bot online under the `Apps` heading of the side panel.
 3. Message it `hello` and it should respond `what's up?`

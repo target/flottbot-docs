@@ -6,15 +6,18 @@ toc = true
 
 Exec actions allow rules to execute scripts in any language. These scripts will live under the `config/scripts` directory and will obviously have to be written by the developer. It is important to note that utilization of scripts **require using a language-specific flottbot images**. We currently provide two images other than the basic alpine based image for ruby and golang:
 
-* [target/flottbot:ruby](https://hub.docker.com/r/target/flottbot/) - ruby:2.4.3-alpine3.7 image with the flottbot binary installed.
-  * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.golang)
+* [target/flottbot](https://hub.docker.com/r/target/flottbot) - Alpine image and flottbot binary installed
+  * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile)
 
-* [target/flottbot:golang](https://hub.docker.com/r/target/flottbot/) - golang:1.9-alpine image with the flottbot binary installed.
+* [target/flottbot:ruby](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and ruby v2.5 installed
   * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.ruby)
 
-It is of course possible to custom build your own image by writing a Dockerfile which uitilzes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).
+* [target/flottbot:golang](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and golang v1.11 installed
+  * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.golang)
 
-The following example executes a ruby script that outputs 'Hello from Ruby!' to stdout. You can then return that return value to be used in a response. Again, you must use the `target/flottbot:ruby` image in order for you ruby scripts to execute sucessfully.
+It is of course possible to custom build your own image by writing a Dockerfile which utilizes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).
+
+The following example executes a ruby script that outputs 'Hello from Ruby!' to stdout. You can then return that return value to be used in a response. Again, you must use the `target/flottbot:ruby` image in order for you ruby scripts to execute successfully.
 
 ```yaml
 actions: # actions to take when the rule triggered

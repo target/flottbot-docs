@@ -48,7 +48,7 @@ custom_help_text: "Sorry, I didn't get that. Try sending me one of the following
 # set this field to set custom fallback help text for your bot, if it is unset it will send a generic help message with rules and their usage.
 ```
 
-* **name** - the username of your bot. It should be set as the name you provided in your Bot integration in Slack. This is just used for logging purposes.
+* **name** - (optional _string_) - the username of your bot. This is just used for logging purposes.
 * **chat_application** (required _string_) - denotes the chat application we're using, so far we only support [Slack](slack.com) and [Discord](https://discordapp.com/).
 * **slack_token** (required _string_) - is a placeholder that the flottbot binary will parse to read in the `SLACK_TOKEN` environment variable when the bot runs. This token can be found on the bot user configuration page and usually starts with `xoxb`
 * **slack_verification_token** (optional _string_) - include this if you want your bot to have Slack `Events Subscriptions` and `Interactive Components`.
