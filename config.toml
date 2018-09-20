@@ -1,6 +1,6 @@
 # The URL the site will be built for
 title = "Flottbot Documentation"
-base_url = "https://pages.github.com/target/flottbot-docs/"
+base_url = "https://target.github.io/flottbot-docs/"
 theme = "flottbook"
 default_language = "en"
 
