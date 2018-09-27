@@ -8,15 +8,16 @@
 {% endblock content %}
 
 {% block prev_link %}
-    {% if page.previous %}
-        <a class="previous" href="{{ page.previous.permalink }}"><i class="fa fa-angle-left"></i></a>
+    {% if page.lighter %}
+        <a class="previous" href="{{ page.lighter.permalink }}"><i class="fa fa-angle-left"></i></a>
     {% else %}
         {# No page before, find the link for the section it's in if there is one #}
         {% set index = get_section(path="_index.md") %}
         {% for subsection in index.subsections %}
             {% for p in subsection.pages %}
-                {% if p.permalink == page.permalink %}
-                    <a class="previous" href="{{ subsection.permalink }}"><i class="fa fa-angle-left"></i></a>
+                {% if p.path == current_path %}
+                    {% set section = subsection %}
+                    <a class="previous" href="{{ section.permalink }}"><i class="fa fa-angle-left"></i></a>
                 {% endif %}
             {% endfor %}
         {% endfor %}
@@ -24,8 +25,8 @@
 {% endblock prev_link %}
 
 {% block next_link %}
-    {% if page.next %}
-        <a class="next" href="{{ page.next.permalink }}"><i class="fa fa-angle-right"></i></a>
+    {% if page.heavier %}
+        <a class="next" href="{{ page.heavier.permalink }}"><i class="fa fa-angle-right"></i></a>
     {% else %}
         {# No page after, find the link for the following section #}
         {% set index = get_section(path="_index.md") %}
@@ -37,7 +38,7 @@
                 {% set_global found_current = false %}
             {% endif %}
             {% for p in subsection.pages %}
-                {% if p.permalink == page.permalink %}
+                {% if p.path == current_path %}
                     {% set_global found_current = true %}
                 {% endif %}
             {% endfor %}

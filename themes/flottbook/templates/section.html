@@ -13,7 +13,7 @@
     {% set index = get_section(path="_index.md") %}
     {% set found_current = false %}
     {% for subsection in index.subsections | reverse %}
-        {% if subsection.permalink == section.permalink %}
+        {% if subsection.path == current_path %}
             {% set_global found_current = true %}
         {% else %}
             {% if found_current %}
@@ -44,7 +44,7 @@
                 {# no break #}
                 {% set_global found_current = false %}
             {% endif %}
-            {% if subsection.permalink == section.permalink %}
+            {% if subsection.path == current_path %}
                 {% set_global found_current = true %}
             {% endif %}
         {% endfor %}
