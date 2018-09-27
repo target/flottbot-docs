@@ -73,14 +73,18 @@
             if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                 localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
             }
-        } catch (e) { }
+        } catch (e) {}
     </script>
 
     <!-- Set the theme before any content is loaded, prevents flash -->
     <script type="text/javascript">
         var theme;
-        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
-        if (theme === null || theme === undefined) { theme = 'light'; }
+        try {
+            theme = localStorage.getItem('mdbook-theme');
+        } catch (e) {}
+        if (theme === null || theme === undefined) {
+            theme = 'light';
+        }
         document.body.className = theme;
         document.querySelector('html').className = theme + ' js';
     </script>
@@ -90,7 +94,9 @@
         var html = document.querySelector('html');
         var sidebar = 'hidden';
         if (document.body.clientWidth >= 1080) {
-            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            try {
+                sidebar = localStorage.getItem('mdbook-sidebar');
+            } catch (e) {}
             sidebar = sidebar || 'visible';
         }
         html.classList.remove('sidebar-visible');
@@ -166,7 +172,7 @@
 
             <div id="search-wrapper" class="hidden">
                 <form id="searchbar-outer" class="searchbar-outer">
-                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search for ..."
                         aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                 </form>
                 <div id="searchresults-outer" class="searchresults-outer hidden">
