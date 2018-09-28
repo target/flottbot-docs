@@ -188,7 +188,7 @@ chat_application: slack
 slack_token: ${SLACK_TOKEN}
 ```
 
-Now, you'll need to export your Slack bot token as an environment variable wherver your bot runs:
+Now, you'll need to export your Slack bot token as an environment variable wherever your bot runs:
 
 ```sh
 export SLACK_TOKEN=xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx

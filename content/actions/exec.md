@@ -15,6 +15,9 @@ Exec actions allow rules to execute scripts in any language. These scripts will 
 * [target/flottbot:golang](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and golang v1.11 installed
   * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.golang)
 
+* [target/flottbot:python](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and python v3.7 installed
+  * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.python)
+
 It is of course possible to custom build your own image by writing a Dockerfile which utilizes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).
 
 The following example executes a ruby script that outputs 'Hello from Ruby!' to stdout. You can then return that return value to be used in a response. Again, you must use the `target/flottbot:ruby` image in order for you ruby scripts to execute successfully.
