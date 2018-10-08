@@ -9,33 +9,33 @@ Ensure Docker is installed and running (highly recommended).
 
 1. Create a directory structure to house your bot's config:
 
-    ```sh
-    mkdir config
-    cd config
-    mkdir rules
-    ```
+   ```sh
+   mkdir config
+   cd config
+   mkdir rules
+   ```
 
-    Create the following files in the specified paths:
+   Create the following files in the specified paths:
 
-    `config/bot.yml`
+   `config/bot.yml`
 
-    ```yaml
-    name: mybot
-    cli: true
-    ```
+   ```yaml
+   name: mybot
+   cli: true
+   ```
 
-    `config/rules/hello.yml`
+   `config/rules/hello.yml`
 
-    ```yaml
-    # metadata
-    name: hello
-    active: true
-    respond: hello
-    format_output: "what's up?" # message to send to your user when they say hello
-    direct_message_only: false
-    help_text: hello
-    include_in_help: true
-    ```
+   ```yaml
+   # metadata
+   name: hello
+   active: true
+   respond: hello
+   format_output: "what's up?" # message to send to your user when they say hello
+   direct_message_only: false
+   help_text: hello
+   include_in_help: true
+   ```
 
 2. `cd` into the directory holding the `config` you just created.
 
@@ -53,8 +53,12 @@ mybot> what's up?
 
 Congratulations! You just interacted with your bot via CLI mode. As you saw, you set up your first rule responds to `hello` (see rule in `config/rules/hello.yml`).
 
-### About CLI mode
+### About CLI Mode
 
 CLI mode runs your bot locally on your machine and doesn't connect to any chat services. It's great for testing simple rules while you are building out your bot. Just keep in mind that there is no concept of rooms/channels when interacting with your bot in CLI mode.
 
 You can disable CLI mode at any time by modifying your `/config/bot.yml` file, setting the `cli: true` to `cli: false`.
+
+### Supported Configuration Formats
+
+Although we recommend using `YAML`, we are using [spf13/viper](https://github.com/spf13/viper) which allows you to use multiple formats, including JSON, TOML, YAML, HCL, and Java properties files. See the [config-example](https://github.com/target/flottbot/tree/master/config-example) directory in the flottbot project for some examples.
