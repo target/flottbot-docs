@@ -13,5 +13,9 @@ ${_raw_user_input} raw message from a user captured by the bot when a match is f
 ${_user.email} email of user that sent a message that triggered a match.
 ${_user.firstname} first name of user that sent a message that triggered a match.
 ${_user.lastname} last name of user that sent a message that triggered a match.
-${_user.id} Slack ID of user that sent a message that triggered a match.
+${_user.id} User ID of user that sent a message that triggered a match.
+${_channel.id} Channel ID where the message originated from.
+${_channel.name} Channel Name where the message originated from[1]
 ```
+
+_1. for Slack, this might be an empty string if it originated from a direct message_
