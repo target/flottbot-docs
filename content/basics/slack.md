@@ -139,7 +139,7 @@ Create the following files in the specified paths:
 name: mybot
 chat_application: slack
 slack_token: ${SLACK_TOKEN}
-slack_verification: ${SLACK_VERIFICATION_TOKEN}
+slack_verification_token: ${SLACK_VERIFICATION_TOKEN}
 slack_workspace_token: ${SLACK_WORKSPACE_TOKEN}
 ```
 
