@@ -15,6 +15,7 @@ active: true # activate rule
 respond: echo # text match to trigger this rule to take action, bot is looking for the word "echo".
 args: # this is an array of args to pass in after a match is found
   - message # first string capture after the match will be mapped to the variable ${message}
+  - arg? # this second argument is optional and will be availabe as ${arg}, ie. the rule will process even if this argument is missing.
 
 hear: "bots are cool" # text match to trigger rule on if that phrase/regex pattern comes up in a room the bots been invited to. Hear currently takes no arguments.
 
@@ -58,7 +59,7 @@ include_in_help: true # see help_text in help message
 * **name** (_string_) Choose a name of the rule. This should match the name of yaml file, should be short and descriptive.
 * **active** (_boolean_) If set to true, the bot will look for the match in the rooms it is in and take stated actions.
 * **respond** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for.
-  * **args** (_yaml array_) The number of items in this array determines how many args you're trying to capture after the match is found. Each string captured after the match will be mapped to a variable you describe in each element of this array.
+  * **args** (_yaml array_) The number of items in this array determines how many args you're trying to capture after the match is found. Each string captured after the match will be mapped to a variable you describe in each element of this array. Optional arguments have a `?` suffix - they have to be the last args listed.
 * **hear** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for. Hear will match any occurrence of the pattern in the room regardless of whether the bot is addressed. This trigger takes no arguments.
 * **schedule** (_string_) [Cronspec](https://godoc.org/github.com/robfig/cron#hdr-CRON_Expression_Format) for when you want a rule to run on a schedule.
 * **reaction** (_string_) Any time a rule is matched by the bot, it will add this reaction to the message that triggered the rule.
