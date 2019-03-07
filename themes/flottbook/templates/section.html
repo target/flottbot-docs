@@ -12,7 +12,8 @@
      if there isn't any pages in it #}
     {% set index = get_section(path="_index.md") %}
     {% set found_current = false %}
-    {% for subsection in index.subsections | reverse %}
+    {% for subsections in index.subsections | reverse %}
+    {% set subsection = get_section(path=subsections) %}
         {% if subsection.path == current_path %}
             {% set_global found_current = true %}
         {% else %}
@@ -38,7 +39,8 @@
         {# No page in the section, find the link for the following section #}
         {% set index = get_section(path="_index.md") %}
         {% set found_current = false %}
-        {% for subsection in index.subsections %}
+        {% for subsections in index.subsections %}
+        {% set subsection = get_section(path=subsections) %}
             {% if found_current %}
                 <a class="next" href="{{ subsection.permalink }}"><i class="fa fa-angle-right"></i></a>
                 {# no break #}
