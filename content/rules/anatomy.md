@@ -15,7 +15,7 @@ active: true # activate rule
 respond: echo # text match to trigger this rule to take action, bot is looking for the word "echo".
 args: # this is an array of args to pass in after a match is found
   - message # first string capture after the match will be mapped to the variable ${message}
-  - arg? # this second argument is optional and will be availabe as ${arg}, ie. the rule will process even if this argument is missing.
+  - arg? # this second argument is optional and will be available as ${arg}, ie. the rule will process even if this argument is missing.
 
 hear: "bots are cool" # text match to trigger rule on if that phrase/regex pattern comes up in a room the bots been invited to. Hear currently takes no arguments.
 
