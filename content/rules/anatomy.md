@@ -37,6 +37,9 @@ allow_users: # restrict usage to certain users
   - Jane.Doe
 allow_usergroups: # restrict usage to certain usergroups
 
+allow_user_ids: # restrict usage to certain user ids
+ - F123456
+
 ignore_users: # users in this list won't trigger this rule
   - John.Doe
 ignore_usergroups: # users that are part of any of these groups won't trigger this rule
