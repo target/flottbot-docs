@@ -3,7 +3,7 @@ name: zola build + publish
 on:
   pull_request:
     branches:
-      - refs/pull/*
+      - master
   push:
     branches:
       - master
