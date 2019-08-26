@@ -15,9 +15,10 @@ ${_user.email} email of user that sent a message that triggered a match.
 ${_user.name} name of user that sent a message that triggered a match.
 ${_user.firstname} first name of user that sent a message that triggered a match.
 ${_user.lastname} last name of user that sent a message that triggered a match.
-${_user.id} User ID of user that sent a message that triggered a match.
-${_channel.id} Channel ID where the message originated from.
-${_channel.name} Channel Name where the message originated from[1]
+${_user.id} user ID of user that sent a message that triggered a match.
+${_channel.id} channel ID where the message originated from.
+${_channel.name} channel name where the message originated from[1]
+${_is_thread_message} indicates that the rule was triggered from within a message thread, returns "true" or "false"
 ```
 
 _1. for Slack, this might be an empty string if it originated from a direct message_

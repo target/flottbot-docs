@@ -46,6 +46,9 @@ ignore_usergroups: # users that are part of any of these groups won't trigger th
   - admin-team
 
 start_message_thread: true # start a new thread on the message that triggered the rule
+
+ignore_threads: true # will prevent the rule from triggering inside threaded messages
+
 direct_message_only: false # will only reply via direct message if enabled
 
 output_to_rooms: # this is an array of rooms/channels you want messages to be sent into in Slack.
@@ -74,6 +77,8 @@ include_in_help: true # see help_text in help message
 * **allow_usergroups** (_yaml array_) An array of user groups that are permitted to execute this rule. **Important:** To use this feature in Slack, you need to set up your integration as an app (not a regular bot configuration) and supply a 'slack_workspace_token' in your bot configuration (bot.yml).
 * **ignore_users** (_yaml array_) An array of users that will not be able to execute this rule.
 * **ignore_usergroups** (_yaml array_) An array of user groups that will not be able to execute this rule. **Important:** To use this feature in Slack, you need to set up your integration as an app (not a regular bot configuration) and supply a 'slack_workspace_token' in your bot configuration (bot.yml).
+* **start_message_thread** (_boolean_) If set to true, the bot start a thread with your trigger message being the parent. Otherwise, the bot will post a message in the same channel.
+* **ignore_threads** (_boolean_) If set to true, the bot will not be able to get triggered for this rule from within a message a thread.
 * **direct_message_only** (_boolean_) If set to true, the bot will never respond to this rule in a room it will only direct message the sender.
 * **output_to_rooms** (_yaml array_) An array of rooms you want messages to be sent into.
 * **output_to_users** (_yaml array_) An array of specific users you want messages to be to.
