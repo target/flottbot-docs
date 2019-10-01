@@ -92,7 +92,7 @@ slack_interactions_callback_path: ${SLACK_INTERACTIONS_CALLBACK_PATH} # EDIT ${S
 
 If you're using our provided Docker image, it will expose the necessary ports for the http server to accept requests and set up the custom path endpoints to accept slack event payloads.
 
-In your bot configuration inside of Slack migrate to the `Events Subscription` section. Hit the *Enable Events* button to turn it on. Paste in the URL that your bot is hosted at including the new path that now accepts payloads from the Slack events API. See our section on Deployment for deploying your custom Flottbot docker container on Heroku. If using the examples listed above with the URL https://example.com you would paste in https://example.com/https://stage-api.target.com/slack_events/v1/interactions to the Request URL field. Make sure that you get the green check mark when saving the page. Then add the following Bot Subscription Events:
+In your bot configuration inside of Slack migrate to the `Events Subscription` section. Hit the *Enable Events* button to turn it on. Paste in the URL that your bot is hosted at including the new path that now accepts payloads from the Slack events API. See our section on Deployment for deploying your custom Flottbot docker container on Heroku. If using the examples listed above with the URL https://example.com you would paste in https://example.com/slack_events/v1/interactions to the Request URL field. Make sure that you get the green check mark when saving the page. Then add the following Bot Subscription Events:
 
 ```
 Event Name Description
