@@ -19,8 +19,10 @@ ${_user.id} user ID of user that sent a message that triggered a match.
 ${_channel.id} channel ID where the message originated from.
 ${_channel.name} channel name where the message originated from[1]
 ${_is_thread_message} indicates that the rule was triggered from within a message thread, returns "true" or "false"
+${_source.link} will provide you with a link to the original message[2]
 ```
 
 _1. for Slack, this might be an empty string if it originated from a direct message_
+_2. this feature is currently only available for Slack_
 
 **Note:** `${_user.firstname}` and `${_user.lastname}` are not populated for Discord, you should instead utilize `${_user.name}`.
