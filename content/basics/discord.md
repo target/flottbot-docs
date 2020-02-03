@@ -56,7 +56,7 @@ export DISCORD_SERVER_ID=###############
 Now run your bot using docker with the following command (make sure docker is up and running):
 
 ```sh
-docker run --rm --name mybot --env DISCORD_TOKEN=$DISCORD_TOKEN -v "$PWD"/config:/config target/flottbot:latest /flottbot
+docker run --rm --name mybot --env DISCORD_TOKEN=$DISCORD_TOKEN --env DISCORD_SERVER_ID=$DISCORD_SERVER_ID -v "$PWD"/config:/config target/flottbot:latest /flottbot
 ```
 
 Your bot should now be online in the Discord server where you configured your bot.
