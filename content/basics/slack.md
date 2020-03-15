@@ -64,12 +64,10 @@ Got access to a Slack workspace? Great. Let's create a new App for your bot.
 ##### Add Bot User
 
 1. On your App's page, click the `Add features and functionality` dropdown.
-2. Click on the `Bots` module. You should be redirected to the `Bot User` page.
-3. Click the `Add a Bot User` button
-4. Enter your bot's name in the `Display name` and `Default username` field.
+2. Go to `app-home` section.
+3. Enter your bot's name in the `Display name` and `Default username` field.
     * Call the bot whatever you want!
-5. Click on the `Always Show My Bot as Online` toggle to 'On'
-6. Click on the green `Add Bot User` button
+4. Click on the `Always Show My Bot as Online` toggle to 'On'
 
 ##### Add Permissions
 
