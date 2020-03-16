@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- 
+    This code was adapted from mdBook (https://github.com/rust-lang-nursery/mdBook/),
+    with additional modifications by Target Corporation, including:
+    
+    - moved file to use .html extension
+    - updated template syntax to work with site generator used
+    - removed path_to_root variable in js snippet
+    - inlined menu (toc) content
+    - modified navigation
+    - removed jax-related content
+    - removed theme js files
+    
+    The original Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0 (the “MPL”) and the
+    copyright notice below. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+    
+    Copyright (c) 2018 [wirelyre wirelyre@gmail.com, Matt Ickstadt mattico8@gmail.com, cetra3 cetra3@hotmail.com, 
+    Matt Brubeck mbrubeck@gmail.com, Sorin Davidoi sorin.davidoi@gmail.com, Michael Bryan michaelfbryan@gmail.com,
+    Mario Nebl marionebl@users.noreply.github.com, Shane Nelson stgn@users.noreply.github.com, lifta42 lifta42@outlook.com, 
+    projektir oprojektir@gmail.com, François mockersf@gmail.com, Mathieu David mathieudavid@mathieudavid.org]
+    
+    The modifications to the original Source Code Form subject to the terms of the MPL and distributed under the copyright notice below.
+    Copyright (c) 2018 Target Brands, Inc. 
+    -->
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>exec - Flottbot Documentation</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+</head>
+
+<body class="light">
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) {}
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try {
+            theme = localStorage.getItem('mdbook-theme');
+        } catch (e) {}
+        if (theme === null || theme === undefined) {
+            theme = 'light';
+        }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try {
+                sidebar = localStorage.getItem('mdbook-sidebar');
+            } catch (e) {}
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        
+        
+        <nav role="navigation">
+            <ul>
+                
+                
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;about&#x2F;" class="subsection-title">
+                            
+                            What is Flottbot?
+                        </a></strong>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;" class="subsection-title">
+                            
+                            Flottbot Basics
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;quick-start&#x2F;" class="page-title">
+                                
+                                Quick Start
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;slack&#x2F;" class="page-title">
+                                
+                                Slack
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;discord&#x2F;" class="page-title">
+                                
+                                Discord
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;customization&#x2F;" class="page-title">
+                                
+                                Customizing Your Bot
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;" class="subsection-title">
+                            
+                            Actions
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;http&#x2F;" class="page-title">
+                                
+                                HTTP
+                            </a>
+                        </li>
+                        
+                        <li class="active" >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;exec&#x2F;" class="page-title">
+                                
+                                exec
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;log&#x2F;" class="page-title">
+                                
+                                log
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;message&#x2F;" class="page-title">
+                                
+                                message
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;" class="subsection-title">
+                            
+                            Rules
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;anatomy&#x2F;" class="page-title">
+                                
+                                Anatomy of a Rule
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;variables&#x2F;" class="page-title">
+                                
+                                Variables
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;example&#x2F;" class="page-title">
+                                
+                                Examples
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;acknowledgements&#x2F;" class="subsection-title">
+                            
+                            Acknowledgements
+                        </a></strong>
+                    
+                </li>
+                
+                
+            </ul>
+        </nav>
+        
+        
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flottbot Documentation</h1>
+                </div>
+            </div>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search for ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    
+    <h1>exec</h1>
+    <p>Exec actions allow rules to execute scripts in any language. These scripts will live under the <code>config/scripts</code> directory and will obviously have to be written by the developer. It is important to note that utilization of scripts <strong>require using a language-specific flottbot images</strong>. We currently provide two images other than the basic alpine based image for ruby and golang:</p>
+<ul>
+<li>
+<p><a href="https://hub.docker.com/r/target/flottbot">target/flottbot</a> - Alpine image and flottbot binary installed</p>
+<ul>
+<li>see <a href="https://github.com/target/flottbot/blob/master/docker/Dockerfile">Dockerfile</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://hub.docker.com/r/target/flottbot">target/flottbot:ruby</a> - Alpine image, flottbot binary, and ruby v2.5 installed</p>
+<ul>
+<li>see <a href="https://github.com/target/flottbot/blob/master/docker/Dockerfile.ruby">Dockerfile</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://hub.docker.com/r/target/flottbot">target/flottbot:golang</a> - Alpine image, flottbot binary, and golang v1.11 installed</p>
+<ul>
+<li>see <a href="https://github.com/target/flottbot/blob/master/docker/Dockerfile.golang">Dockerfile</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://hub.docker.com/r/target/flottbot">target/flottbot:python</a> - Alpine image, flottbot binary, and python v3.7 installed</p>
+<ul>
+<li>see <a href="https://github.com/target/flottbot/blob/master/docker/Dockerfile.python">Dockerfile</a></li>
+</ul>
+</li>
+</ul>
+<p>It is of course possible to custom build your own image by writing a Dockerfile which utilizes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).</p>
+<p>The following example executes a ruby script that outputs 'Hello from Ruby!' to stdout. You can then return that return value to be used in a response. Again, you must use the <code>target/flottbot:ruby</code> image in order for you ruby scripts to execute successfully.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># actions to take when the rule triggered
+  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">sample script </span><span style="color:#65737e;"># name of action
+    </span><span style="color:#bf616a;">type</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">exec </span><span style="color:#65737e;"># type of action
+    </span><span style="color:#bf616a;">cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">ruby config/scripts/main.rb </span><span style="color:#65737e;"># command to send container to run your script.
+    </span><span style="color:#bf616a;">timeout</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">30 </span><span style="color:#65737e;"># custom 30 second timeout for an exec rule. 10 Seconds is the default.
+    </span><span style="color:#bf616a;">update_reaction</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">white_check_mark </span><span style="color:#65737e;"># If you set an emoji reaction when the rule was matched, you can include this field to update the reaction when the script completes. You can use templating in this field as well for advanced usage.
+</span></pre>
+<p>The <code>main.rb</code> script looks like:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">
+</span><span style="color:#96b5b4;">puts </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">Hello from Ruby!</span><span style="color:#c0c5ce;">&#39;
+</span></pre>
+<p>Here's the same example but in <code>python</code>:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># actions to take when the rule triggered
+  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">sample script </span><span style="color:#65737e;"># name of action
+    </span><span style="color:#bf616a;">type</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">exec </span><span style="color:#65737e;"># type of action
+    </span><span style="color:#bf616a;">cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">python config/scripts/main.py </span><span style="color:#65737e;"># command to send container to run your script.
+    </span><span style="color:#bf616a;">timeout</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">30 </span><span style="color:#65737e;"># custom 30 second timeout for an exec rule. 10 Seconds is the default.
+</span></pre>
+<p>The <code>main.py</code> script looks like:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">#!/usr/bin/env python3
+
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Hello from Python!</span><span style="color:#c0c5ce;">&quot;)
+</span></pre><h3 id="error-handling">Error handling</h3>
+<p>Sadly the world isn't perfect, so you may want to handle some edge cases and catch errors. By default, flottbot will return the following error if you don't toss a message to stdout <code>Error while executing script for action '&lt;action name&gt;'. See bot admin for more information.&quot;</code>. You can define a more custom error message by printing to stdout and the user will receive that as the error. For example in:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">#!/usr/bin/env python3
+
+</span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Hello!</span><span style="color:#c0c5ce;">&quot;)
+</span><span style="color:#b48ead;">raise </span><span style="color:#bf616a;">NameError</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">I broke</span><span style="color:#c0c5ce;">&quot;)
+</span></pre>
+<p>The user will receive <code>Hello!</code> from the bot. Flottbot will also log the error to it's own log, so for the above script you as the bot owner will see something like:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">{&quot;</span><span style="color:#a3be8c;">level</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">error</span><span style="color:#c0c5ce;">&quot;,&quot;</span><span style="color:#a3be8c;">msg</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">Exec rule for action &#39;sample script&#39; failed with exit status 1: Traceback (most recent call last):</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;"> File </span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">config/scripts/main.py</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">, line 6, in </span><span style="color:#96b5b4;">\u003c</span><span style="color:#a3be8c;">module</span><span style="color:#96b5b4;">\u003e\n</span><span style="color:#a3be8c;"> raise NameError(</span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">I</span><span style="color:#c0c5ce;"> </span><span style="background-color:#bf616a;color:#2b303b;">broke</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">)</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">NameError: I broke</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;,&quot;</span><span style="color:#a3be8c;">time</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">2018-02-07T22:04:14-06:00</span><span style="color:#c0c5ce;">&quot;}
+</span></pre><h3 id="timeouts">Timeouts</h3>
+<p>By default, each exec action has a timeout of 10 seconds. You can override this behavior by specifying a custom timeout within the action section of the <code>rules/&lt;rule name&gt;.yml</code> file. When a timeout is reached the user will receive a message of <code>Hmm, something timed out. Please try again.</code> and the bot log will receive a message of <code>Timeout reached, exec process for action '&lt;action&gt;' killed&quot;</code>.</p>
+
+
+                </main>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+    
+        <a class="previous" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;http&#x2F;"><i class="fa fa-angle-left"></i></a>
+    
+
+
+            
+    
+        <a class="next" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;log&#x2F;"><i class="fa fa-angle-right"></i></a>
+    
+
+        </nav>
+
+    </div>
+
+    
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- 
+    This code was adapted from mdBook (https://github.com/rust-lang-nursery/mdBook/),
+    with additional modifications by Target Corporation, including:
+    
+    - moved file to use .html extension
+    - updated template syntax to work with site generator used
+    - removed path_to_root variable in js snippet
+    - inlined menu (toc) content
+    - modified navigation
+    - removed jax-related content
+    - removed theme js files
+    
+    The original Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0 (the “MPL”) and the
+    copyright notice below. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+    
+    Copyright (c) 2018 [wirelyre wirelyre@gmail.com, Matt Ickstadt mattico8@gmail.com, cetra3 cetra3@hotmail.com, 
+    Matt Brubeck mbrubeck@gmail.com, Sorin Davidoi sorin.davidoi@gmail.com, Michael Bryan michaelfbryan@gmail.com,
+    Mario Nebl marionebl@users.noreply.github.com, Shane Nelson stgn@users.noreply.github.com, lifta42 lifta42@outlook.com, 
+    projektir oprojektir@gmail.com, François mockersf@gmail.com, Mathieu David mathieudavid@mathieudavid.org]
+    
+    The modifications to the original Source Code Form subject to the terms of the MPL and distributed under the copyright notice below.
+    Copyright (c) 2018 Target Brands, Inc. 
+    -->
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Slack - Flottbot Documentation</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+</head>
+
+<body class="light">
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) {}
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try {
+            theme = localStorage.getItem('mdbook-theme');
+        } catch (e) {}
+        if (theme === null || theme === undefined) {
+            theme = 'light';
+        }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try {
+                sidebar = localStorage.getItem('mdbook-sidebar');
+            } catch (e) {}
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        
+        
+        <nav role="navigation">
+            <ul>
+                
+                
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;about&#x2F;" class="subsection-title">
+                            
+                            What is Flottbot?
+                        </a></strong>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;" class="subsection-title">
+                            
+                            Flottbot Basics
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;quick-start&#x2F;" class="page-title">
+                                
+                                Quick Start
+                            </a>
+                        </li>
+                        
+                        <li class="active" >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;slack&#x2F;" class="page-title">
+                                
+                                Slack
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;discord&#x2F;" class="page-title">
+                                
+                                Discord
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;customization&#x2F;" class="page-title">
+                                
+                                Customizing Your Bot
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;" class="subsection-title">
+                            
+                            Actions
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;http&#x2F;" class="page-title">
+                                
+                                HTTP
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;exec&#x2F;" class="page-title">
+                                
+                                exec
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;log&#x2F;" class="page-title">
+                                
+                                log
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;message&#x2F;" class="page-title">
+                                
+                                message
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;" class="subsection-title">
+                            
+                            Rules
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;anatomy&#x2F;" class="page-title">
+                                
+                                Anatomy of a Rule
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;variables&#x2F;" class="page-title">
+                                
+                                Variables
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;example&#x2F;" class="page-title">
+                                
+                                Examples
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;acknowledgements&#x2F;" class="subsection-title">
+                            
+                            Acknowledgements
+                        </a></strong>
+                    
+                </li>
+                
+                
+            </ul>
+        </nav>
+        
+        
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flottbot Documentation</h1>
+                </div>
+            </div>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search for ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    
+    <h1>Slack</h1>
+    <h2 id="choose-your-approach">Choose Your Approach</h2>
+<p>You'll need to install your bot on Slack, but first know that there are two approaches of installing your bot:</p>
+<ol>
+<li><code>App + Bot User</code> - create a Slack App in the workspace and add the Bot User feature to it.</li>
+<li><code>Bot Integration</code> - add a <code>Bot Integration</code> directly to the workspace.</li>
+</ol>
+<p>Each approach has its own set of pros and cons:</p>
+<h3 id="app-bot-user">App + Bot User</h3>
+<p>Recommended if you've already got some experience as a Slack bot owner.</p>
+<p>Pros</p>
+<ul>
+<li>Apps offer your bot more features, such as Event Subscriptions, Interactive Components, etc.
+<ul>
+<li>This means greater customization for your bot</li>
+<li>More fun</li>
+</ul>
+</li>
+<li>Your bot will read messages as events, as well as have access to other event subscriptions using the Events API.
+<ul>
+<li><a href="https://api.slack.com/events-api">Events API</a> vs. <a href="https://api.slack.com/rtm">RTM</a></li>
+</ul>
+</li>
+<li>Deploy multiple instances of your bot, since messages will be read/sent as events
+<ul>
+<li>Load balancing between multiple instances of your bot (good if your bot is really popular).</li>
+<li>High availability.</li>
+</ul>
+</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Takes more time to setup than a simple <code>Bot Integration</code></li>
+<li>Cannot easily run/test locally on machine (due to the Events API)</li>
+</ul>
+<h3 id="bot-integration">Bot Integration</h3>
+<p>Recommended if you're just starting out. Nice for first-time Slack bot owners.</p>
+<p>Pros</p>
+<ul>
+<li>Quick setup</li>
+<li>Good for bots with simple use-cases</li>
+<li>Can run/test bot locally on machine</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Only one instance of your bot can be deployed because it uses the Slack <a href="https://api.slack.com/rtm">RTM</a> to read/send messages</li>
+<li>You lose out on App features (not as fun)</li>
+</ul>
+<h3 id="approach-1-app-bot-user">Approach 1: App + Bot User</h3>
+<h4 id="create-a-new-app">Create A New App</h4>
+<p>Got access to a Slack workspace? Great. Let's create a new App for your bot.</p>
+<h5 id="create-slack-app">Create Slack App</h5>
+<ol>
+<li>Login to Slack and go to the <a href="https://api.slack.com/apps">Apps page</a>.</li>
+<li>Click on the green <code>Create New App</code> button on the top right of the page. A <code>Create A Slack App</code> window should appear.</li>
+<li>Enter your bot's name under the <code>App Name</code> section and select the desired workspace from the dropdown.</li>
+<li>Click <code>Create App</code> at the bottom right corner of the window.</li>
+<li>You should now be redirected to your App's page.</li>
+</ol>
+<h5 id="add-bot-user">Add Bot User</h5>
+<ol>
+<li>On your App's page, click the <code>Add features and functionality</code> dropdown.</li>
+<li>Go to <code>app-home</code> section.</li>
+<li>Enter your bot's name in the <code>Display name</code> and <code>Default username</code> field.
+<ul>
+<li>Call the bot whatever you want!</li>
+</ul>
+</li>
+<li>Click on the <code>Always Show My Bot as Online</code> toggle to 'On'</li>
+</ol>
+<h5 id="add-permissions">Add Permissions</h5>
+<ol>
+<li>On the lefthand side of the page under the <code>Features</code> heading, click on <code>OAuth &amp; Permissions</code>.</li>
+<li>Scroll down to the <code>Scopes</code> section and in the <code>Select Permission Scopes</code> dropdown, select the <code>Add a bot user...</code> option. Click the green <code>Save Changes</code> button.</li>
+<li>Scroll back up to the <code>OAuth Tokens &amp; Redirect URLs</code> section, and click the now green <code>Install App to Workspace</code> button.</li>
+<li>You should be prompted to <code>Confirm your identity for you Workspace</code>. Click the green <code>Authorize</code> button.</li>
+<li>You should be redirected back to the <code>OAuth &amp; Permissions</code> page where you will now see a <code>Tokens for Your Workspace</code> section and your bot token which will always begin with <code>xoxb</code>.</li>
+</ol>
+<p>You should be able to see your bot online in the workspace you installed it. On the bottom left side panel, you should see the <code>Apps</code> heading. If you click on the <code>+</code> button, you should be able to search and select your bot. Your bot doesn't do anything right now, so we'll need to add functionality to it.</p>
+<h5 id="setup-your-slack-events-public-ingress">Setup Your Slack Events Public Ingress</h5>
+<p>In order for the Slack events API to post back to your bot to notify it that certain events occur, you'll need to deploy it to a publicly available URL. Flottbot will by default serve up http endpoints at custom paths you can configure in your <code>config/bot.yml</code>.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">slack_events_callback_path</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_EVENTS_CALLBACK_PATH} </span><span style="color:#65737e;"># EDIT  ${SLACK_EVENTS_CALLBACK_PATH} (e.g. /slack_events/v1/events)
+</span><span style="color:#bf616a;">slack_interactions_callback_path</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_INTERACTIONS_CALLBACK_PATH} </span><span style="color:#65737e;"># EDIT ${SLACK_INTERACTIONS_CALLBACK_PATH} (e.g. /slack_events/v1/interactions)
+</span></pre>
+<p>If you're using our provided Docker image, it will expose the necessary ports for the http server to accept requests and set up the custom path endpoints to accept slack event payloads.</p>
+<p>In your bot configuration inside of Slack migrate to the <code>Events Subscription</code> section. Hit the <em>Enable Events</em> button to turn it on. Paste in the URL that your bot is hosted at including the new path that now accepts payloads from the Slack events API. See our section on Deployment for deploying your custom Flottbot docker container on Heroku. If using the examples listed above with the URL https://example.com you would paste in https://example.com/slack_events/v1/interactions to the Request URL field. Make sure that you get the green check mark when saving the page. Then add the following Bot Subscription Events:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">Event Name Description
+link_shared
+A message was posted containing one or more links relevant to your application
+
+member_joined_channel
+A user joined a public or private channel
+
+member_left_channel
+A user left a public or private channel
+
+message.app_home
+A user sent a message to your Slack app
+
+message.channels
+A message was posted to a channel
+
+message.groups
+A message was posted to a private channel
+
+message.im
+A message was posted in a direct message channel
+
+message.mpim
+A message was posted in a multiparty direct message channel
+</span></pre><h4 id="setup-your-bot-project">Setup Your Bot Project</h4>
+<p>Create a directory structure to house your bot's config:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> config
+</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> config
+</span><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> rules
+</span></pre>
+<p>Create the following files in the specified paths:</p>
+<p><code>config/bot.yml</code></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">mybot
+chat_application</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">slack
+slack_token</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${SLACK_TOKEN}
+slack_verification_token</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${SLACK_VERIFICATION_TOKEN}
+slack_workspace_token</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_WORKSPACE_TOKEN}
+</span></pre>
+<p><strong>Note:</strong> Your Slack bot token will begin with &quot;xoxb&quot; and your workspace token with &quot;xoxp&quot;_</p>
+<p>How to find these Slack tokens:</p>
+<ul>
+<li><code>${SLACK_TOKEN}</code>
+<ol>
+<li>See the <strong>OAuth &amp; Permissions</strong> page of your App.</li>
+<li>Under the <strong>Tokens for Your Workspace</strong> section, the token is under <strong>Bot User OAuth Access Token</strong>.</li>
+</ol>
+</li>
+<li><code>${SLACK_WORKSPACE_TOKEN}</code>
+<ol>
+<li>See the <strong>OAuth &amp; Permissions</strong> page of your App.</li>
+<li>Under the <strong>Tokens for Your Workspace</strong> section, the token is under <strong>OAuth Access Token</strong>.</li>
+</ol>
+</li>
+<li><code>${SLACK_VERIFICATION_TOKEN}</code>
+<ol>
+<li>See the <strong>Basic Information</strong> page of your App.</li>
+<li>Under the <strong>App Credentials</strong> section, the token is under <strong>Verification Token</strong>.</li>
+</ol>
+</li>
+</ul>
+<p>Cool. Save those tokens somewhere safe. Commit these changes and we'll work on running your bot.</p>
+<h3 id="4-running-your-bot">4. Running Your Bot</h3>
+<p>So as mentioned in the above pros/cons for the <code>App + Bot User</code> approach, you won't be able to run/test your bot in Slack from your local machine. This is also why many choose to go the <code>Bot Integration</code> path first.</p>
+<h3 id="approach-2-bot-integration">Approach 2: Bot Integration</h3>
+<p>This is the quick and easy way of getting your bot up and running in Slack ASAP.</p>
+<h4 id="install-your-bot-integration">Install Your Bot Integration</h4>
+<p>Got access to a Slack workspace? Great. Let's add your integration:</p>
+<ol>
+<li>Go to the your Workspace's <a href="https://api.slack.com/apps">App Directory</a>, search for 'Bots' and click the option <em><code>Bots Connect a bot to the Slack Real Time Messaging API</code></em>.</li>
+<li>Click on the green <code>Add Configuration</code> button on the left.</li>
+<li>Enter your chosen username for your bot and click on the green <code>Add bot integration</code>.</li>
+<li>You should now be able to access your bot's <code>Integration Settings</code> where you will find your bot's <code>API Token</code>, which will look like <code>xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx</code>.</li>
+</ol>
+<p>Hooray! Now let's run your bot in your workspace.</p>
+<h4 id="setup-your-bot-project-1">Setup Your Bot Project</h4>
+<p>Edit the following lines in <code>/config/bot.yml</code> to look like:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">mybot
+chat_application</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">slack
+slack_token</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_TOKEN}
+</span></pre>
+<p>Now, you'll need to export your Slack bot token as an environment variable wherever your bot runs:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#b48ead;">export </span><span style="color:#bf616a;">SLACK_TOKEN</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx
+</span></pre>
+<p><strong>Note:</strong> Your Slack bot token should begin with &quot;xoxb&quot;</p>
+<p>Set up a simple hello rule.</p>
+<p><code>config/rules/hello.yml</code></p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;"># metadata
+</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
+active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
+format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">what&#39;s up?</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#65737e;"># message to send to your user when they say hello
+</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
+include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+</span></pre><h3 id="run-your-bot">Run Your Bot</h3>
+<p>Now run your bot using docker with the following command (make sure docker is up and running):</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">docker</span><span style="color:#c0c5ce;"> run</span><span style="color:#bf616a;"> --rm --name</span><span style="color:#c0c5ce;"> mybot</span><span style="color:#bf616a;"> --env</span><span style="color:#c0c5ce;"> SLACK_TOKEN=$</span><span style="color:#bf616a;">SLACK_TOKEN -v </span><span style="color:#c0c5ce;">&quot;$</span><span style="color:#bf616a;">PWD</span><span style="color:#c0c5ce;">&quot;/config:/config target/flottbot:latest /flottbot
+</span></pre>
+<p>Your bot should now be online in the Slack Workspace you added the integration to.</p>
+<ol>
+<li>On the bottom left side panel, you should see the <code>Apps</code> heading. Click on the circular <code>+</code> button.</li>
+<li>In the <code>Browse Apps</code> search bar, enter your bot's username. Your bot should appear as a result. Click on it. You should now see your bot online under the <code>Apps</code> heading of the side panel.</li>
+<li>Message it <code>hello</code> and it should respond <code>what's up?</code></li>
+</ol>
+
+
+                </main>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+    
+        <a class="previous" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;quick-start&#x2F;"><i class="fa fa-angle-left"></i></a>
+    
+
+
+            
+    
+        <a class="next" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;discord&#x2F;"><i class="fa fa-angle-right"></i></a>
+    
+
+        </nav>
+
+    </div>
+
+    
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    
+</body>
+
+</html>

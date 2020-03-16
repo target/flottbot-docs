@@ -1,0 +1,539 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- 
+    This code was adapted from mdBook (https://github.com/rust-lang-nursery/mdBook/),
+    with additional modifications by Target Corporation, including:
+    
+    - moved file to use .html extension
+    - updated template syntax to work with site generator used
+    - removed path_to_root variable in js snippet
+    - inlined menu (toc) content
+    - modified navigation
+    - removed jax-related content
+    - removed theme js files
+    
+    The original Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0 (the “MPL”) and the
+    copyright notice below. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+    
+    Copyright (c) 2018 [wirelyre wirelyre@gmail.com, Matt Ickstadt mattico8@gmail.com, cetra3 cetra3@hotmail.com, 
+    Matt Brubeck mbrubeck@gmail.com, Sorin Davidoi sorin.davidoi@gmail.com, Michael Bryan michaelfbryan@gmail.com,
+    Mario Nebl marionebl@users.noreply.github.com, Shane Nelson stgn@users.noreply.github.com, lifta42 lifta42@outlook.com, 
+    projektir oprojektir@gmail.com, François mockersf@gmail.com, Mathieu David mathieudavid@mathieudavid.org]
+    
+    The modifications to the original Source Code Form subject to the terms of the MPL and distributed under the copyright notice below.
+    Copyright (c) 2018 Target Brands, Inc. 
+    -->
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Examples - Flottbot Documentation</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+</head>
+
+<body class="light">
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) {}
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try {
+            theme = localStorage.getItem('mdbook-theme');
+        } catch (e) {}
+        if (theme === null || theme === undefined) {
+            theme = 'light';
+        }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try {
+                sidebar = localStorage.getItem('mdbook-sidebar');
+            } catch (e) {}
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        
+        
+        <nav role="navigation">
+            <ul>
+                
+                
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;about&#x2F;" class="subsection-title">
+                            
+                            What is Flottbot?
+                        </a></strong>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;" class="subsection-title">
+                            
+                            Flottbot Basics
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;quick-start&#x2F;" class="page-title">
+                                
+                                Quick Start
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;slack&#x2F;" class="page-title">
+                                
+                                Slack
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;discord&#x2F;" class="page-title">
+                                
+                                Discord
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;customization&#x2F;" class="page-title">
+                                
+                                Customizing Your Bot
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;" class="subsection-title">
+                            
+                            Actions
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;http&#x2F;" class="page-title">
+                                
+                                HTTP
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;exec&#x2F;" class="page-title">
+                                
+                                exec
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;log&#x2F;" class="page-title">
+                                
+                                log
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;message&#x2F;" class="page-title">
+                                
+                                message
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;" class="subsection-title">
+                            
+                            Rules
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;anatomy&#x2F;" class="page-title">
+                                
+                                Anatomy of a Rule
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;variables&#x2F;" class="page-title">
+                                
+                                Variables
+                            </a>
+                        </li>
+                        
+                        <li class="active" >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;example&#x2F;" class="page-title">
+                                
+                                Examples
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;acknowledgements&#x2F;" class="subsection-title">
+                            
+                            Acknowledgements
+                        </a></strong>
+                    
+                </li>
+                
+                
+            </ul>
+        </nav>
+        
+        
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flottbot Documentation</h1>
+                </div>
+            </div>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search for ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    
+    <h1>Examples</h1>
+    <h2 id="hello">Hello</h2>
+<p>This rule will simply listen for the word &quot;hello&quot;, and respond with a greeting.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;"># metadata
+</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
+active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># activate rule
+
+# trigger &amp; arguments
+</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
+args</span><span style="color:#c0c5ce;">:
+</span><span style="color:#65737e;"># no required args, as we&#39;re just looking for the match and nothing else.
+
+# actions
+</span><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># this rule takes no actions, just collects and responds with whats laid out in the format_output section
+
+# response
+</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">what&#39;s up?</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#65737e;"># message to send to your user when they say hello
+</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false </span><span style="color:#65737e;"># allow messaging inside channels
+</span><span style="color:#bf616a;">output_to_rooms</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># this is an array of rooms/channels you want messages to be sent into.
+  </span><span style="color:#c0c5ce;">- </span><span style="color:#a3be8c;">mychannel </span><span style="color:#65737e;"># EDIT this (Slack channel you want the bot to listen &amp; respond in)
+
+#help
+</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello </span><span style="color:#65737e;"># help/usage text for the echo rule
+</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># see help_text in help message
+</span></pre><h2 id="joke">Joke</h2>
+<p>This rule will listen for the word &quot;joke&quot;, and respond with a setup and a punchline from an open source joke API. See the syntax for the GET HTTP request in this rule.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
+active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
+</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
+args</span><span style="color:#c0c5ce;">:
+</span><span style="color:#65737e;"># no required args, as we&#39;re just looking for the match and nothing else
+</span><span style="color:#bf616a;">reaction</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">eyes
+actions</span><span style="color:#c0c5ce;">:
+  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke </span><span style="color:#65737e;"># url to talk to
+    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">setup</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.setup</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">punchline</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.punchline</span><span style="color:#c0c5ce;">&#39;
+    </span><span style="color:#bf616a;">update_reaction</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">white_check_mark
+direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">${setup}</span><span style="color:#96b5b4;">\n\n</span><span style="color:#a3be8c;">${punchline}</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">joke </span><span style="color:#65737e;"># help/usage text
+</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># hide it from help, because you only want admins to have jokes
+</span></pre><h2 id="number">Number</h2>
+<p>This rule will listen for the word &quot;number&quot;, run a ruby script <code>random.rb</code> that outputs a random number between 0-100 and make an http GET request to an API that returns a fun fact about that random number.</p>
+<p><code>random.rb</code> contents:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#c0c5ce;">random = </span><span style="color:#96b5b4;">rand</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">..</span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">)
+</span><span style="color:#96b5b4;">puts</span><span style="color:#c0c5ce;"> random
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
+active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
+</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
+args</span><span style="color:#c0c5ce;">:
+</span><span style="color:#65737e;"># no required args, as we&#39;re just looking for the match and nothing else
+</span><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">random number generator script
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">exec
+    cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">ruby config/scripts/random.rb
+  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number facts http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">http://numbersapi.com/${_exec_output}?json </span><span style="color:#65737e;"># url to talk to
+    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">number</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.number</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.text</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Fun fact about ${number}:</span><span style="color:#96b5b4;">\n\n</span><span style="color:#a3be8c;">${text}</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">number </span><span style="color:#65737e;"># help/usage text
+</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># hide it from help, because you only want admins to have jokes
+</span></pre><h2 id="schedule">Schedule</h2>
+<p>This rule will run on a schedule and message a specific channel/user specified every 10 seconds (dont leave this running long!).</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;"># meta
+</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">schedule
+active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+
+</span><span style="color:#65737e;"># trigger and args
+</span><span style="color:#bf616a;">schedule</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">@every 10s</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#65737e;"># example working cron specs:
+# - 0 * * * * (at minute 0)
+# - @every 1m
+# - @every 10s
+# example breaking cron specs:
+# - */1 * * * * (at every minute)
+
+</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">The scheduled rule is running.</span><span style="color:#c0c5ce;">&quot;
+
+</span><span style="color:#bf616a;">output_to_rooms</span><span style="color:#c0c5ce;">:
+  - &quot;</span><span style="color:#a3be8c;">bot-dev</span><span style="color:#c0c5ce;">&quot;
+
+</span><span style="color:#bf616a;">output_to_users</span><span style="color:#c0c5ce;">:
+  - &quot;</span><span style="color:#a3be8c;">jane.doe</span><span style="color:#c0c5ce;">&quot;
+
+</span><span style="color:#65737e;"># help
+</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span></pre><h2 id="fotd">FOTD</h2>
+<p>This rule will run on a schedule and post a fact about the current day scraped from wikipedia to the #bot-dev channel every hour on the hour.</p>
+<p><code>random.sh</code> contents:</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">RANDOM </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;"> + 1 | </span><span style="color:#bf616a;">bc
+</span></pre><pre style="background-color:#2b303b;">
+<span style="color:#65737e;"># meta
+</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">fact of the day
+active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+
+</span><span style="color:#65737e;"># trigger and args
+</span><span style="color:#bf616a;">schedule</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">@every 1h</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#65737e;"># actions
+</span><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">today in history http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://history.muffinlabs.com/date
+    expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">num_of_events</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
+</span><span style="color:#a3be8c;">        {{len .data.Events}}
+  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">random number based on number of events from API
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">exec
+    cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">bash config/scripts/random.sh ${num_of_events}
+  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">today in history http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://history.muffinlabs.com/date
+    expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">date</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.date</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">year</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
+</span><span style="color:#a3be8c;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.year}}{{ end }}{{ end }}
+      </span><span style="color:#bf616a;">event</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
+</span><span style="color:#a3be8c;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.text}}{{ end }}{{ end }}
+
+
+</span><span style="color:#65737e;"># response
+</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">On ${date} in the year ${year}: ${event}</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span><span style="color:#bf616a;">output_to_rooms</span><span style="color:#c0c5ce;">:
+  - &quot;</span><span style="color:#a3be8c;">bot-dev</span><span style="color:#c0c5ce;">&quot;
+
+</span><span style="color:#65737e;"># help
+</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span></pre>
+
+                </main>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+    
+        <a class="previous" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;variables&#x2F;"><i class="fa fa-angle-left"></i></a>
+    
+
+
+            
+    
+        
+        
+        
+        
+        
+            
+            
+        
+        
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+        
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+        
+            
+            
+                
+            
+                
+            
+                
+                    
+                
+            
+        
+        
+            
+                <a class="next" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;acknowledgements&#x2F;"><i class="fa fa-angle-right"></i></a>
+                
+                
+            
+            
+        
+    
+
+        </nav>
+
+    </div>
+
+    
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    
+</body>
+
+</html>

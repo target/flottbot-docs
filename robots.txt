@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://target.github.io/flottbot-docs/sitemap.xml

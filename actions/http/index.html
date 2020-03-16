@@ -1,0 +1,469 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+
+<head>
+    <!-- 
+    This code was adapted from mdBook (https://github.com/rust-lang-nursery/mdBook/),
+    with additional modifications by Target Corporation, including:
+    
+    - moved file to use .html extension
+    - updated template syntax to work with site generator used
+    - removed path_to_root variable in js snippet
+    - inlined menu (toc) content
+    - modified navigation
+    - removed jax-related content
+    - removed theme js files
+    
+    The original Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0 (the “MPL”) and the
+    copyright notice below. If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+    
+    Copyright (c) 2018 [wirelyre wirelyre@gmail.com, Matt Ickstadt mattico8@gmail.com, cetra3 cetra3@hotmail.com, 
+    Matt Brubeck mbrubeck@gmail.com, Sorin Davidoi sorin.davidoi@gmail.com, Michael Bryan michaelfbryan@gmail.com,
+    Mario Nebl marionebl@users.noreply.github.com, Shane Nelson stgn@users.noreply.github.com, lifta42 lifta42@outlook.com, 
+    projektir oprojektir@gmail.com, François mockersf@gmail.com, Mathieu David mathieudavid@mathieudavid.org]
+    
+    The modifications to the original Source Code Form subject to the terms of the MPL and distributed under the copyright notice below.
+    Copyright (c) 2018 Target Brands, Inc. 
+    -->
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>HTTP - Flottbot Documentation</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+
+    
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+</head>
+
+<body class="light">
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) {}
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try {
+            theme = localStorage.getItem('mdbook-theme');
+        } catch (e) {}
+        if (theme === null || theme === undefined) {
+            theme = 'light';
+        }
+        document.body.className = theme;
+        document.querySelector('html').className = theme + ' js';
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try {
+                sidebar = localStorage.getItem('mdbook-sidebar');
+            } catch (e) {}
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        
+        
+        <nav role="navigation">
+            <ul>
+                
+                
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;about&#x2F;" class="subsection-title">
+                            
+                            What is Flottbot?
+                        </a></strong>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;" class="subsection-title">
+                            
+                            Flottbot Basics
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;quick-start&#x2F;" class="page-title">
+                                
+                                Quick Start
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;slack&#x2F;" class="page-title">
+                                
+                                Slack
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;discord&#x2F;" class="page-title">
+                                
+                                Discord
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;customization&#x2F;" class="page-title">
+                                
+                                Customizing Your Bot
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;" class="subsection-title">
+                            
+                            Actions
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li class="active" >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;http&#x2F;" class="page-title">
+                                
+                                HTTP
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;exec&#x2F;" class="page-title">
+                                
+                                exec
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;log&#x2F;" class="page-title">
+                                
+                                log
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;message&#x2F;" class="page-title">
+                                
+                                message
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;" class="subsection-title">
+                            
+                            Rules
+                        </a></strong>
+                    
+                    <ul>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;anatomy&#x2F;" class="page-title">
+                                
+                                Anatomy of a Rule
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;variables&#x2F;" class="page-title">
+                                
+                                Variables
+                            </a>
+                        </li>
+                        
+                        <li >
+                            <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;rules&#x2F;example&#x2F;" class="page-title">
+                                
+                                Examples
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                
+                <li >
+                    
+                    <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;acknowledgements&#x2F;" class="subsection-title">
+                            
+                            Acknowledgements
+                        </a></strong>
+                    
+                </li>
+                
+                
+            </ul>
+        </nav>
+        
+        
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            <div id="menu-bar" class="menu-bar">
+                <div id="menu-bar-sticky-container">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                            aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme"
+                            aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flottbot Documentation</h1>
+                </div>
+            </div>
+
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search for ..."
+                        aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    
+    <h1>HTTP</h1>
+    <h2 id="get">GET</h2>
+<p>This is an example of a HTTP GET request to an open source Pokemon API. Note that <code>expose_json_fields</code> helps access top-level and nested values inside the JSON response from your API using <a href="https://golang.org/pkg/html/template/">Golang template syntax</a> and assigns them to the fields under <code>expose_json_fields</code> (in the example below, pokename, type, weight, etc.)</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">pokemon http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">http://pokeapi.co/api/v2/pokemon/${name}
+    query_data</span><span style="color:#c0c5ce;">:
+    </span><span style="color:#bf616a;">auth</span><span style="color:#c0c5ce;">:
+    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">pokename</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.name</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">type</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
+</span><span style="color:#a3be8c;">        {{ range .types }}
+          - {{ .type.name -}}
+        {{ end }}
+      </span><span style="color:#bf616a;">weight</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.weight</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">baseexp</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.base_experience</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">ability</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
+</span><span style="color:#a3be8c;">        {{ range .abilities }}
+          - {{ .ability.name -}}
+        {{ end }}
+    </span><span style="color:#bf616a;">timeout</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">30 </span><span style="color:#65737e;"># custom 30 second timeout for an http rule. 10 Seconds is the default.
+    </span><span style="color:#bf616a;">update_reaction</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">white_check_mark </span><span style="color:#65737e;"># If you set an emoji reaction when the rule was matched, you can include this field to update the reaction when the http call completes.
+</span></pre><h2 id="post">POST</h2>
+<p>This is an example of a HTTP POST request to the github API. The action below will create a Github issue. This action takes in a few arguments so the bot knows where to create the issue, what to call it, and who to assign the issue to. See again in <code>expose_json_fields</code> how you can assign response values to the exposed fields which can be accessed in later parts of your rule yaml.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">github issue http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">POST
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://api.github.com/v3/repos/${org}/${repo}/issues
+    query_data</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">${title}</span><span style="color:#c0c5ce;">&quot;
+      </span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">TODO: Fill in the deets.</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;"> ACCEPTANCE CRITERIA:</span><span style="color:#c0c5ce;">&quot;
+      </span><span style="color:#bf616a;">assignees</span><span style="color:#c0c5ce;">:
+        - &quot;</span><span style="color:#a3be8c;">${assignee}</span><span style="color:#c0c5ce;">&quot;
+      </span><span style="color:#bf616a;">labels</span><span style="color:#c0c5ce;">:
+        - &quot;</span><span style="color:#a3be8c;">bug</span><span style="color:#c0c5ce;">&quot;
+    </span><span style="color:#bf616a;">custom_headers</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">Authorization</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">token ${GITHUB_API_TOKEN}
+      Accept</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">application/vnd.github.v3+json</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">Content-Type</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">application/json</span><span style="color:#c0c5ce;">&#39;
+    </span><span style="color:#bf616a;">auth</span><span style="color:#c0c5ce;">:
+    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.title</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">url</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.html_url</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">assignees</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.assignee.login</span><span style="color:#c0c5ce;">&#39;
+</span></pre><h2 id="chained-http-requests">Chained HTTP Requests</h2>
+<p>Here is an example of two HTTP GET requests chained together to produce an output containing information about the weather of a given location as well as its population.</p>
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">weather http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">http://api.openweathermap.org/data/2.5/weather
+    query_data</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">q</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${location}
+      APPID</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${WEATHER_APPID}
+      units</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">metric
+    auth</span><span style="color:#c0c5ce;">:
+    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">temperature</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.main.temp</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">loc</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.name</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">desc</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
+</span><span style="color:#a3be8c;">        {{ range .weather }}
+        {{ range $k, $v := . }}
+        - {{- $v -}}
+        {{ end }}
+        {{ end }}
+      </span><span style="color:#bf616a;">country</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.sys.country</span><span style="color:#c0c5ce;">&#39;
+  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">location http request
+    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
+    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://restcountries.eu/rest/v2/alpha/${country}
+    expose_json_fields</span><span style="color:#c0c5ce;">:
+      </span><span style="color:#bf616a;">flag_url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">.flag
+      full_name</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.name</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">population</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">printf &quot;%0.f&quot; .population</span><span style="color:#c0c5ce;">&#39;
+      </span><span style="color:#bf616a;">native_name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">.nativeName
+</span></pre><h3 id="timeouts">Timeouts</h3>
+<p>By default, each http action has a timeout of 10 seconds. You can override this behavior by specifying a custom timeout in the <code>rules/&lt;rule name&gt;.yml</code> file.</p>
+
+
+                </main>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+    
+        
+        
+        
+        
+            
+        
+        
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        
+        
+            
+                
+                    
+                    <a class="previous" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;"><i class="fa fa-angle-left"></i></a>
+                
+            
+                
+            
+                
+            
+                
+            
+        
+        
+            
+                
+            
+                
+            
+                
+            
+        
+        
+            
+        
+    
+
+
+            
+    
+        <a class="next" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;actions&#x2F;exec&#x2F;"><i class="fa fa-angle-right"></i></a>
+    
+
+        </nav>
+
+    </div>
+
+    
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    
+</body>
+
+</html>

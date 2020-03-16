@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/about/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/acknowledgements/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/actions/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/actions/exec/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/actions/http/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/actions/log/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/actions/message/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/basics/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/basics/customization/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/basics/discord/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/basics/quick-start/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/basics/slack/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/rules/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/rules/anatomy/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/rules/example/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https%3A//target.github.io/flottbot-docs/rules/variables/</loc>
+            
+        </url>
+    
+</urlset>
