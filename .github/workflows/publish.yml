@@ -1,0 +1,20 @@
+name: publish
+
+# triggered on pushes to master branch
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: clone
+        uses: actions/checkout@v2
+
+      - name: publish
+        uses: shalzz/zola-deploy-action@v0.10.1
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
