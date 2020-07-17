@@ -43,6 +43,8 @@ Ensure Docker is installed and running (highly recommended).
 
 _\* Note: Alternatively, you can download the binary for your operating system from the [flottbot release page](https://github.com/target/flottbot/releases) into the cloned repository's directory and execute it there. Basically, just replace step #3 from above with executing the binary, i.e. `./flottbot`._
 
+_\* Note: The container will run with as the unprivileged `flottbot` user with uid 900. The config directory and files must be readable by that uid. You can change the user using the `--user` option to docker but it is recommended that you don't run the service as root._
+
 The bot will start locally and you can interact with it via command line. Hit <kbd>Enter</kbd>, type `hello` and hit <kbd>Enter</kbd> again.
 
 You should see your bot reply as follows:
