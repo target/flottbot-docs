@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: build
-        uses: wass3r/actions-zola@v1.2.2
+        uses: wass3r/actions-zola@v1.2.3
 
       - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
