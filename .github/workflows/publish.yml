@@ -14,7 +14,11 @@ jobs:
       - name: clone
         uses: actions/checkout@v2
 
-      - name: publish
-        uses: shalzz/zola-deploy-action@v0.10.1
-        env:
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: build
+        uses: wass3r/actions-zola@v1.2.3
+
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FOLDER: public
+          BRANCH: gh-pages
