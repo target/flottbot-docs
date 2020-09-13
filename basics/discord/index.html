@@ -343,20 +343,20 @@
 <p>To get your server id, <a href="https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-">check Discord's official knowledgebase article</a></p>
 <p>Now that you have both your bot token and server id, edit the following lines in <code>/config/bot.yml</code> to look like:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">chat_application</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">discord
+<code><span style="color:#bf616a;">chat_application</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">discord
 discord_token</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${DISCORD_TOKEN}
 discord_server_id</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${DISCORD_SERVER_ID}
-</span></pre>
+</span></code></pre>
 <p>Write some rules for your bot.</p>
 <p>Now, you'll need to export your Discord bot token and server id values as environment variables:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#b48ead;">export </span><span style="color:#bf616a;">DISCORD_TOKEN</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">xxxxxxxxxxxxxxxxxx.xxxxxx.xxxxxxxxx.xxxxxxxxxx
+<code><span style="color:#b48ead;">export </span><span style="color:#bf616a;">DISCORD_TOKEN</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">xxxxxxxxxxxxxxxxxx.xxxxxx.xxxxxxxxx.xxxxxxxxxx
 </span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">DISCORD_SERVER_ID</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">###############
-</span></pre>
+</span></code></pre>
 <p>Now run your bot using docker with the following command (make sure docker is up and running):</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">docker</span><span style="color:#c0c5ce;"> run</span><span style="color:#bf616a;"> --rm --name</span><span style="color:#c0c5ce;"> mybot</span><span style="color:#bf616a;"> --env</span><span style="color:#c0c5ce;"> DISCORD_TOKEN=$</span><span style="color:#bf616a;">DISCORD_TOKEN --env</span><span style="color:#c0c5ce;"> DISCORD_SERVER_ID=$</span><span style="color:#bf616a;">DISCORD_SERVER_ID -v </span><span style="color:#c0c5ce;">&quot;$</span><span style="color:#bf616a;">PWD</span><span style="color:#c0c5ce;">&quot;/config:/config target/flottbot:latest /flottbot
-</span></pre>
+<code><span style="color:#bf616a;">docker</span><span style="color:#c0c5ce;"> run</span><span style="color:#bf616a;"> --rm --name</span><span style="color:#c0c5ce;"> mybot</span><span style="color:#bf616a;"> --env</span><span style="color:#c0c5ce;"> DISCORD_TOKEN=$</span><span style="color:#bf616a;">DISCORD_TOKEN --env</span><span style="color:#c0c5ce;"> DISCORD_SERVER_ID=$</span><span style="color:#bf616a;">DISCORD_SERVER_ID -v </span><span style="color:#c0c5ce;">&quot;$</span><span style="color:#bf616a;">PWD</span><span style="color:#c0c5ce;">&quot;/config:/config target/flottbot:latest /flottbot
+</span></code></pre>
 <p>Your bot should now be online in the Discord server where you configured your bot.</p>
 
 

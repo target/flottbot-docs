@@ -316,7 +316,7 @@
     <h2 id="customizing-your-bot">Customizing Your Bot</h2>
 <p><code>config/bot.yml</code> will house the configurations specific to your bot. The below config is for a bot named <strong>mybot</strong>.</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">mybot
+<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">mybot
 </span><span style="color:#65737e;"># chat applications
 </span><span style="color:#bf616a;">chat_application</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">slack
 
@@ -354,7 +354,7 @@ slack_workspace_token</span><span style="color:#c0c5ce;">: </span><span style="c
 
 </span><span style="color:#bf616a;">custom_help_text</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Sorry, I didn&#39;t get that. Try sending me one of the following commands: </span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;"> `cats` </span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;"> `today`</span><span style="color:#c0c5ce;">&quot;
 </span><span style="color:#65737e;"># set this field to set custom fallback help text for your bot, if it is unset it will send a generic help message with rules and their usage.
-</span></pre>
+</span></code></pre>
 <ul>
 <li><strong>name</strong> - (optional <em>string</em>) - the username of your bot. This is just used for logging purposes.</li>
 <li><strong>chat_application</strong> (required <em>string</em>) - denotes the chat application we're using, so far we only support <a href="https://target.github.io/flottbot-docs/basics/customization/slack.com">Slack</a> and <a href="https://discordapp.com/">Discord</a>.</li>

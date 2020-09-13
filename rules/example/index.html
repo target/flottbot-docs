@@ -316,7 +316,7 @@
     <h2 id="hello">Hello</h2>
 <p>This rule will simply listen for the word &quot;hello&quot;, and respond with a greeting.</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#65737e;"># metadata
+<code><span style="color:#65737e;"># metadata
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># activate rule
 
@@ -337,10 +337,10 @@ args</span><span style="color:#c0c5ce;">:
 #help
 </span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello </span><span style="color:#65737e;"># help/usage text for the echo rule
 </span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># see help_text in help message
-</span></pre><h2 id="joke">Joke</h2>
+</span></code></pre><h2 id="joke">Joke</h2>
 <p>This rule will listen for the word &quot;joke&quot;, and respond with a setup and a punchline from an open source joke API. See the syntax for the GET HTTP request in this rule.</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
+<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
 </span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
 args</span><span style="color:#c0c5ce;">:
@@ -358,14 +358,14 @@ direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="col
 </span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">${setup}</span><span style="color:#96b5b4;">\n\n</span><span style="color:#a3be8c;">${punchline}</span><span style="color:#c0c5ce;">&quot;
 </span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">joke </span><span style="color:#65737e;"># help/usage text
 </span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># hide it from help, because you only want admins to have jokes
-</span></pre><h2 id="number">Number</h2>
+</span></code></pre><h2 id="number">Number</h2>
 <p>This rule will listen for the word &quot;number&quot;, run a ruby script <code>random.rb</code> that outputs a random number between 0-100 and make an http GET request to an API that returns a fun fact about that random number.</p>
 <p><code>random.rb</code> contents:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">random = </span><span style="color:#96b5b4;">rand</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">..</span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">)
+<code><span style="color:#c0c5ce;">random = </span><span style="color:#96b5b4;">rand</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">..</span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">)
 </span><span style="color:#96b5b4;">puts</span><span style="color:#c0c5ce;"> random
-</span></pre><pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
+</span></code></pre><pre style="background-color:#2b303b;">
+<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
 </span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
 args</span><span style="color:#c0c5ce;">:
@@ -384,10 +384,10 @@ args</span><span style="color:#c0c5ce;">:
 </span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Fun fact about ${number}:</span><span style="color:#96b5b4;">\n\n</span><span style="color:#a3be8c;">${text}</span><span style="color:#c0c5ce;">&quot;
 </span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">number </span><span style="color:#65737e;"># help/usage text
 </span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># hide it from help, because you only want admins to have jokes
-</span></pre><h2 id="schedule">Schedule</h2>
+</span></code></pre><h2 id="schedule">Schedule</h2>
 <p>This rule will run on a schedule and message a specific channel/user specified every 10 seconds (dont leave this running long!).</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#65737e;"># meta
+<code><span style="color:#65737e;"># meta
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">schedule
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
 
@@ -410,13 +410,13 @@ active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">
 
 </span><span style="color:#65737e;"># help
 </span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
-</span></pre><h2 id="fotd">FOTD</h2>
+</span></code></pre><h2 id="fotd">FOTD</h2>
 <p>This rule will run on a schedule and post a fact about the current day scraped from wikipedia to the #bot-dev channel every hour on the hour.</p>
 <p><code>random.sh</code> contents:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">RANDOM </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;"> + 1 | </span><span style="color:#bf616a;">bc
-</span></pre><pre style="background-color:#2b303b;">
-<span style="color:#65737e;"># meta
+<code><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">RANDOM </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;"> + 1 | </span><span style="color:#bf616a;">bc
+</span></code></pre><pre style="background-color:#2b303b;">
+<code><span style="color:#65737e;"># meta
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">fact of the day
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
 
@@ -452,7 +452,7 @@ active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">
 
 </span><span style="color:#65737e;"># help
 </span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
-</span></pre>
+</span></code></pre>
 
                 </main>
             </div>

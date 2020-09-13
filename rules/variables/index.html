@@ -315,7 +315,7 @@
     <h1>Variables</h1>
     <p>The below variables are set by default:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_raw_http_output}</span><span style="color:#c0c5ce;"> raw output from an HTTP request action.
+<code><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_raw_http_output}</span><span style="color:#c0c5ce;"> raw output from an HTTP request action.
 $</span><span style="color:#bf616a;">{_raw_http_status}</span><span style="color:#c0c5ce;"> response code from an HTTP request action.
 $</span><span style="color:#bf616a;">{_exec_output}</span><span style="color:#c0c5ce;"> stdout output from an exec action.
 $</span><span style="color:#bf616a;">{_exec_status}</span><span style="color:#c0c5ce;"> the status code from an exec action.
@@ -324,14 +324,14 @@ $</span><span style="color:#bf616a;">{_channel.id}</span><span style="color:#c0c
 $</span><span style="color:#bf616a;">{_channel.name}</span><span style="color:#c0c5ce;"> channel name where the message originated from </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_is_thread_message}</span><span style="color:#c0c5ce;"> indicates that the rule was triggered from within a message thread, returns &quot;</span><span style="color:#a3be8c;">true</span><span style="color:#c0c5ce;">&quot; or &quot;</span><span style="color:#a3be8c;">false</span><span style="color:#c0c5ce;">&quot;
 $</span><span style="color:#bf616a;">{_source.link}</span><span style="color:#c0c5ce;"> will provide you with a link to the original message </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^2</span><span style="color:#b48ead;">]
-</span></pre>
+</span></code></pre>
 <ul>
 <li><sup class="footnote-reference"><a href="#1">1</a></sup>: for Slack, this might be an empty string if it originated from a direct message</li>
 <li><sup class="footnote-reference"><a href="#2">2</a></sup>: this feature is currently only available for Slack</li>
 </ul>
 <p>In addition, the following user-specific variables - populated with details of the user that triggered a rule match via a message - are available:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.email}
+<code><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.email}
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.name}
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.firstname} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.lastname} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
@@ -351,7 +351,7 @@ $</span><span style="color:#bf616a;">{_source.link}</span><span style="color:#c0
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.title} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.statustext} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.statusemoji} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span></pre>
+</span></code></pre>
 <ul>
 <li><sup class="footnote-reference"><a href="#1">1</a></sup>: Only available for Slack, currently. See https://api.slack.com/types/user for more information</li>
 </ul>

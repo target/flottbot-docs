@@ -394,13 +394,13 @@
 <h5 id="setup-your-slack-events-public-ingress">Setup Your Slack Events Public Ingress</h5>
 <p>In order for the Slack events API to post back to your bot to notify it that certain events occur, you'll need to deploy it to a publicly available URL. Flottbot will by default serve up http endpoints at custom paths you can configure in your <code>config/bot.yml</code>.</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">slack_events_callback_path</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_EVENTS_CALLBACK_PATH} </span><span style="color:#65737e;"># EDIT  ${SLACK_EVENTS_CALLBACK_PATH} (e.g. /slack_events/v1/events)
+<code><span style="color:#bf616a;">slack_events_callback_path</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_EVENTS_CALLBACK_PATH} </span><span style="color:#65737e;"># EDIT  ${SLACK_EVENTS_CALLBACK_PATH} (e.g. /slack_events/v1/events)
 </span><span style="color:#bf616a;">slack_interactions_callback_path</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_INTERACTIONS_CALLBACK_PATH} </span><span style="color:#65737e;"># EDIT ${SLACK_INTERACTIONS_CALLBACK_PATH} (e.g. /slack_events/v1/interactions)
-</span></pre>
+</span></code></pre>
 <p>If you're using our provided Docker image, it will expose the necessary ports for the http server to accept requests and set up the custom path endpoints to accept slack event payloads.</p>
 <p>In your bot configuration inside of Slack migrate to the <code>Events Subscription</code> section. Hit the <em>Enable Events</em> button to turn it on. Paste in the URL that your bot is hosted at including the new path that now accepts payloads from the Slack events API. See our section on Deployment for deploying your custom Flottbot docker container on Heroku. If using the examples listed above with the URL https://example.com you would paste in https://example.com/slack_events/v1/interactions to the Request URL field. Make sure that you get the green check mark when saving the page. Then add the following Bot Subscription Events:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#c0c5ce;">Event Name Description
+<code><span style="color:#c0c5ce;">Event Name Description
 link_shared
 A message was posted containing one or more links relevant to your application
 
@@ -424,22 +424,22 @@ A message was posted in a direct message channel
 
 message.mpim
 A message was posted in a multiparty direct message channel
-</span></pre><h4 id="setup-your-bot-project">Setup Your Bot Project</h4>
+</span></code></pre><h4 id="setup-your-bot-project">Setup Your Bot Project</h4>
 <p>Create a directory structure to house your bot's config:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> config
+<code><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> config
 </span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> config
 </span><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> rules
-</span></pre>
+</span></code></pre>
 <p>Create the following files in the specified paths:</p>
 <p><code>config/bot.yml</code></p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">mybot
+<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">mybot
 chat_application</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">slack
 slack_token</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${SLACK_TOKEN}
 slack_verification_token</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${SLACK_VERIFICATION_TOKEN}
 slack_workspace_token</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_WORKSPACE_TOKEN}
-</span></pre>
+</span></code></pre>
 <p><strong>Note:</strong> Your Slack bot token will begin with &quot;xoxb&quot; and your workspace token with &quot;xoxp&quot;_</p>
 <p>How to find these Slack tokens:</p>
 <ul>
@@ -479,19 +479,19 @@ slack_workspace_token</span><span style="color:#c0c5ce;">: </span><span style="c
 <h4 id="setup-your-bot-project-1">Setup Your Bot Project</h4>
 <p>Edit the following lines in <code>/config/bot.yml</code> to look like:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">mybot
+<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">mybot
 chat_application</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">slack
 slack_token</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">${SLACK_TOKEN}
-</span></pre>
+</span></code></pre>
 <p>Now, you'll need to export your Slack bot token as an environment variable wherever your bot runs:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#b48ead;">export </span><span style="color:#bf616a;">SLACK_TOKEN</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx
-</span></pre>
+<code><span style="color:#b48ead;">export </span><span style="color:#bf616a;">SLACK_TOKEN</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx
+</span></code></pre>
 <p><strong>Note:</strong> Your Slack bot token should begin with &quot;xoxb&quot;</p>
 <p>Set up a simple hello rule.</p>
 <p><code>config/rules/hello.yml</code></p>
 <pre style="background-color:#2b303b;">
-<span style="color:#65737e;"># metadata
+<code><span style="color:#65737e;"># metadata
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
 </span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
@@ -499,11 +499,11 @@ format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="col
 </span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
 </span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
 include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
-</span></pre><h3 id="run-your-bot">Run Your Bot</h3>
+</span></code></pre><h3 id="run-your-bot">Run Your Bot</h3>
 <p>Now run your bot using docker with the following command (make sure docker is up and running):</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#bf616a;">docker</span><span style="color:#c0c5ce;"> run</span><span style="color:#bf616a;"> --rm --name</span><span style="color:#c0c5ce;"> mybot</span><span style="color:#bf616a;"> --env</span><span style="color:#c0c5ce;"> SLACK_TOKEN=$</span><span style="color:#bf616a;">SLACK_TOKEN -v </span><span style="color:#c0c5ce;">&quot;$</span><span style="color:#bf616a;">PWD</span><span style="color:#c0c5ce;">&quot;/config:/config target/flottbot:latest /flottbot
-</span></pre>
+<code><span style="color:#bf616a;">docker</span><span style="color:#c0c5ce;"> run</span><span style="color:#bf616a;"> --rm --name</span><span style="color:#c0c5ce;"> mybot</span><span style="color:#bf616a;"> --env</span><span style="color:#c0c5ce;"> SLACK_TOKEN=$</span><span style="color:#bf616a;">SLACK_TOKEN -v </span><span style="color:#c0c5ce;">&quot;$</span><span style="color:#bf616a;">PWD</span><span style="color:#c0c5ce;">&quot;/config:/config target/flottbot:latest /flottbot
+</span></code></pre>
 <p>Your bot should now be online in the Slack Workspace you added the integration to.</p>
 <ol>
 <li>On the bottom left side panel, you should see the <code>Apps</code> heading. Click on the circular <code>+</code> button.</li>

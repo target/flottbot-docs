@@ -315,7 +315,7 @@
     <h1>Anatomy of a Rule</h1>
     <p>A standard rule yaml file will look like this:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#65737e;"># metadata
+<code><span style="color:#65737e;"># metadata
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">echo </span><span style="color:#65737e;">#name of your rule
 </span><span style="color:#bf616a;">active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># activate rule
 
@@ -369,7 +369,7 @@ output_to_users</span><span style="color:#c0c5ce;">: </span><span style="color:#
 </span><span style="color:#65737e;"># help
 </span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">echo &lt;message&gt; </span><span style="color:#65737e;"># help/usage text for the echo rule
 </span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># see help_text in help message
-</span></pre>
+</span></code></pre>
 <ul>
 <li><strong>name</strong> (<em>string</em>) Choose a name of the rule. This should match the name of yaml file, should be short and descriptive.</li>
 <li><strong>active</strong> (<em>boolean</em>) If set to true, the bot will look for the match in the rooms it is in and take stated actions.</li>
