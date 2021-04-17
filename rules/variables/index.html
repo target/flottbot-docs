@@ -324,6 +324,8 @@ $</span><span style="color:#bf616a;">{_channel.id}</span><span style="color:#c0c
 $</span><span style="color:#bf616a;">{_channel.name}</span><span style="color:#c0c5ce;"> channel name where the message originated from </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
 </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_is_thread_message}</span><span style="color:#c0c5ce;"> indicates that the rule was triggered from within a message thread, returns &quot;</span><span style="color:#a3be8c;">true</span><span style="color:#c0c5ce;">&quot; or &quot;</span><span style="color:#a3be8c;">false</span><span style="color:#c0c5ce;">&quot;
 $</span><span style="color:#bf616a;">{_source.link}</span><span style="color:#c0c5ce;"> will provide you with a link to the original message </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^2</span><span style="color:#b48ead;">]
+</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_source.timestamp}</span><span style="color:#c0c5ce;"> will provide the timestamp of the original message
+$</span><span style="color:#bf616a;">{_source.thread_timestamp}</span><span style="color:#c0c5ce;"> will provide the timestamp of the parent message </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^2</span><span style="color:#b48ead;">]
 </span></code></pre>
 <ul>
 <li><sup class="footnote-reference"><a href="#1">1</a></sup>: for Slack, this might be an empty string if it originated from a direct message</li>
