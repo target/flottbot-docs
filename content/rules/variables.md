@@ -15,6 +15,8 @@ ${_channel.id} channel ID where the message originated from.
 ${_channel.name} channel name where the message originated from [^1]
 ${_is_thread_message} indicates that the rule was triggered from within a message thread, returns "true" or "false"
 ${_source.link} will provide you with a link to the original message [^2]
+${_source.timestamp} will provide the timestamp of the original message
+${_source.thread_timestamp} will provide the timestamp of the parent message [^2]
 ```
 
 - [^1]: for Slack, this might be an empty string if it originated from a direct message
