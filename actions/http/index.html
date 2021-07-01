@@ -316,7 +316,7 @@
     <h2 id="get">GET</h2>
 <p>This is an example of a HTTP GET request to an open source Pokemon API. Note that <code>expose_json_fields</code> helps access top-level and nested values inside the JSON response from your API using <a href="https://golang.org/pkg/html/template/">Golang template syntax</a> and assigns them to the fields under <code>expose_json_fields</code> (in the example below, pokename, type, weight, etc.)</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
   - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">pokemon http request
     type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
     url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">http://pokeapi.co/api/v2/pokemon/${name}
@@ -339,7 +339,7 @@
 </span></code></pre><h2 id="post">POST</h2>
 <p>This is an example of a HTTP POST request to the github API. The action below will create a Github issue. This action takes in a few arguments so the bot knows where to create the issue, what to call it, and who to assign the issue to. See again in <code>expose_json_fields</code> how you can assign response values to the exposed fields which can be accessed in later parts of your rule yaml.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
   - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">github issue http request
     type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">POST
     url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://api.github.com/v3/repos/${org}/${repo}/issues
@@ -362,7 +362,7 @@
 </span></code></pre><h2 id="chained-http-requests">Chained HTTP Requests</h2>
 <p>Here is an example of two HTTP GET requests chained together to produce an output containing information about the weather of a given location as well as its population.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
   - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">weather http request
     type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
     url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">http://api.openweathermap.org/data/2.5/weather

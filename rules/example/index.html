@@ -316,7 +316,7 @@
     <h2 id="hello">Hello</h2>
 <p>This rule will simply listen for the word &quot;hello&quot;, and respond with a greeting.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;"># metadata
+<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># metadata
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># activate rule
 
@@ -340,7 +340,7 @@ args</span><span style="color:#c0c5ce;">:
 </span></code></pre><h2 id="joke">Joke</h2>
 <p>This rule will listen for the word &quot;joke&quot;, and respond with a setup and a punchline from an open source joke API. See the syntax for the GET HTTP request in this rule.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
 </span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
 args</span><span style="color:#c0c5ce;">:
@@ -362,10 +362,10 @@ direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="col
 <p>This rule will listen for the word &quot;number&quot;, run a ruby script <code>random.rb</code> that outputs a random number between 0-100 and make an http GET request to an API that returns a fun fact about that random number.</p>
 <p><code>random.rb</code> contents:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">random = </span><span style="color:#96b5b4;">rand</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">..</span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">)
+<code class="language-ruby" data-lang="ruby"><span style="color:#c0c5ce;">random = </span><span style="color:#96b5b4;">rand</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">..</span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">)
 </span><span style="color:#96b5b4;">puts</span><span style="color:#c0c5ce;"> random
 </span></code></pre><pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
 </span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
 args</span><span style="color:#c0c5ce;">:
@@ -387,7 +387,7 @@ args</span><span style="color:#c0c5ce;">:
 </span></code></pre><h2 id="schedule">Schedule</h2>
 <p>This rule will run on a schedule and message a specific channel/user specified every 10 seconds (dont leave this running long!).</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;"># meta
+<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># meta
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">schedule
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
 
@@ -414,9 +414,9 @@ active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">
 <p>This rule will run on a schedule and post a fact about the current day scraped from wikipedia to the #bot-dev channel every hour on the hour.</p>
 <p><code>random.sh</code> contents:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">RANDOM </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;"> + 1 | </span><span style="color:#bf616a;">bc
+<code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">RANDOM </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;"> + 1 | </span><span style="color:#bf616a;">bc
 </span></code></pre><pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;"># meta
+<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># meta
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">fact of the day
 active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
 

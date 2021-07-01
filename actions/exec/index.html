@@ -343,7 +343,7 @@
 <p>It is of course possible to custom build your own image by writing a Dockerfile which utilizes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).</p>
 <p>The following example executes a ruby script that outputs 'Hello from Ruby!' to stdout. You can then return that return value to be used in a response. Again, you must use the <code>target/flottbot:ruby</code> image in order for you ruby scripts to execute successfully.</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># actions to take when the rule triggered
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># actions to take when the rule triggered
   </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">sample script </span><span style="color:#65737e;"># name of action
     </span><span style="color:#bf616a;">type</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">exec </span><span style="color:#65737e;"># type of action
     </span><span style="color:#bf616a;">cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">ruby config/scripts/main.rb </span><span style="color:#65737e;"># command to send container to run your script.
@@ -352,12 +352,12 @@
 </span></code></pre>
 <p>The <code>main.rb</code> script looks like:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">
+<code class="language-ruby" data-lang="ruby"><span style="color:#c0c5ce;">
 </span><span style="color:#96b5b4;">puts </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">Hello from Ruby!</span><span style="color:#c0c5ce;">&#39;
 </span></code></pre>
 <p>Here's the same example but in <code>python</code>:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># actions to take when the rule triggered
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># actions to take when the rule triggered
   </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">sample script </span><span style="color:#65737e;"># name of action
     </span><span style="color:#bf616a;">type</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">exec </span><span style="color:#65737e;"># type of action
     </span><span style="color:#bf616a;">cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">python config/scripts/main.py </span><span style="color:#65737e;"># command to send container to run your script.
@@ -365,20 +365,20 @@
 </span></code></pre>
 <p>The <code>main.py</code> script looks like:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">#!/usr/bin/env python3
+<code class="language-python" data-lang="python"><span style="color:#65737e;">#!/usr/bin/env python3
 
 </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Hello from Python!</span><span style="color:#c0c5ce;">&quot;)
 </span></code></pre><h3 id="error-handling">Error handling</h3>
 <p>Sadly the world isn't perfect, so you may want to handle some edge cases and catch errors. By default, flottbot will return the following error if you don't toss a message to stdout <code>Error while executing script for action '&lt;action name&gt;'. See bot admin for more information.&quot;</code>. You can define a more custom error message by printing to stdout and the user will receive that as the error. For example in:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;">#!/usr/bin/env python3
+<code class="language-python" data-lang="python"><span style="color:#65737e;">#!/usr/bin/env python3
 
 </span><span style="color:#96b5b4;">print</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">Hello!</span><span style="color:#c0c5ce;">&quot;)
 </span><span style="color:#b48ead;">raise </span><span style="color:#bf616a;">NameError</span><span style="color:#c0c5ce;">(&quot;</span><span style="color:#a3be8c;">I broke</span><span style="color:#c0c5ce;">&quot;)
 </span></code></pre>
 <p>The user will receive <code>Hello!</code> from the bot. Flottbot will also log the error to it's own log, so for the above script you as the bot owner will see something like:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">{&quot;</span><span style="color:#a3be8c;">level</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">error</span><span style="color:#c0c5ce;">&quot;,&quot;</span><span style="color:#a3be8c;">msg</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">Exec rule for action &#39;sample script&#39; failed with exit status 1: Traceback (most recent call last):</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;"> File </span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">config/scripts/main.py</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">, line 6, in </span><span style="color:#96b5b4;">\u003c</span><span style="color:#a3be8c;">module</span><span style="color:#96b5b4;">\u003e\n</span><span style="color:#a3be8c;"> raise NameError(</span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">I</span><span style="color:#c0c5ce;"> </span><span style="background-color:#bf616a;color:#2b303b;">broke</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">)</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">NameError: I broke</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">,</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">time</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">2018-02-07T22:04:14-06:00</span><span style="color:#c0c5ce;">&quot;}
+<code class="language-json" data-lang="json"><span style="color:#c0c5ce;">{&quot;</span><span style="color:#a3be8c;">level</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">error</span><span style="color:#c0c5ce;">&quot;,&quot;</span><span style="color:#a3be8c;">msg</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">Exec rule for action &#39;sample script&#39; failed with exit status 1: Traceback (most recent call last):</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;"> File </span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">config/scripts/main.py</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">, line 6, in </span><span style="color:#96b5b4;">\u003c</span><span style="color:#a3be8c;">module</span><span style="color:#96b5b4;">\u003e\n</span><span style="color:#a3be8c;"> raise NameError(</span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">I</span><span style="color:#c0c5ce;"> </span><span style="background-color:#bf616a;color:#2b303b;">broke</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">)</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;">NameError: I broke</span><span style="color:#96b5b4;">\n</span><span style="color:#c0c5ce;">&quot;</span><span style="background-color:#bf616a;color:#2b303b;">,</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">time</span><span style="color:#c0c5ce;">&quot;:&quot;</span><span style="color:#a3be8c;">2018-02-07T22:04:14-06:00</span><span style="color:#c0c5ce;">&quot;}
 </span></code></pre><h3 id="timeouts">Timeouts</h3>
 <p>By default, each exec action has a timeout of 10 seconds. You can override this behavior by specifying a custom timeout within the action section of the <code>rules/&lt;rule name&gt;.yml</code> file. When a timeout is reached the user will receive a message of <code>Hmm, something timed out. Please try again.</code> and the bot log will receive a message of <code>Timeout reached, exec process for action '&lt;action&gt;' killed&quot;</code>.</p>
 

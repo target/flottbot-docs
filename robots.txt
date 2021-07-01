@@ -1,2 +1,3 @@
 User-agent: *
+Allow: /
 Sitemap: https://target.github.io/flottbot-docs/sitemap.xml

@@ -319,19 +319,19 @@
 <li>
 <p>Create a directory structure to house your bot's config:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> config
+<code class="language-sh" data-lang="sh"><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> config
 </span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> config
 </span><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> rules
 </span></code></pre>
 <p>Create the following files in the specified paths:</p>
 <p><code>config/bot.yml</code></p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">mybot
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">mybot
 </span><span style="color:#bf616a;">cli</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
 </span></code></pre>
 <p><code>config/rules/hello.yml</code></p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#65737e;"># metadata
+<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># metadata
 </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello
 </span><span style="color:#bf616a;">active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
 </span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello
@@ -352,7 +352,7 @@
 <p>The bot will start locally and you can interact with it via command line. Hit <kbd>Enter</kbd>, type <code>hello</code> and hit <kbd>Enter</kbd> again.</p>
 <p>You should see your bot reply as follows:</p>
 <pre style="background-color:#2b303b;">
-<code><span style="color:#bf616a;">mybot</span><span style="color:#c0c5ce;">&gt; what&#39;</span><span style="color:#a3be8c;">s up?
+<code class="language-sh" data-lang="sh"><span style="color:#bf616a;">mybot</span><span style="color:#c0c5ce;">&gt; what&#39;</span><span style="color:#a3be8c;">s up?
 </span></code></pre>
 <p>Congratulations! You just interacted with your bot via CLI mode. As you saw, you set up your first rule responds to <code>hello</code> (see rule in <code>config/rules/hello.yml</code>).</p>
 <h3 id="about-cli-mode">About CLI Mode</h3>
