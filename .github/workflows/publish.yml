@@ -16,6 +16,8 @@ jobs:
 
       - name: build
         uses: wass3r/actions-zola@v1.2.3
+        with:
+          zola_version: 0.13.0
 
       - uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
