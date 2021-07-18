@@ -9,13 +9,13 @@ Exec actions allow rules to execute scripts in any language. These scripts will 
 * [target/flottbot](https://hub.docker.com/r/target/flottbot) - Alpine image and flottbot binary installed
   * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile)
 
-* [target/flottbot:ruby](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and ruby v2.5 installed
+* [target/flottbot:ruby](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and ruby v2.7 installed
   * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.ruby)
 
-* [target/flottbot:golang](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and golang v1.11 installed
+* [target/flottbot:golang](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and golang v1.16 installed
   * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.golang)
 
-* [target/flottbot:python](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and python v3.7 installed
+* [target/flottbot:python](https://hub.docker.com/r/target/flottbot) - Alpine image, flottbot binary, and python v3.9 installed
   * see [Dockerfile](https://github.com/target/flottbot/blob/master/docker/Dockerfile.python)
 
 It is of course possible to custom build your own image by writing a Dockerfile which utilizes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).

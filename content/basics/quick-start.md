@@ -10,10 +10,11 @@ Ensure Docker is installed and running (highly recommended).
 1. Create a directory structure to house your bot's config:
 
    ```sh
-   mkdir config
-   cd config
-   mkdir rules
-   ```
+	./config/
+	├── rules/
+	│   └── hello.yml
+	└── bot.yml
+	```
 
    Create the following files in the specified paths:
 
@@ -37,9 +38,7 @@ Ensure Docker is installed and running (highly recommended).
    include_in_help: true
    ```
 
-2. `cd` into the directory holding the `config` you just created.
-
-3. Run and exec into the bot's container: `docker run -it --rm --name mybot -v "$PWD"/config:/config target/flottbot:latest /bin/sh -c "./flottbot"`
+1. Run and exec into the bot's container: `docker run -it --rm --name mybot -v "$PWD"/config:/config target/flottbot:latest /bin/sh -c "./flottbot"`
 
 _\* Note: Alternatively, you can download the binary for your operating system from the [flottbot release page](https://github.com/target/flottbot/releases) into the cloned repository's directory and execute it there. Basically, just replace step #3 from above with executing the binary, i.e. `./flottbot`._
 
