@@ -14,6 +14,6 @@ actions:
   - name: trigger message
     type: message
     message: "This is a message from your bot."
-    limit_to_rooms:
+    output_to_rooms:
       - general
 ```
