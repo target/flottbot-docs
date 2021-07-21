@@ -14,6 +14,6 @@ actions:
   - name: trigger log
     type: log
     message: "${_user.firstname} ${_user.lastname} is talking about breakfast."
-    limit_to_rooms:
+    output_to_rooms:
       - bot-log
 ```
