@@ -51,6 +51,9 @@ ignore_threads: true # will prevent the rule from triggering inside threaded mes
 
 direct_message_only: false # will only reply via direct message if enabled
 
+limit_to_rooms: # this is an array of rooms/channels where the rule can get triggered.
+  - coolchannel
+
 output_to_rooms: # this is an array of rooms/channels you want messages to be sent into in Slack.
   - mychannel
 
@@ -80,6 +83,7 @@ include_in_help: true # see help_text in help message
 * **start_message_thread** (_boolean_) If set to true, the bot start a thread with your trigger message being the parent. Otherwise, the bot will post a message in the same channel.
 * **ignore_threads** (_boolean_) If set to true, the bot will not be able to get triggered for this rule from within a message a thread.
 * **direct_message_only** (_boolean_) If set to true, the bot will never respond to this rule in a room it will only direct message the sender.
+* **limit_to_rooms** (_yaml array_) An array of rooms where the rule can get triggered.
 * **output_to_rooms** (_yaml array_) An array of rooms you want messages to be sent into.
 * **output_to_users** (_yaml array_) An array of specific users you want messages to be to.
 * **help_text** (_string_) This is the response we show to the user when they interact with the bot and no match occurs. We often like to put bot usage instructions for the rule here.
