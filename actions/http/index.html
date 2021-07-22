@@ -83,7 +83,7 @@
             theme = localStorage.getItem('mdbook-theme');
         } catch (e) {}
         if (theme === null || theme === undefined) {
-            theme = 'light';
+            theme = 'ayu';
         }
         document.body.className = theme;
         document.querySelector('html').className = theme + ' js';
@@ -272,11 +272,11 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu <span class="default">(default)</span></button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
                             aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
@@ -316,79 +316,79 @@
     <h2 id="get">GET</h2>
 <p>This is an example of a HTTP GET request to an open source Pokemon API. Note that <code>expose_json_fields</code> helps access top-level and nested values inside the JSON response from your API using <a href="https://golang.org/pkg/html/template/">Golang template syntax</a> and assigns them to the fields under <code>expose_json_fields</code> (in the example below, pokename, type, weight, etc.)</p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">pokemon http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">http://pokeapi.co/api/v2/pokemon/${name}
-    query_data</span><span style="color:#c0c5ce;">:
-    </span><span style="color:#bf616a;">auth</span><span style="color:#c0c5ce;">:
-    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">pokename</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.name</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">type</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
-</span><span style="color:#a3be8c;">        {{ range .types }}
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">pokemon http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">http://pokeapi.co/api/v2/pokemon/${name}
+    query_data</span><span style="color:#abb2bf;">:
+    </span><span style="color:#eb6772;">auth</span><span style="color:#abb2bf;">:
+    </span><span style="color:#eb6772;">expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">pokename</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.name&#39;
+      </span><span style="color:#eb6772;">type</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
+</span><span style="color:#9acc76;">        {{ range .types }}
           - {{ .type.name -}}
         {{ end }}
-      </span><span style="color:#bf616a;">weight</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.weight</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">baseexp</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.base_experience</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">ability</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
-</span><span style="color:#a3be8c;">        {{ range .abilities }}
+      </span><span style="color:#eb6772;">weight</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.weight&#39;
+      </span><span style="color:#eb6772;">baseexp</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.base_experience&#39;
+      </span><span style="color:#eb6772;">ability</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
+</span><span style="color:#9acc76;">        {{ range .abilities }}
           - {{ .ability.name -}}
         {{ end }}
-    </span><span style="color:#bf616a;">timeout</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">30 </span><span style="color:#65737e;"># custom 30 second timeout for an http rule. 10 Seconds is the default.
-    </span><span style="color:#bf616a;">update_reaction</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">white_check_mark </span><span style="color:#65737e;"># If you set an emoji reaction when the rule was matched, you can include this field to update the reaction when the http call completes.
+    </span><span style="color:#eb6772;">timeout</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">30 </span><span style="font-style:italic;color:#5f697a;"># custom 30 second timeout for an http rule. 10 Seconds is the default.
+    </span><span style="color:#eb6772;">update_reaction</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">white_check_mark </span><span style="font-style:italic;color:#5f697a;"># If you set an emoji reaction when the rule was matched, you can include this field to update the reaction when the http call completes.
 </span></code></pre><h2 id="post">POST</h2>
 <p>This is an example of a HTTP POST request to the github API. The action below will create a Github issue. This action takes in a few arguments so the bot knows where to create the issue, what to call it, and who to assign the issue to. See again in <code>expose_json_fields</code> how you can assign response values to the exposed fields which can be accessed in later parts of your rule yaml.</p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">github issue http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">POST
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://api.github.com/v3/repos/${org}/${repo}/issues
-    query_data</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">${title}</span><span style="color:#c0c5ce;">&quot;
-      </span><span style="color:#bf616a;">body</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">TODO: Fill in the deets.</span><span style="color:#96b5b4;">\n</span><span style="color:#a3be8c;"> ACCEPTANCE CRITERIA:</span><span style="color:#c0c5ce;">&quot;
-      </span><span style="color:#bf616a;">assignees</span><span style="color:#c0c5ce;">:
-        - &quot;</span><span style="color:#a3be8c;">${assignee}</span><span style="color:#c0c5ce;">&quot;
-      </span><span style="color:#bf616a;">labels</span><span style="color:#c0c5ce;">:
-        - &quot;</span><span style="color:#a3be8c;">bug</span><span style="color:#c0c5ce;">&quot;
-    </span><span style="color:#bf616a;">custom_headers</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">Authorization</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">token ${GITHUB_API_TOKEN}
-      Accept</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">application/vnd.github.v3+json</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">Content-Type</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">application/json</span><span style="color:#c0c5ce;">&#39;
-    </span><span style="color:#bf616a;">auth</span><span style="color:#c0c5ce;">:
-    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">title</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.title</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">url</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.html_url</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">assignees</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.assignee.login</span><span style="color:#c0c5ce;">&#39;
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">github issue http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">POST
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">https://api.github.com/v3/repos/${org}/${repo}/issues
+    query_data</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">title</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;${title}&quot;
+      </span><span style="color:#eb6772;">body</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;TODO: Fill in the deets.</span><span style="color:#5ebfcc;">\n</span><span style="color:#9acc76;"> ACCEPTANCE CRITERIA:&quot;
+      </span><span style="color:#eb6772;">assignees</span><span style="color:#abb2bf;">:
+        - </span><span style="color:#9acc76;">&quot;${assignee}&quot;
+      </span><span style="color:#eb6772;">labels</span><span style="color:#abb2bf;">:
+        - </span><span style="color:#9acc76;">&quot;bug&quot;
+    </span><span style="color:#eb6772;">custom_headers</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">Authorization</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">token ${GITHUB_API_TOKEN}
+      Accept</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;application/vnd.github.v3+json&#39;
+      </span><span style="color:#eb6772;">Content-Type</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;application/json&#39;
+    </span><span style="color:#eb6772;">auth</span><span style="color:#abb2bf;">:
+    </span><span style="color:#eb6772;">expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">title</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.title&#39;
+      </span><span style="color:#eb6772;">url</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.html_url&#39;
+      </span><span style="color:#eb6772;">assignees</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.assignee.login&#39;
 </span></code></pre><h2 id="chained-http-requests">Chained HTTP Requests</h2>
 <p>Here is an example of two HTTP GET requests chained together to produce an output containing information about the weather of a given location as well as its population.</p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">weather http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">http://api.openweathermap.org/data/2.5/weather
-    query_data</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">q</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${location}
-      APPID</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">${WEATHER_APPID}
-      units</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">metric
-    auth</span><span style="color:#c0c5ce;">:
-    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">temperature</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.main.temp</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">loc</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.name</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">desc</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
-</span><span style="color:#a3be8c;">        {{ range .weather }}
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">weather http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">http://api.openweathermap.org/data/2.5/weather
+    query_data</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">q</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">${location}
+      APPID</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">${WEATHER_APPID}
+      units</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">metric
+    auth</span><span style="color:#abb2bf;">:
+    </span><span style="color:#eb6772;">expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">temperature</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.main.temp&#39;
+      </span><span style="color:#eb6772;">loc</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.name&#39;
+      </span><span style="color:#eb6772;">desc</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
+</span><span style="color:#9acc76;">        {{ range .weather }}
         {{ range $k, $v := . }}
         - {{- $v -}}
         {{ end }}
         {{ end }}
-      </span><span style="color:#bf616a;">country</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.sys.country</span><span style="color:#c0c5ce;">&#39;
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">location http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://restcountries.eu/rest/v2/alpha/${country}
-    expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">flag_url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">.flag
-      full_name</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.name</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">population</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">printf &quot;%0.f&quot; .population</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">native_name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">.nativeName
+      </span><span style="color:#eb6772;">country</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.sys.country&#39;
+  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">location http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">https://restcountries.eu/rest/v2/alpha/${country}
+    expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">flag_url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">.flag
+      full_name</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.name&#39;
+      </span><span style="color:#eb6772;">population</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;printf &quot;%0.f&quot; .population&#39;
+      </span><span style="color:#eb6772;">native_name</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">.nativeName
 </span></code></pre><h3 id="timeouts">Timeouts</h3>
 <p>By default, each http action has a timeout of 10 seconds. You can override this behavior by specifying a custom timeout in the <code>rules/&lt;rule name&gt;.yml</code> file.</p>
 

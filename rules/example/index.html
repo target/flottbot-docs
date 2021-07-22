@@ -83,7 +83,7 @@
             theme = localStorage.getItem('mdbook-theme');
         } catch (e) {}
         if (theme === null || theme === undefined) {
-            theme = 'light';
+            theme = 'ayu';
         }
         document.body.className = theme;
         document.querySelector('html').className = theme + ' js';
@@ -272,11 +272,11 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu <span class="default">(default)</span></button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
                             aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
@@ -316,142 +316,142 @@
     <h2 id="hello">Hello</h2>
 <p>This rule will simply listen for the word &quot;hello&quot;, and respond with a greeting.</p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># metadata
-</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
-active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># activate rule
+<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># metadata
+</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">hello
+active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># activate rule
 
 # trigger &amp; arguments
-</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">hello
-args</span><span style="color:#c0c5ce;">:
-</span><span style="color:#65737e;"># no required args, as we&#39;re just looking for the match and nothing else.
+</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">hello
+args</span><span style="color:#abb2bf;">:
+</span><span style="font-style:italic;color:#5f697a;"># no required args, as we&#39;re just looking for the match and nothing else.
 
 # actions
-</span><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># this rule takes no actions, just collects and responds with whats laid out in the format_output section
+</span><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this rule takes no actions, just collects and responds with whats laid out in the format_output section
 
 # response
-</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">what&#39;s up?</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#65737e;"># message to send to your user when they say hello
-</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false </span><span style="color:#65737e;"># allow messaging inside channels
-</span><span style="color:#bf616a;">output_to_rooms</span><span style="color:#c0c5ce;">: </span><span style="color:#65737e;"># this is an array of rooms/channels you want messages to be sent into.
-  </span><span style="color:#c0c5ce;">- </span><span style="color:#a3be8c;">mychannel </span><span style="color:#65737e;"># EDIT this (Slack channel you want the bot to listen &amp; respond in)
+</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;what&#39;s up?&quot; </span><span style="font-style:italic;color:#5f697a;"># message to send to your user when they say hello
+</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false </span><span style="font-style:italic;color:#5f697a;"># allow messaging inside channels
+</span><span style="color:#eb6772;">output_to_rooms</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of rooms/channels you want messages to be sent into.
+  </span><span style="color:#abb2bf;">- </span><span style="color:#9acc76;">mychannel </span><span style="font-style:italic;color:#5f697a;"># EDIT this (Slack channel you want the bot to listen &amp; respond in)
 
 #help
-</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello </span><span style="color:#65737e;"># help/usage text for the echo rule
-</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># see help_text in help message
+</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">hello </span><span style="font-style:italic;color:#5f697a;"># help/usage text for the echo rule
+</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># see help_text in help message
 </span></code></pre><h2 id="joke">Joke</h2>
 <p>This rule will listen for the word &quot;joke&quot;, and respond with a setup and a punchline from an open source joke API. See the syntax for the GET HTTP request in this rule.</p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
-active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
-</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke
-args</span><span style="color:#c0c5ce;">:
-</span><span style="color:#65737e;"># no required args, as we&#39;re just looking for the match and nothing else
-</span><span style="color:#bf616a;">reaction</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">eyes
-actions</span><span style="color:#c0c5ce;">:
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">joke http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke </span><span style="color:#65737e;"># url to talk to
-    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">setup</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.setup</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">punchline</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.punchline</span><span style="color:#c0c5ce;">&#39;
-    </span><span style="color:#bf616a;">update_reaction</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">white_check_mark
-direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
-</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">${setup}</span><span style="color:#96b5b4;">\n\n</span><span style="color:#a3be8c;">${punchline}</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">joke </span><span style="color:#65737e;"># help/usage text
-</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># hide it from help, because you only want admins to have jokes
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">joke
+active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># whether the rule is active
+</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">joke
+args</span><span style="color:#abb2bf;">:
+</span><span style="font-style:italic;color:#5f697a;"># no required args, as we&#39;re just looking for the match and nothing else
+</span><span style="color:#eb6772;">reaction</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">eyes
+actions</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">joke http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke </span><span style="font-style:italic;color:#5f697a;"># url to talk to
+    </span><span style="color:#eb6772;">expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">setup</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.setup&#39;
+      </span><span style="color:#eb6772;">punchline</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.punchline&#39;
+    </span><span style="color:#eb6772;">update_reaction</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">white_check_mark
+direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
+</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;${setup}</span><span style="color:#5ebfcc;">\n\n</span><span style="color:#9acc76;">${punchline}&quot;
+</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">joke </span><span style="font-style:italic;color:#5f697a;"># help/usage text
+</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># hide it from help, because you only want admins to have jokes
 </span></code></pre><h2 id="number">Number</h2>
 <p>This rule will listen for the word &quot;number&quot;, run a ruby script <code>random.rb</code> that outputs a random number between 0-100 and make an http GET request to an API that returns a fun fact about that random number.</p>
 <p><code>random.rb</code> contents:</p>
 <pre style="background-color:#2b303b;">
-<code class="language-ruby" data-lang="ruby"><span style="color:#c0c5ce;">random = </span><span style="color:#96b5b4;">rand</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">..</span><span style="color:#d08770;">100</span><span style="color:#c0c5ce;">)
-</span><span style="color:#96b5b4;">puts</span><span style="color:#c0c5ce;"> random
+<code class="language-ruby" data-lang="ruby"><span style="color:#abb2bf;">random </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">rand</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">..</span><span style="color:#db9d63;">100</span><span style="color:#abb2bf;">)
+</span><span style="color:#5ebfcc;">puts</span><span style="color:#abb2bf;"> random
 </span></code></pre><pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
-active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># whether the rule is active
-</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number
-args</span><span style="color:#c0c5ce;">:
-</span><span style="color:#65737e;"># no required args, as we&#39;re just looking for the match and nothing else
-</span><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">random number generator script
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">exec
-    cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">ruby config/scripts/random.rb
-  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">number facts http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">http://numbersapi.com/${_exec_output}?json </span><span style="color:#65737e;"># url to talk to
-    </span><span style="color:#bf616a;">expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">number</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.number</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">text</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.text</span><span style="color:#c0c5ce;">&#39;
-</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
-</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Fun fact about ${number}:</span><span style="color:#96b5b4;">\n\n</span><span style="color:#a3be8c;">${text}</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">number </span><span style="color:#65737e;"># help/usage text
-</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true </span><span style="color:#65737e;"># hide it from help, because you only want admins to have jokes
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">number
+active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># whether the rule is active
+</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">number
+args</span><span style="color:#abb2bf;">:
+</span><span style="font-style:italic;color:#5f697a;"># no required args, as we&#39;re just looking for the match and nothing else
+</span><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">random number generator script
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">exec
+    cmd</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">ruby config/scripts/random.rb
+  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">number facts http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">http://numbersapi.com/${_exec_output}?json </span><span style="font-style:italic;color:#5f697a;"># url to talk to
+    </span><span style="color:#eb6772;">expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">number</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.number&#39;
+      </span><span style="color:#eb6772;">text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.text&#39;
+</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
+</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;Fun fact about ${number}:</span><span style="color:#5ebfcc;">\n\n</span><span style="color:#9acc76;">${text}&quot;
+</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">number </span><span style="font-style:italic;color:#5f697a;"># help/usage text
+</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># hide it from help, because you only want admins to have jokes
 </span></code></pre><h2 id="schedule">Schedule</h2>
 <p>This rule will run on a schedule and message a specific channel/user specified every 10 seconds (dont leave this running long!).</p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># meta
-</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">schedule
-active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># meta
+</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">schedule
+active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
 
-</span><span style="color:#65737e;"># trigger and args
-</span><span style="color:#bf616a;">schedule</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">@every 10s</span><span style="color:#c0c5ce;">&#39;
-</span><span style="color:#65737e;"># example working cron specs:
+</span><span style="font-style:italic;color:#5f697a;"># trigger and args
+</span><span style="color:#eb6772;">schedule</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;@every 10s&#39;
+</span><span style="font-style:italic;color:#5f697a;"># example working cron specs:
 # - 0 * * * * (at minute 0)
 # - @every 1m
 # - @every 10s
 # example breaking cron specs:
 # - */1 * * * * (at every minute)
 
-</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">The scheduled rule is running.</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;The scheduled rule is running.&quot;
 
-</span><span style="color:#bf616a;">output_to_rooms</span><span style="color:#c0c5ce;">:
-  - &quot;</span><span style="color:#a3be8c;">bot-dev</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#eb6772;">output_to_rooms</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#9acc76;">&quot;bot-dev&quot;
 
-</span><span style="color:#bf616a;">output_to_users</span><span style="color:#c0c5ce;">:
-  - &quot;</span><span style="color:#a3be8c;">jane.doe</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#eb6772;">output_to_users</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#9acc76;">&quot;jane.doe&quot;
 
-</span><span style="color:#65737e;"># help
-</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span><span style="font-style:italic;color:#5f697a;"># help
+</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
 </span></code></pre><h2 id="fotd">FOTD</h2>
 <p>This rule will run on a schedule and post a fact about the current day scraped from wikipedia to the #bot-dev channel every hour on the hour.</p>
 <p><code>random.sh</code> contents:</p>
 <pre style="background-color:#2b303b;">
-<code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">echo </span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">RANDOM </span><span style="color:#c0c5ce;">% $</span><span style="color:#bf616a;">1</span><span style="color:#c0c5ce;"> + 1 | </span><span style="color:#bf616a;">bc
+<code class="language-bash" data-lang="bash"><span style="color:#5ebfcc;">echo </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">RANDOM </span><span style="color:#abb2bf;">% $</span><span style="color:#eb6772;">1</span><span style="color:#abb2bf;"> + 1 </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">bc
 </span></code></pre><pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># meta
-</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">fact of the day
-active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># meta
+</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">fact of the day
+active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
 
-</span><span style="color:#65737e;"># trigger and args
-</span><span style="color:#bf616a;">schedule</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">@every 1h</span><span style="color:#c0c5ce;">&#39;
-</span><span style="color:#65737e;"># actions
-</span><span style="color:#bf616a;">actions</span><span style="color:#c0c5ce;">:
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">today in history http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://history.muffinlabs.com/date
-    expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">num_of_events</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
-</span><span style="color:#a3be8c;">        {{len .data.Events}}
-  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">random number based on number of events from API
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">exec
-    cmd</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">bash config/scripts/random.sh ${num_of_events}
-  </span><span style="color:#c0c5ce;">- </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">today in history http request
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">GET
-    url</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">https://history.muffinlabs.com/date
-    expose_json_fields</span><span style="color:#c0c5ce;">:
-      </span><span style="color:#bf616a;">date</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">.date</span><span style="color:#c0c5ce;">&#39;
-      </span><span style="color:#bf616a;">year</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
-</span><span style="color:#a3be8c;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.year}}{{ end }}{{ end }}
-      </span><span style="color:#bf616a;">event</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|-
-</span><span style="color:#a3be8c;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.text}}{{ end }}{{ end }}
+</span><span style="font-style:italic;color:#5f697a;"># trigger and args
+</span><span style="color:#eb6772;">schedule</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;@every 1h&#39;
+</span><span style="font-style:italic;color:#5f697a;"># actions
+</span><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">today in history http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">https://history.muffinlabs.com/date
+    expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">num_of_events</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
+</span><span style="color:#9acc76;">        {{len .data.Events}}
+  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">random number based on number of events from API
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">exec
+    cmd</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">bash config/scripts/random.sh ${num_of_events}
+  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">today in history http request
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
+    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">https://history.muffinlabs.com/date
+    expose_json_fields</span><span style="color:#abb2bf;">:
+      </span><span style="color:#eb6772;">date</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.date&#39;
+      </span><span style="color:#eb6772;">year</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
+</span><span style="color:#9acc76;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.year}}{{ end }}{{ end }}
+      </span><span style="color:#eb6772;">event</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
+</span><span style="color:#9acc76;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.text}}{{ end }}{{ end }}
 
 
-</span><span style="color:#65737e;"># response
-</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">On ${date} in the year ${year}: ${event}</span><span style="color:#c0c5ce;">&quot;
-</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
-</span><span style="color:#bf616a;">output_to_rooms</span><span style="color:#c0c5ce;">:
-  - &quot;</span><span style="color:#a3be8c;">bot-dev</span><span style="color:#c0c5ce;">&quot;
+</span><span style="font-style:italic;color:#5f697a;"># response
+</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;On ${date} in the year ${year}: ${event}&quot;
+</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
+</span><span style="color:#eb6772;">output_to_rooms</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#9acc76;">&quot;bot-dev&quot;
 
-</span><span style="color:#65737e;"># help
-</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
+</span><span style="font-style:italic;color:#5f697a;"># help
+</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
 </span></code></pre>
 
                 </main>

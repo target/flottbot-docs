@@ -83,7 +83,7 @@
             theme = localStorage.getItem('mdbook-theme');
         } catch (e) {}
         if (theme === null || theme === undefined) {
-            theme = 'light';
+            theme = 'ayu';
         }
         document.body.className = theme;
         document.querySelector('html').className = theme + ' js';
@@ -272,11 +272,11 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu <span class="default">(default)</span></button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
                             aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
@@ -319,30 +319,28 @@
 <li>
 <p>Create a directory structure to house your bot's config:</p>
 <pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> config
-</span><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> config
-</span><span style="color:#bf616a;">mkdir</span><span style="color:#c0c5ce;"> rules
+<code class="language-sh" data-lang="sh"><span style="color:#abb2bf;"> </span><span style="color:#eb6772;">./config/
+</span><span style="color:#abb2bf;"> </span><span style="color:#eb6772;">├──</span><span style="color:#abb2bf;"> rules/
+</span><span style="color:#abb2bf;"> </span><span style="color:#eb6772;">│</span><span style="color:#abb2bf;">   └── hello.yml
+</span><span style="color:#abb2bf;"> </span><span style="color:#eb6772;">└──</span><span style="color:#abb2bf;"> bot.yml
 </span></code></pre>
 <p>Create the following files in the specified paths:</p>
 <p><code>config/bot.yml</code></p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">mybot
-</span><span style="color:#bf616a;">cli</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">mybot
+</span><span style="color:#eb6772;">cli</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
 </span></code></pre>
 <p><code>config/rules/hello.yml</code></p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#65737e;"># metadata
-</span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello
-</span><span style="color:#bf616a;">active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
-</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello
-</span><span style="color:#bf616a;">format_output</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">what&#39;s up?</span><span style="color:#c0c5ce;">&quot; </span><span style="color:#65737e;"># message to send to your user when they say hello
-</span><span style="color:#bf616a;">direct_message_only</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">false
-</span><span style="color:#bf616a;">help_text</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">hello
-</span><span style="color:#bf616a;">include_in_help</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
+<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># metadata
+</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">hello
+</span><span style="color:#eb6772;">active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
+</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">hello
+</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;what&#39;s up?&quot; </span><span style="font-style:italic;color:#5f697a;"># message to send to your user when they say hello
+</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
+</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">hello
+</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
 </span></code></pre></li>
-<li>
-<p><code>cd</code> into the directory holding the <code>config</code> you just created.</p>
-</li>
 <li>
 <p>Run and exec into the bot's container: <code>docker run -it --rm --name mybot -v &quot;$PWD&quot;/config:/config target/flottbot:latest /bin/sh -c &quot;./flottbot&quot;</code></p>
 </li>
@@ -352,7 +350,7 @@
 <p>The bot will start locally and you can interact with it via command line. Hit <kbd>Enter</kbd>, type <code>hello</code> and hit <kbd>Enter</kbd> again.</p>
 <p>You should see your bot reply as follows:</p>
 <pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#bf616a;">mybot</span><span style="color:#c0c5ce;">&gt; what&#39;</span><span style="color:#a3be8c;">s up?
+<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">mybot</span><span style="color:#adb7c9;">&gt;</span><span style="color:#abb2bf;"> what</span><span style="color:#9acc76;">&#39;s up?
 </span></code></pre>
 <p>Congratulations! You just interacted with your bot via CLI mode. As you saw, you set up your first rule responds to <code>hello</code> (see rule in <code>config/rules/hello.yml</code>).</p>
 <h3 id="about-cli-mode">About CLI Mode</h3>

@@ -83,7 +83,7 @@
             theme = localStorage.getItem('mdbook-theme');
         } catch (e) {}
         if (theme === null || theme === undefined) {
-            theme = 'light';
+            theme = 'ayu';
         }
         document.body.className = theme;
         document.querySelector('html').className = theme + ' js';
@@ -272,11 +272,11 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu <span class="default">(default)</span></button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
                             aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
@@ -315,17 +315,17 @@
     <h1>Variables</h1>
     <p>The below variables are set by default:</p>
 <pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_raw_http_output}</span><span style="color:#c0c5ce;"> raw output from an HTTP request action.
-$</span><span style="color:#bf616a;">{_raw_http_status}</span><span style="color:#c0c5ce;"> response code from an HTTP request action.
-$</span><span style="color:#bf616a;">{_exec_output}</span><span style="color:#c0c5ce;"> stdout output from an exec action.
-$</span><span style="color:#bf616a;">{_exec_status}</span><span style="color:#c0c5ce;"> the status code from an exec action.
-$</span><span style="color:#bf616a;">{_raw_user_input}</span><span style="color:#c0c5ce;"> raw message from a user captured by the bot when a match is found.
-$</span><span style="color:#bf616a;">{_channel.id}</span><span style="color:#c0c5ce;"> channel ID where the message originated from.
-$</span><span style="color:#bf616a;">{_channel.name}</span><span style="color:#c0c5ce;"> channel name where the message originated from </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_is_thread_message}</span><span style="color:#c0c5ce;"> indicates that the rule was triggered from within a message thread, returns &quot;</span><span style="color:#a3be8c;">true</span><span style="color:#c0c5ce;">&quot; or &quot;</span><span style="color:#a3be8c;">false</span><span style="color:#c0c5ce;">&quot;
-$</span><span style="color:#bf616a;">{_source.link}</span><span style="color:#c0c5ce;"> will provide you with a link to the original message </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^2</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_source.timestamp}</span><span style="color:#c0c5ce;"> will provide the timestamp of the original message
-$</span><span style="color:#bf616a;">{_source.thread_timestamp}</span><span style="color:#c0c5ce;"> will provide the timestamp of the parent message </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^2</span><span style="color:#b48ead;">]
+<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">${_raw_http_output}</span><span style="color:#abb2bf;"> raw output from an HTTP request action.
+</span><span style="color:#eb6772;">${_raw_http_status}</span><span style="color:#abb2bf;"> response code from an HTTP request action.
+</span><span style="color:#eb6772;">${_exec_output}</span><span style="color:#abb2bf;"> stdout output from an exec action.
+</span><span style="color:#eb6772;">${_exec_status}</span><span style="color:#abb2bf;"> the status code from an exec action.
+</span><span style="color:#eb6772;">${_raw_user_input}</span><span style="color:#abb2bf;"> raw message from a user captured by the bot when a match is found.
+</span><span style="color:#eb6772;">${_channel.id}</span><span style="color:#abb2bf;"> channel ID where the message originated from.
+</span><span style="color:#eb6772;">${_channel.name}</span><span style="color:#abb2bf;"> channel name where the message originated from </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_is_thread_message}</span><span style="color:#abb2bf;"> indicates that the rule was triggered from within a message thread, returns </span><span style="color:#9acc76;">&quot;true&quot;</span><span style="color:#abb2bf;"> or </span><span style="color:#9acc76;">&quot;false&quot;
+</span><span style="color:#eb6772;">${_source.link}</span><span style="color:#abb2bf;"> will provide you with a link to the original message </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">2</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_source.timestamp}</span><span style="color:#abb2bf;"> will provide the timestamp of the original message
+</span><span style="color:#eb6772;">${_source.thread_timestamp}</span><span style="color:#abb2bf;"> will provide the timestamp of the parent message </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">2</span><span style="color:#cd74e8;">]
 </span></code></pre>
 <ul>
 <li><sup class="footnote-reference"><a href="#1">1</a></sup>: for Slack, this might be an empty string if it originated from a direct message</li>
@@ -333,26 +333,26 @@ $</span><span style="color:#bf616a;">{_source.thread_timestamp}</span><span styl
 </ul>
 <p>In addition, the following user-specific variables - populated with details of the user that triggered a rule match via a message - are available:</p>
 <pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.email}
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.name}
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.firstname} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.lastname} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.id} 
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.team} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.teamid} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.color} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.realname} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.tz} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.tzlabel} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.tzoffset} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.realnamenormalized} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.displayname} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.displaynamenormalized} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.skype} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.phone} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.title} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.statustext} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
-</span><span style="color:#c0c5ce;">$</span><span style="color:#bf616a;">{_user.statusemoji} </span><span style="color:#b48ead;">[</span><span style="color:#c0c5ce;">^1</span><span style="color:#b48ead;">]
+<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">${_user.email}
+${_user.name}
+${_user.firstname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.lastname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.id} 
+${_user.team} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.teamid} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.color} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.realname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.tz} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.tzlabel} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.tzoffset} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.realnamenormalized} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.displayname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.displaynamenormalized} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.skype} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.phone} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.title} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.statustext} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">${_user.statusemoji} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
 </span></code></pre>
 <ul>
 <li><sup class="footnote-reference"><a href="#1">1</a></sup>: Only available for Slack, currently. See https://api.slack.com/types/user for more information</li>

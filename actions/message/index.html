@@ -83,7 +83,7 @@
             theme = localStorage.getItem('mdbook-theme');
         } catch (e) {}
         if (theme === null || theme === undefined) {
-            theme = 'light';
+            theme = 'ayu';
         }
         document.body.className = theme;
         document.querySelector('html').className = theme + ' js';
@@ -272,11 +272,11 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu <span class="default">(default)</span></button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
                             aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
@@ -315,15 +315,15 @@
     <h1>message</h1>
     <p>The following is an example of sending output to the <code>#general</code> channel.</p>
 <pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">message-rule
-active</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">true
-</span><span style="color:#bf616a;">respond</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">message
-actions</span><span style="color:#c0c5ce;">:
-  - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">trigger message
-    type</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">message
-    message</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">This is a message from your bot.</span><span style="color:#c0c5ce;">&quot;
-    </span><span style="color:#bf616a;">limit_to_rooms</span><span style="color:#c0c5ce;">:
-      - </span><span style="color:#a3be8c;">general
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">message-rule
+active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
+</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">message
+actions</span><span style="color:#abb2bf;">:
+  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">trigger message
+    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">message
+    message</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;This is a message from your bot.&quot;
+    </span><span style="color:#eb6772;">limit_to_rooms</span><span style="color:#abb2bf;">:
+      - </span><span style="color:#9acc76;">general
 </span></code></pre>
 
                 </main>
