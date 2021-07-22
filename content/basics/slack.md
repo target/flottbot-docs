@@ -3,133 +3,311 @@ title = "Slack"
 weight = 2
 +++
 
-## Choose Your Approach
+## Overview
 
-You'll need to install your bot on Slack, but first know that there are two approaches of installing your bot:
+There are two basic ways you can run your bot on Slack with _flottbot_:
 
-1. `App + Bot User` - create a Slack App in the workspace and add the Bot User feature to it.
-2. `Bot Integration` - add a `Bot Integration` directly to the workspace.
+* **Socket Mode** - see Slack's [Socket Mode Documentation](https://api.slack.com/apis/connections/socket#overview)
+* **Events API** - see Slack's [Events API Documentation](https://api.slack.com/apis/connections/events-api)
 
-Each approach has its own set of pros and cons:
+The basic difference is explained on Slack's [Choosing the right APIs](https://api.slack.com/start/planning/choosing) page:
 
-### App + Bot User
+> With the Events API, you pick the events you’re interested in receiving and Slack will send them to an endpoint you specify via HTTP.
 
-Recommended if you've already got some experience as a Slack bot owner.
+> If you don't wish to expose a public, static HTTP endpoint to communicate with Slack, Socket Mode can help.
 
-Pros
+For a more detailed differentiation you can check out Slack's ["When should I use the Events API and when should I use Socket Mode or the RTM API?"](https://api.slack.com/faq#answers-to-questions-were-often-asked.__events-api__when-should-i-use-the-events-api-and-when-should-i-use-socket-mode-or-the-rtm-api) FAQ page on the topic.
 
-* Apps offer your bot more features, such as Event Subscriptions, Interactive Components, etc.
-  * This means greater customization for your bot
-  * More fun
-* Your bot will read messages as events, as well as have access to other event subscriptions using the Events API.
-  * [Events API](https://api.slack.com/events-api) vs. [RTM](https://api.slack.com/rtm)
-* Deploy multiple instances of your bot, since messages will be read/sent as events
-  * Load balancing between multiple instances of your bot (good if your bot is really popular).
-  * High availability.
+In short, _Socket Mode_ is great for local development and makes iterating on your bot's features much more convenient. Even beyond local development, it may be all you need to run your bot.
 
-Cons
+If you plan to eventually run multiple instances behind a load balancer due to your bots' needs, _Events API_ is the way you want to go.
 
-* Takes more time to setup than a simple `Bot Integration`
-* Cannot easily run/test locally on machine (due to the Events API)
+Fortunately, Slack makes it fairly trivial to toggle between the two modes.
 
-### Bot Integration
+## Prepare Files/Folder Structure
 
-Recommended if you're just starting out. Nice for first-time Slack bot owners.
+Before we start, let's create a quick configuration for your bot. It will consist of a basic **hello** rule.
 
-Pros
-
-* Quick setup
-* Good for bots with simple use-cases
-* Can run/test bot locally on machine
-
-Cons
-
-* Only one instance of your bot can be deployed because it uses the Slack [RTM](https://api.slack.com/rtm) to read/send messages
-* You lose out on App features (not as fun)
-
-### Approach 1: App + Bot User
-
-#### Create A New App
-
-Got access to a Slack workspace? Great. Let's create a new App for your bot.
-
-##### Create Slack App
-
-1. Login to Slack and go to the [Apps page](https://api.slack.com/apps).
-2. Click on the green `Create New App` button on the top right of the page. A `Create A Slack App` window should appear.
-3. Enter your bot's name under the `App Name` section and select the desired workspace from the dropdown.
-4. Click `Create App` at the bottom right corner of the window.
-5. You should now be redirected to your App's page.
-
-##### Add Bot User
-
-1. On your App's page, click the `Add features and functionality` dropdown.
-2. Go to `app-home` section.
-3. Enter your bot's name in the `Display name` and `Default username` field.
-    * Call the bot whatever you want!
-4. Click on the `Always Show My Bot as Online` toggle to 'On'
-
-##### Add Permissions
-
-1. On the lefthand side of the page under the `Features` heading, click on `OAuth & Permissions`.
-2. Scroll down to the `Scopes` section and in the `Select Permission Scopes` dropdown, select the `Add a bot user...` option. Click the green `Save Changes` button.
-3. Scroll back up to the `OAuth Tokens & Redirect URLs` section, and click the now green `Install App to Workspace` button.
-4. You should be prompted to `Confirm your identity for you Workspace`. Click the green `Authorize` button.
-5. You should be redirected back to the `OAuth & Permissions` page where you will now see a `Tokens for Your Workspace` section and your bot token which will always begin with `xoxb`.
-
-You should be able to see your bot online in the workspace you installed it. On the bottom left side panel, you should see the `Apps` heading. If you click on the `+` button, you should be able to search and select your bot. Your bot doesn't do anything right now, so we'll need to add functionality to it.
-
-##### Setup Your Slack Events Public Ingress
-
-In order for the Slack events API to post back to your bot to notify it that certain events occur, you'll need to deploy it to a publicly available URL. Flottbot will by default serve up http endpoints at custom paths you can configure in your ```config/bot.yml```.
-
-```yaml
-slack_events_callback_path: ${SLACK_EVENTS_CALLBACK_PATH} # EDIT  ${SLACK_EVENTS_CALLBACK_PATH} (e.g. /slack_events/v1/events)
-slack_interactions_callback_path: ${SLACK_INTERACTIONS_CALLBACK_PATH} # EDIT ${SLACK_INTERACTIONS_CALLBACK_PATH} (e.g. /slack_events/v1/interactions)
-```
-
-If you're using our provided Docker image, it will expose the necessary ports for the http server to accept requests and set up the custom path endpoints to accept slack event payloads.
-
-In your bot configuration inside of Slack migrate to the `Events Subscription` section. Hit the *Enable Events* button to turn it on. Paste in the URL that your bot is hosted at including the new path that now accepts payloads from the Slack events API. See our section on Deployment for deploying your custom Flottbot docker container on Heroku. If using the examples listed above with the URL https://example.com you would paste in https://example.com/slack_events/v1/interactions to the Request URL field. Make sure that you get the green check mark when saving the page. Then add the following Bot Subscription Events:
-
-```
-Event Name Description
-link_shared
-A message was posted containing one or more links relevant to your application
-
-member_joined_channel
-A user joined a public or private channel
-
-member_left_channel
-A user left a public or private channel
-
-message.app_home
-A user sent a message to your Slack app
-
-message.channels
-A message was posted to a channel
-
-message.groups
-A message was posted to a private channel
-
-message.im
-A message was posted in a direct message channel
-
-message.mpim
-A message was posted in a multiparty direct message channel
-```
-
-#### Setup Your Bot Project
-
-Create a directory structure to house your bot's config:
+The typical directory structure for your bot is expected to look like:
 
 ```sh
-mkdir config
-cd config
-mkdir rules
+./config/
+├── rules/
+│   └── hello.yml
+└── bot.yml
 ```
 
-Create the following files in the specified paths:
+Example **hello** rule to start with:
+
+`config/rules/hello.yml`
+
+```yaml
+name: hello
+active: true
+respond: hello
+
+format_output: "what's up?"
+
+help_text: hello
+include_in_help: true
+```
+
+We'll assume the above is in place for the remainder of the page and we'll primarily modify `config/bot.yml` going forward.
+
+## Quick Setup
+
+Slack recently released a beta version of [app manifests](https://api.slack.com/reference/manifests) to help create new apps and bots more conveniently.
+
+_Note: it's possible this option doesn't exist for your workspace - continue to [Setup](#setup), if that's the case. You will be able to tell once you start creating a new app as described below._
+
+Below is a prepared manifest that you can utilize to quickly setup your own new app/bot with Socket Mode enabled, cleverly named "my-bot". It's a good starting point even if you eventually end up going down the Events API path. Don't worry, you can customize all the settings that this manifest provides after your bot has been created.
+
+### App Manifest for a Bot Using Socket Mode
+
+```yaml
+_metadata:
+  major_version: 1
+  minor_version: 1
+display_information:
+  name: my-bot
+  description: my bot
+  background_color: "#272a30"
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: my-bot
+    always_online: true
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - channels:history
+      - channels:manage
+      - channels:read
+      - chat:write
+      - groups:history
+      - groups:read
+      - groups:write
+      - im:history
+      - im:read
+      - im:write
+      - mpim:history
+      - mpim:read
+      - mpim:write
+      - team:read
+      - usergroups:read
+      - users:read
+      - users:read.email
+      - users:write
+      - reactions:read
+      - reactions:write
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - member_joined_channel
+      - member_left_channel
+      - message.channels
+      - message.groups
+      - message.im
+      - message.mpim
+  interactivity:
+    is_enabled: false
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  is_hosted: false
+```
+
+To use this app manifest, follow these steps:
+
+1. Go to [https://api.slack.com/apps](https://api.slack.com/apps)
+1. Hit the "Create New App" button in the top right of the page - a dialog will appear
+1. Click on "From an app manifest"
+1. On the following screen, pick your workspace and hit "Next"
+1. Now review and paste the app manifest above into the text area in the dialog and hit "Next"
+1. Here you can review the settings before hitting "Create" (don't worry you can make changes after creating the app). Click on "Create"
+1. The dialog will close and you will be returned to your "Basic Information" page.
+
+At this point, your app has been created, but we're missing a couple of tokens that we need for your bot.
+
+### Tokens
+
+On the "Basic Information" page, click on "Install to Workspace" and complete the directions.
+
+Continue to [Socket Mode Tokens](#socket-mode-tokens) to create and capture the necessary tokens to complete the setup.
+
+
+## Setup
+
+Got access to a Slack workspace? Great. Let's create a new app for your bot. The first few steps will be identical whether you are going with _Socket Mode_ or _Events API_. In the [Events API section](#events-api) we'll go over how to utilize, or switch to, the Events API.
+
+_Tip: there is a quicker way using Slack's new App Manifests feature, see [Quick Setup](#quick-setup) for more information._
+
+### Create Slack App
+
+1. Login to Slack and go to the [Apps page](https://api.slack.com/apps).
+1. Click on the green "Create New App" button on the top right of the page. A "Create A Slack App" window should appear.
+1. Enter your bot's name in the "App Name" section and select the desired workspace from the drop-down.
+1. Click "Create App" at the bottom right corner of the window.
+1. You should now be redirected to your bot's "Basic Information" page.
+
+### Add Permissions
+
+Now that your app is created, you will need to configure it. Let's start with permissions (called scopes in Slack):
+
+1. On the left-hand side of the page under "Features" heading, click on "OAuth & Permissions".
+1. Scroll down to the "Scopes" section and in the "Bot Token Scopes" sub-section click on "Add an OAuth scope" and add the following scopes:
+
+    * `app_mentions:read`
+    * `channels:history`
+    * `channels:manage`
+    * `channels:read`
+    * `chat:write`
+    * `groups:history`
+    * `groups:read`
+    * `groups:write`
+    * `im:history`
+    * `im:read`
+    * `im:write`
+    * `mpim:history`
+    * `mpim:read`
+    * `mpim:write`
+    * `team:read`
+    * `usergroups:read`
+    * `users:read`
+    * `users:read.email`
+    * `users:write`
+    * `reactions:read`
+    * `reactions:write`
+
+### Subscribe to Events
+
+Next, let's tell Slack which events your bot should subscribe to:
+
+1. On the left-hand side of the page under the "Features" heading, click on "Event Subscriptions".
+1. Click the sliding toggle to turn "Enable Events" to "On".
+1. Ignore the "Request URL" for now and scroll down and expand "Subscribe to bot events".
+1. Click on "Add Bot User Event" and add the following events:
+
+    * `app_mention`
+    * `member_joined_channel`
+    * `message.channels`
+    * `message.groups`
+    * `message.im`
+    * `message.mpim`
+
+### Customize Your Bot Name and Display Options
+
+There are a couple of places where you can customize some basics about your bot, such as name and icon:
+
+1. App Home
+
+    * Under "Features" in the left-hand column, click on "App Home".
+    * Near the top, click on "Edit" to customize your bot name.
+    * You might also want to toggle the "Always Show My Bot as Online" option to be enabled; however, that's up to your preference.
+
+1. Basic Information
+
+    * Under "Settings" in the left-hand column, click on "Basic Information".
+    * Towards the bottom of the page, you can customize the "Display Information" section, including setting an App Icon for your bot.
+
+At this point, you're ready to make a call on whether you want to go with the _Socket Mode_ or _Events API_ setup. Let's start with _Socket Mode_.
+
+### Socket Mode Tokens
+
+For Socket Mode, flottbot requires you to supply two tokens: `slack_token` and `slack_app_token`. Here's how to retrieve those tokens from Slack.
+
+#### `slack_token`
+
+1. Scroll back up to the "OAuth Tokens & Redirect URLs" section on [api.slack.com](https://api.slack.com), and click the now green "Install App to Workspace" button (it might say "Reinstall to Workspace").
+1. You should be prompted to "Confirm your identity for you Workspace". Click the green "Authorize" button.
+1. You should be redirected back to the "OAuth & Permissions" page where you will now see a "OAuth Tokens for Your Workspace" section and your `slack_token` (bot token) which will always begin with **`xoxb-`**.
+
+#### `slack_app_token`
+
+1. In the left-hand menu under "Settings", click on "Socket Mode"
+1. In the "Connect using Socket Mode section", slide the toggle for "Enable Socket Mode"
+1. Pick and enter a token name in the window that appears. The name you choose does not seem to matter.
+1. Click "Generate"
+1. In the new window, a token starting with **`xapp-`** will appear. This is your `slack_app_token`.
+
+You will want to set these two tokens in your `/config/bot.yml`. For example:
+
+```yaml
+chat_application: slack
+slack_token: ${SLACK_TOKEN}
+slack_app_token: ${SLACK_APP_TOKEN}
+```
+
+_Note: the `${VAR}` syntax expects the values to be set in environment variables with their respective names._
+
+### Run Your Bot (Socket Mode)
+
+Now run your bot using docker with the following command (make sure docker is up and running):
+
+```sh
+docker run --rm --name mybot \
+  --env SLACK_TOKEN=$SLACK_TOKEN \
+  --env SLACK_APP_TOKEN=$SLACK_APP_TOKEN \
+  -v "$PWD"/config:/config \
+  target/flottbot:latest /flottbot
+```
+
+_Note: this assumes that you have the tokens are available as environment variables in your environment at `SLACK_TOKEN` and `SLACK_APP_TOKEN`._
+
+Your bot should now be online in the Slack Workspace you added the integration to.
+
+Head to a channel in Slack and invite your bot. Type `@<your bot name> hello` (replace "your bot name" with the actual name of your bot) and you should get a response of "what's up?").
+
+Congrats!
+
+## Events API
+
+Once you are set up with Socket Mode, you might not need anything else. However, in some circumstances you might decide to switch to use the Events API. The process is fairly straightforward. It will involve the following steps:
+
+1. Configure tokens
+1. Setup a public ingress
+1. Tweak your `bot.yml`
+
+### Configure tokens
+
+#### `slack_token`
+
+Refer to [Socket Mode](#socket-mode) on how to find your `SLACK_TOKEN`.
+
+#### `slack_signing_secret`
+
+1. See the "Basic Information" page of your App at [api.slack.com](https://api.slack.com)
+1. Under the "App Credentials" section, the token is under "Signing Secret". Click on "Show" to display the value
+
+You will want to set these two tokens in your `/config/bot.yml`. For example:
+
+```yaml
+chat_application: slack
+slack_token: ${SLACK_TOKEN}
+slack_signing_secret: ${SLACK_SIGNING_SECRET}
+```
+
+_Note: the `${VAR}` syntax expects the values to be set in environment variables with their respective names._
+
+### Setup Your Slack Events Public Ingress
+
+In order for the Slack events API to post back to your bot to notify it that certain events occurred, you'll need to deploy it with a publicly available URL.  Flottbot will by default serve up HTTP endpoints at a custom path you can configure in your `config/bot.yml`.
+
+```yaml
+slack_events_callback_path: /slack_events/v1/events
+```
+
+If you're using our provided Docker image, it will expose the necessary ports for the HTTP server to accept requests and set up the custom path endpoints to accept Slack event payloads. You will just have to let Slack know where to reach it at.
+
+_Tip: flottbot also exposes a `/event_health` endpoint for checking liveliness._
+
+Before configuring things inside of Slack, you'll want to make sure your bot is running, so Slack can verify the connection to your bot.
+
+At this point, your `config/bot.yml` should look like:
 
 `config/bot.yml`
 
@@ -137,88 +315,31 @@ Create the following files in the specified paths:
 name: mybot
 chat_application: slack
 slack_token: ${SLACK_TOKEN}
-slack_verification_token: ${SLACK_VERIFICATION_TOKEN}
-slack_workspace_token: ${SLACK_WORKSPACE_TOKEN}
+slack_signing_secret: ${SLACK_SIGNING_SECRET}
+slack_events_callback_path: /slack_events/v1/events
 ```
 
-**Note:** Your Slack bot token will begin with "xoxb" and your workspace token with "xoxp"_
+_Note: the `${VAR}` syntax expects the values to be set in environment variables with their respective names._
 
-How to find these Slack tokens:
+### Run Your Bot (Events API)
 
-* `${SLACK_TOKEN}`
-    1. See the **OAuth & Permissions** page of your App.
-    2. Under the **Tokens for Your Workspace** section, the token is under **Bot User OAuth Access Token**.
-* `${SLACK_WORKSPACE_TOKEN}`
-    1. See the **OAuth & Permissions** page of your App.
-    2. Under the **Tokens for Your Workspace** section, the token is under **OAuth Access Token**.
-* `${SLACK_VERIFICATION_TOKEN}`
-    1. See the **Basic Information** page of your App.
-    2. Under the **App Credentials** section, the token is under **Verification Token**.
+It's beyond this document to go into details on how and where to host your bot so it's publicly accessible.
 
-Cool. Save those tokens somewhere safe. Commit these changes and we'll work on running your bot.
+If your environment allows (many corporate environments don't), [ngrok](https://ngrok.com/) or similar tools ease the pain a little bit by allowing you to run it locally and exposing port(s) publicly via a tunnel.
 
-### 4. Running Your Bot
+For sake of simplicity, let's assume that you have your bot running at `https://example.com` for the remainder of this section.
 
-So as mentioned in the above pros/cons for the `App + Bot User` approach, you won't be able to run/test your bot in Slack from your local machine. This is also why many choose to go the `Bot Integration` path first.
+In your bot configuration inside of Slack, ie. [api.slack.com](https://api.slack.com), define the "Request URL" by doing the following:
 
-### Approach 2: Bot Integration
+1. head to the "Events Subscription" page
+1. hit the "Enable Events" button to turn it on
+1. paste in the URL that your bot is hosted at including the configured `slack_events_callback_path`, in our example's case the full URL would be: `https://example.com/slack_events/v1/events`
+1. if everything was done correctly you should get a green check mark.
 
-This is the quick and easy way of getting your bot up and running in Slack ASAP.
-
-#### Install Your Bot Integration
-
-Got access to a Slack workspace? Great. Let's add your integration:
-
-1. Go to the your Workspace's [App Directory](https://api.slack.com/apps), search for 'Bots' and click the option _`Bots Connect a bot to the Slack Real Time Messaging API`_.
-2. Click on the green `Add Configuration` button on the left.
-3. Enter your chosen username for your bot and click on the green `Add bot integration`.
-4. You should now be able to access your bot's `Integration Settings` where you will find your bot's `API Token`, which will look like `xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx`.
-
-Hooray! Now let's run your bot in your workspace.
-
-#### Setup Your Bot Project
-
-Edit the following lines in `/config/bot.yml` to look like:
-
-```yaml
-name: mybot
-chat_application: slack
-slack_token: ${SLACK_TOKEN}
-```
-
-Now, you'll need to export your Slack bot token as an environment variable wherever your bot runs:
-
-```sh
-export SLACK_TOKEN=xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx
-```
-
-**Note:** Your Slack bot token should begin with "xoxb"
-
-Set up a simple hello rule.
-
-`config/rules/hello.yml`
-
-```yaml
-# metadata
-name: hello
-active: true
-respond: hello
-format_output: "what's up?" # message to send to your user when they say hello
-direct_message_only: false
-help_text: hello
-include_in_help: true
-```
-
-### Run Your Bot
-
-Now run your bot using docker with the following command (make sure docker is up and running):
-
-```sh
-docker run --rm --name mybot --env SLACK_TOKEN=$SLACK_TOKEN -v "$PWD"/config:/config target/flottbot:latest /flottbot
-```
+_Note: you will also have to disable Socket Mode on the "Socket Mode" page, if you had that enabled previously._
 
 Your bot should now be online in the Slack Workspace you added the integration to.
 
-1. On the bottom left side panel, you should see the `Apps` heading. Click on the circular `+` button.
-2. In the `Browse Apps` search bar, enter your bot's username. Your bot should appear as a result. Click on it. You should now see your bot online under the `Apps` heading of the side panel.
-3. Message it `hello` and it should respond `what's up?`
+Head to a channel in Slack and invite your bot. Type `@<your botname> hello` (replace "your botname" with the actual name of your bot) and you should get a response of "what's up?").
+
+Congrats!
