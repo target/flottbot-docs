@@ -360,7 +360,10 @@ start_message_thread</span><span style="color:#abb2bf;">: </span><span style="co
 
 </span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false </span><span style="font-style:italic;color:#5f697a;"># will only reply via direct message if enabled
 
-</span><span style="color:#eb6772;">output_to_rooms</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of rooms/channels you want messages to be sent into in Slack.
+</span><span style="color:#eb6772;">limit_to_rooms</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of rooms/channels where the rule can get triggered.
+  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">coolchannel
+
+output_to_rooms</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of rooms/channels you want messages to be sent into in Slack.
   </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">mychannel
 
 output_to_users</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of users you want messages to be sent to directly in Slack.
@@ -395,6 +398,7 @@ output_to_users</span><span style="color:#abb2bf;">: </span><span style="font-st
 <li><strong>start_message_thread</strong> (<em>boolean</em>) If set to true, the bot start a thread with your trigger message being the parent. Otherwise, the bot will post a message in the same channel.</li>
 <li><strong>ignore_threads</strong> (<em>boolean</em>) If set to true, the bot will not be able to get triggered for this rule from within a message a thread.</li>
 <li><strong>direct_message_only</strong> (<em>boolean</em>) If set to true, the bot will never respond to this rule in a room it will only direct message the sender.</li>
+<li><strong>limit_to_rooms</strong> (<em>yaml array</em>) An array of rooms where the rule can get triggered.</li>
 <li><strong>output_to_rooms</strong> (<em>yaml array</em>) An array of rooms you want messages to be sent into.</li>
 <li><strong>output_to_users</strong> (<em>yaml array</em>) An array of specific users you want messages to be to.</li>
 <li><strong>help_text</strong> (<em>string</em>) This is the response we show to the user when they interact with the bot and no match occurs. We often like to put bot usage instructions for the rule here.</li>
