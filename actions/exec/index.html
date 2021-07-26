@@ -33,21 +33,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+    <link rel="shortcut icon" href="https://target.github.io/flottbot-docs/favicon.png">
 
     
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/variables.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/general.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/chrome.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/print.css" media="print">
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/tomorrow-night.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/ayu-highlight.css">
     
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/FontAwesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
@@ -342,44 +342,40 @@
 </ul>
 <p>It is of course possible to custom build your own image by writing a Dockerfile which utilizes a language-specific image of your preference and installing the flottbot binary from our [github releases)(https://github.com/target/flottbot/releases).</p>
 <p>The following example executes a ruby script that outputs 'Hello from Ruby!' to stdout. You can then return that return value to be used in a response. Again, you must use the <code>target/flottbot:ruby</code> image in order for you ruby scripts to execute successfully.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># actions to take when the rule triggered
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">sample script </span><span style="font-style:italic;color:#5f697a;"># name of action
-    </span><span style="color:#eb6772;">type</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">exec </span><span style="font-style:italic;color:#5f697a;"># type of action
-    </span><span style="color:#eb6772;">cmd</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">ruby config/scripts/main.rb </span><span style="font-style:italic;color:#5f697a;"># command to send container to run your script.
-    </span><span style="color:#eb6772;">timeout</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">30 </span><span style="font-style:italic;color:#5f697a;"># custom 30 second timeout for an exec rule. 10 Seconds is the default.
-    </span><span style="color:#eb6772;">update_reaction</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">white_check_mark </span><span style="font-style:italic;color:#5f697a;"># If you set an emoji reaction when the rule was matched, you can include this field to update the reaction when the script completes. You can use templating in this field as well for advanced usage.
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">actions: # actions to take when the rule triggered
+  - name: sample script # name of action
+    type: exec # type of action
+    cmd: ruby config/scripts/main.rb # command to send container to run your script.
+    timeout: 30 # custom 30 second timeout for an exec rule. 10 Seconds is the default.
+    update_reaction: white_check_mark # If you set an emoji reaction when the rule was matched, you can include this field to update the reaction when the script completes. You can use templating in this field as well for advanced usage.
+</code></pre>
 <p>The <code>main.rb</code> script looks like:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-ruby" data-lang="ruby"><span style="color:#abb2bf;">
-</span><span style="color:#5ebfcc;">puts </span><span style="color:#9acc76;">&#39;Hello from Ruby!&#39;
-</span></code></pre>
+<pre data-lang="ruby" class="language-ruby "><code class="language-ruby" data-lang="ruby">
+puts 'Hello from Ruby!'
+</code></pre>
 <p>Here's the same example but in <code>python</code>:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># actions to take when the rule triggered
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">sample script </span><span style="font-style:italic;color:#5f697a;"># name of action
-    </span><span style="color:#eb6772;">type</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">exec </span><span style="font-style:italic;color:#5f697a;"># type of action
-    </span><span style="color:#eb6772;">cmd</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">python config/scripts/main.py </span><span style="font-style:italic;color:#5f697a;"># command to send container to run your script.
-    </span><span style="color:#eb6772;">timeout</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">30 </span><span style="font-style:italic;color:#5f697a;"># custom 30 second timeout for an exec rule. 10 Seconds is the default.
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">actions: # actions to take when the rule triggered
+  - name: sample script # name of action
+    type: exec # type of action
+    cmd: python config/scripts/main.py # command to send container to run your script.
+    timeout: 30 # custom 30 second timeout for an exec rule. 10 Seconds is the default.
+</code></pre>
 <p>The <code>main.py</code> script looks like:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-python" data-lang="python"><span style="font-style:italic;color:#5f697a;">#!/usr/bin/env python3
+<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">#!/usr/bin/env python3
 
-</span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;Hello from Python!&quot;</span><span style="color:#abb2bf;">)
-</span></code></pre><h3 id="error-handling">Error handling</h3>
+print("Hello from Python!")
+</code></pre>
+<h3 id="error-handling">Error handling</h3>
 <p>Sadly the world isn't perfect, so you may want to handle some edge cases and catch errors. By default, flottbot will return the following error if you don't toss a message to stdout <code>Error while executing script for action '&lt;action name&gt;'. See bot admin for more information.&quot;</code>. You can define a more custom error message by printing to stdout and the user will receive that as the error. For example in:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-python" data-lang="python"><span style="font-style:italic;color:#5f697a;">#!/usr/bin/env python3
+<pre data-lang="python" class="language-python "><code class="language-python" data-lang="python">#!/usr/bin/env python3
 
-</span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;Hello!&quot;</span><span style="color:#abb2bf;">)
-</span><span style="color:#cd74e8;">raise </span><span style="color:#eb6772;">NameError</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;I broke&quot;</span><span style="color:#abb2bf;">)
-</span></code></pre>
+print("Hello!")
+raise NameError("I broke")
+</code></pre>
 <p>The user will receive <code>Hello!</code> from the bot. Flottbot will also log the error to it's own log, so for the above script you as the bot owner will see something like:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-json" data-lang="json"><span style="color:#abb2bf;">{</span><span style="color:#9acc76;">&quot;level&quot;</span><span style="color:#abb2bf;">:</span><span style="color:#9acc76;">&quot;error&quot;</span><span style="color:#abb2bf;">,</span><span style="color:#9acc76;">&quot;msg&quot;</span><span style="color:#abb2bf;">:</span><span style="color:#9acc76;">&quot;Exec rule for action &#39;sample script&#39; failed with exit status 1: Traceback (most recent call last):</span><span style="color:#5ebfcc;">\n</span><span style="color:#9acc76;"> File &quot;</span><span style="background-color:#e05252;color:#ffffff;">config/scripts/main.py</span><span style="color:#9acc76;">&quot;, line 6, in </span><span style="color:#5ebfcc;">\u003c</span><span style="color:#9acc76;">module</span><span style="color:#5ebfcc;">\u003e\n</span><span style="color:#9acc76;"> raise NameError(&quot;</span><span style="background-color:#e05252;color:#ffffff;">I</span><span style="color:#abb2bf;"> </span><span style="background-color:#e05252;color:#ffffff;">broke</span><span style="color:#9acc76;">&quot;)</span><span style="color:#5ebfcc;">\n</span><span style="color:#9acc76;">NameError: I broke</span><span style="color:#5ebfcc;">\n</span><span style="color:#9acc76;">&quot;</span><span style="background-color:#e05252;color:#ffffff;">,</span><span style="color:#9acc76;">&quot;time&quot;</span><span style="color:#abb2bf;">:</span><span style="color:#9acc76;">&quot;2018-02-07T22:04:14-06:00&quot;</span><span style="color:#abb2bf;">}
-</span></code></pre><h3 id="timeouts">Timeouts</h3>
+<pre data-lang="json" class="language-json "><code class="language-json" data-lang="json">{"level":"error","msg":"Exec rule for action 'sample script' failed with exit status 1: Traceback (most recent call last):\n File "config/scripts/main.py", line 6, in \u003cmodule\u003e\n raise NameError("I broke")\nNameError: I broke\n","time":"2018-02-07T22:04:14-06:00"}
+</code></pre>
+<h3 id="timeouts">Timeouts</h3>
 <p>By default, each exec action has a timeout of 10 seconds. You can override this behavior by specifying a custom timeout within the action section of the <code>rules/&lt;rule name&gt;.yml</code> file. When a timeout is reached the user will receive a message of <code>Hmm, something timed out. Please try again.</code> and the bot log will receive a message of <code>Timeout reached, exec process for action '&lt;action&gt;' killed&quot;</code>.</p>
 
 
@@ -404,13 +400,13 @@
     </div>
 
     
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/book.js" type="text/javascript" charset="utf-8"></script>
     
 </body>
 

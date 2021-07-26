@@ -33,21 +33,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+    <link rel="shortcut icon" href="https://target.github.io/flottbot-docs/favicon.png">
 
     
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/variables.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/general.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/chrome.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/print.css" media="print">
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/tomorrow-night.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/ayu-highlight.css">
     
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/FontAwesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
@@ -314,65 +314,64 @@
                     
     <h1>Anatomy of a Rule</h1>
     <p>A standard rule yaml file will look like this:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># metadata
-</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">echo </span><span style="font-style:italic;color:#5f697a;">#name of your rule
-</span><span style="color:#eb6772;">active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># activate rule
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml"># metadata
+name: echo #name of your rule
+active: true # activate rule
 
-# trigger &amp; arguments. you will use of of the below options per rule, not all 3! (respond, hear, schedule)
+# trigger & arguments. you will use of of the below options per rule, not all 3! (respond, hear, schedule)
 
-</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">echo </span><span style="font-style:italic;color:#5f697a;"># text match to trigger this rule to take action, bot is looking for the word &quot;echo&quot;.
-</span><span style="color:#eb6772;">args</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of args to pass in after a match is found
-  </span><span style="color:#abb2bf;">- </span><span style="color:#9acc76;">message </span><span style="font-style:italic;color:#5f697a;"># first string capture after the match will be mapped to the variable ${message}
-  </span><span style="color:#abb2bf;">- </span><span style="color:#9acc76;">arg? </span><span style="font-style:italic;color:#5f697a;"># this second argument is optional and will be available as ${arg}, ie. the rule will process even if this argument is missing.
+respond: echo # text match to trigger this rule to take action, bot is looking for the word "echo".
+args: # this is an array of args to pass in after a match is found
+  - message # first string capture after the match will be mapped to the variable ${message}
+  - arg? # this second argument is optional and will be available as ${arg}, ie. the rule will process even if this argument is missing.
 
-</span><span style="color:#eb6772;">hear</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;bots are cool&quot; </span><span style="font-style:italic;color:#5f697a;"># text match to trigger rule on if that phrase/regex pattern comes up in a room the bots been invited to. Hear currently takes no arguments.
+hear: "bots are cool" # text match to trigger rule on if that phrase/regex pattern comes up in a room the bots been invited to. Hear currently takes no arguments.
 
-</span><span style="color:#eb6772;">schedule</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;@every 10s&quot; </span><span style="font-style:italic;color:#5f697a;"># cronspec for when you want a rule to be triggered on a schedule/interval. Schedule takes no arguments.
+schedule: "@every 10s" # cronspec for when you want a rule to be triggered on a schedule/interval. Schedule takes no arguments.
 # example working cron specs:
 # - 0 * * * * (at minute 0)
 # - @every 1m
 # - @every 10s
 
-</span><span style="color:#eb6772;">reaction</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">eyes </span><span style="font-style:italic;color:#5f697a;"># this will prompt the bot to add an emoji reaction to the message that triggered the rule. This emoji reaction can be modified later when actions are taken.
+reaction: eyes # this will prompt the bot to add an emoji reaction to the message that triggered the rule. This emoji reaction can be modified later when actions are taken.
 
 # actions
-</span><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this rule takes no actions, just collects and responds with what is laid out in the format_output section
+actions: # this rule takes no actions, just collects and responds with what is laid out in the format_output section
 
 # response
-</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;${message}&quot; </span><span style="font-style:italic;color:#5f697a;"># slack specific message formatting
+format_output: "${message}" # slack specific message formatting
 
-</span><span style="color:#eb6772;">allow_users</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># restrict usage to certain users
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">Jane.Doe
-allow_usergroups</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># restrict usage to certain usergroups
+allow_users: # restrict usage to certain users
+  - Jane.Doe
+allow_usergroups: # restrict usage to certain usergroups
 
-</span><span style="color:#eb6772;">allow_user_ids</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># restrict usage to certain user ids
- </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">F123456
+allow_user_ids: # restrict usage to certain user ids
+ - F123456
 
-ignore_users</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># users in this list won&#39;t trigger this rule
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">John.Doe
-ignore_usergroups</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># users that are part of any of these groups won&#39;t trigger this rule
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">admin-team
+ignore_users: # users in this list won't trigger this rule
+  - John.Doe
+ignore_usergroups: # users that are part of any of these groups won't trigger this rule
+  - admin-team
 
-start_message_thread</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># start a new thread on the message that triggered the rule
+start_message_thread: true # start a new thread on the message that triggered the rule
 
-</span><span style="color:#eb6772;">ignore_threads</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># will prevent the rule from triggering inside threaded messages
+ignore_threads: true # will prevent the rule from triggering inside threaded messages
 
-</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false </span><span style="font-style:italic;color:#5f697a;"># will only reply via direct message if enabled
+direct_message_only: false # will only reply via direct message if enabled
 
-</span><span style="color:#eb6772;">limit_to_rooms</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of rooms/channels where the rule can get triggered.
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">coolchannel
+limit_to_rooms: # this is an array of rooms/channels where the rule can get triggered.
+  - coolchannel
 
-output_to_rooms</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of rooms/channels you want messages to be sent into in Slack.
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">mychannel
+output_to_rooms: # this is an array of rooms/channels you want messages to be sent into in Slack.
+  - mychannel
 
-output_to_users</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of users you want messages to be sent to directly in Slack.
-  </span><span style="color:#abb2bf;">- </span><span style="color:#9acc76;">John.Doe
+output_to_users: # this is an array of users you want messages to be sent to directly in Slack.
+  - John.Doe
 
-</span><span style="font-style:italic;color:#5f697a;"># help
-</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">echo &lt;message&gt; </span><span style="font-style:italic;color:#5f697a;"># help/usage text for the echo rule
-</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># see help_text in help message
-</span></code></pre>
+# help
+help_text: echo <message> # help/usage text for the echo rule
+include_in_help: true # see help_text in help message
+</code></pre>
 <ul>
 <li><strong>name</strong> (<em>string</em>) Choose a name of the rule. This should match the name of yaml file, should be short and descriptive.</li>
 <li><strong>active</strong> (<em>boolean</em>) If set to true, the bot will look for the match in the rooms it is in and take stated actions.</li>
@@ -469,13 +468,13 @@ output_to_users</span><span style="color:#abb2bf;">: </span><span style="font-st
     </div>
 
     
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/book.js" type="text/javascript" charset="utf-8"></script>
     
 </body>
 

@@ -33,21 +33,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+    <link rel="shortcut icon" href="https://target.github.io/flottbot-docs/favicon.png">
 
     
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/variables.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/general.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/chrome.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/print.css" media="print">
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/tomorrow-night.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/ayu-highlight.css">
     
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/FontAwesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
@@ -333,86 +333,83 @@
 <h2 id="prepare-files-folder-structure">Prepare Files/Folder Structure</h2>
 <p>Before we start, let's create a quick configuration for your bot. It will consist of a basic <strong>hello</strong> rule.</p>
 <p>The typical directory structure for your bot is expected to look like:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">./config/
-├──</span><span style="color:#abb2bf;"> rules/
-</span><span style="color:#eb6772;">│</span><span style="color:#abb2bf;">   └── hello.yml
-</span><span style="color:#eb6772;">└──</span><span style="color:#abb2bf;"> bot.yml
-</span></code></pre>
+<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">./config/
+├── rules/
+│   └── hello.yml
+└── bot.yml
+</code></pre>
 <p>Example <strong>hello</strong> rule to start with:</p>
 <p><code>config/rules/hello.yml</code></p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">hello
-active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
-</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">hello
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">name: hello
+active: true
+respond: hello
 
-format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;what&#39;s up?&quot;
+format_output: "what's up?"
 
-</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">hello
-include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
-</span></code></pre>
+help_text: hello
+include_in_help: true
+</code></pre>
 <p>We'll assume the above is in place for the remainder of the page and we'll primarily modify <code>config/bot.yml</code> going forward.</p>
 <h2 id="quick-setup">Quick Setup</h2>
 <p>Slack recently released a beta version of <a href="https://api.slack.com/reference/manifests">app manifests</a> to help create new apps and bots more conveniently.</p>
 <p><em>Note: it's possible this option doesn't exist for your workspace - continue to <a href="https://target.github.io/flottbot-docs/basics/slack/#setup">Setup</a>, if that's the case. You will be able to tell once you start creating a new app as described below.</em></p>
 <p>Below is a prepared manifest that you can utilize to quickly setup your own new app/bot with Socket Mode enabled, cleverly named &quot;my-bot&quot;. It's a good starting point even if you eventually end up going down the Events API path. Don't worry, you can customize all the settings that this manifest provides after your bot has been created.</p>
 <h3 id="app-manifest-for-a-bot-using-socket-mode">App Manifest for a Bot Using Socket Mode</h3>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">_metadata</span><span style="color:#abb2bf;">:
-  </span><span style="color:#eb6772;">major_version</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">1
-  </span><span style="color:#eb6772;">minor_version</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">1
-</span><span style="color:#eb6772;">display_information</span><span style="color:#abb2bf;">:
-  </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">my-bot
-  description</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">my bot
-  background_color</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;#272a30&quot;
-</span><span style="color:#eb6772;">features</span><span style="color:#abb2bf;">:
-  </span><span style="color:#eb6772;">app_home</span><span style="color:#abb2bf;">:
-    </span><span style="color:#eb6772;">home_tab_enabled</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
-    </span><span style="color:#eb6772;">messages_tab_enabled</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
-    </span><span style="color:#eb6772;">messages_tab_read_only_enabled</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-  </span><span style="color:#eb6772;">bot_user</span><span style="color:#abb2bf;">:
-    </span><span style="color:#eb6772;">display_name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">my-bot
-    always_online</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
-</span><span style="color:#eb6772;">oauth_config</span><span style="color:#abb2bf;">:
-  </span><span style="color:#eb6772;">scopes</span><span style="color:#abb2bf;">:
-    </span><span style="color:#eb6772;">bot</span><span style="color:#abb2bf;">:
-      - </span><span style="color:#eb6772;">app_mentions:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">channels:history
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">channels:manage
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">channels:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">chat:write
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">groups:history
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">groups:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">groups:write
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">im:history
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">im:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">im:write
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">mpim:history
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">mpim:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">mpim:write
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">team:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">usergroups:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">users:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">users:read.email
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">users:write
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">reactions:read
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">reactions:write
-settings</span><span style="color:#abb2bf;">:
-  </span><span style="color:#eb6772;">event_subscriptions</span><span style="color:#abb2bf;">:
-    </span><span style="color:#eb6772;">bot_events</span><span style="color:#abb2bf;">:
-      - </span><span style="color:#eb6772;">app_mention
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">member_joined_channel
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">member_left_channel
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">message.channels
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">message.groups
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">message.im
-      </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">message.mpim
-  interactivity</span><span style="color:#abb2bf;">:
-    </span><span style="color:#eb6772;">is_enabled</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-  </span><span style="color:#eb6772;">org_deploy_enabled</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-  </span><span style="color:#eb6772;">socket_mode_enabled</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
-  </span><span style="color:#eb6772;">is_hosted</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">_metadata:
+  major_version: 1
+  minor_version: 1
+display_information:
+  name: my-bot
+  description: my bot
+  background_color: "#272a30"
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: my-bot
+    always_online: true
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - channels:history
+      - channels:manage
+      - channels:read
+      - chat:write
+      - groups:history
+      - groups:read
+      - groups:write
+      - im:history
+      - im:read
+      - im:write
+      - mpim:history
+      - mpim:read
+      - mpim:write
+      - team:read
+      - usergroups:read
+      - users:read
+      - users:read.email
+      - users:write
+      - reactions:read
+      - reactions:write
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - member_joined_channel
+      - member_left_channel
+      - message.channels
+      - message.groups
+      - message.im
+      - message.mpim
+  interactivity:
+    is_enabled: false
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  is_hosted: false
+</code></pre>
 <p>To use this app manifest, follow these steps:</p>
 <ol>
 <li>Go to <a href="https://api.slack.com/apps">https://api.slack.com/apps</a></li>
@@ -532,21 +529,19 @@ settings</span><span style="color:#abb2bf;">:
 <li>In the new window, a token starting with <strong><code>xapp-</code></strong> will appear. This is your <code>slack_app_token</code>.</li>
 </ol>
 <p>You will want to set these two tokens in your <code>/config/bot.yml</code>. For example:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">chat_application</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">slack
-slack_token</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">${SLACK_TOKEN}
-slack_app_token</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">${SLACK_APP_TOKEN}
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">chat_application: slack
+slack_token: ${SLACK_TOKEN}
+slack_app_token: ${SLACK_APP_TOKEN}
+</code></pre>
 <p><em>Note: the <code>${VAR}</code> syntax expects the values to be set in environment variables with their respective names.</em></p>
 <h3 id="run-your-bot-socket-mode">Run Your Bot (Socket Mode)</h3>
 <p>Now run your bot using docker with the following command (make sure docker is up and running):</p>
-<pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">docker</span><span style="color:#abb2bf;"> run</span><span style="color:#eb6772;"> --rm --name</span><span style="color:#abb2bf;"> mybot \
-</span><span style="color:#eb6772;">  --env</span><span style="color:#abb2bf;"> SLACK_TOKEN=$</span><span style="color:#eb6772;">SLACK_TOKEN </span><span style="color:#abb2bf;">\
-</span><span style="color:#eb6772;">  --env</span><span style="color:#abb2bf;"> SLACK_APP_TOKEN=$</span><span style="color:#eb6772;">SLACK_APP_TOKEN </span><span style="color:#abb2bf;">\
-</span><span style="color:#eb6772;">  -v </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">PWD</span><span style="color:#9acc76;">&quot;</span><span style="color:#abb2bf;">/config:/config \
+<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">docker run --rm --name mybot \
+  --env SLACK_TOKEN=$SLACK_TOKEN \
+  --env SLACK_APP_TOKEN=$SLACK_APP_TOKEN \
+  -v "$PWD"/config:/config \
   target/flottbot:latest /flottbot
-</span></code></pre>
+</code></pre>
 <p><em>Note: this assumes that you have the tokens are available as environment variables in your environment at <code>SLACK_TOKEN</code> and <code>SLACK_APP_TOKEN</code>.</em></p>
 <p>Your bot should now be online in the Slack Workspace you added the integration to.</p>
 <p>Head to a channel in Slack and invite your bot. Type <code>@&lt;your bot name&gt; hello</code> (replace &quot;your bot name&quot; with the actual name of your bot) and you should get a response of &quot;what's up?&quot;).</p>
@@ -567,29 +562,26 @@ slack_app_token</span><span style="color:#abb2bf;">: </span><span style="color:#
 <li>Under the &quot;App Credentials&quot; section, the token is under &quot;Signing Secret&quot;. Click on &quot;Show&quot; to display the value</li>
 </ol>
 <p>You will want to set these two tokens in your <code>/config/bot.yml</code>. For example:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">chat_application</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">slack
-slack_token</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">${SLACK_TOKEN}
-slack_signing_secret</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">${SLACK_SIGNING_SECRET}
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">chat_application: slack
+slack_token: ${SLACK_TOKEN}
+slack_signing_secret: ${SLACK_SIGNING_SECRET}
+</code></pre>
 <p><em>Note: the <code>${VAR}</code> syntax expects the values to be set in environment variables with their respective names.</em></p>
 <h3 id="setup-your-slack-events-public-ingress">Setup Your Slack Events Public Ingress</h3>
 <p>In order for the Slack events API to post back to your bot to notify it that certain events occurred, you'll need to deploy it with a publicly available URL.  Flottbot will by default serve up HTTP endpoints at a custom path you can configure in your <code>config/bot.yml</code>.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">slack_events_callback_path</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">/slack_events/v1/events
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">slack_events_callback_path: /slack_events/v1/events
+</code></pre>
 <p>If you're using our provided Docker image, it will expose the necessary ports for the HTTP server to accept requests and set up the custom path endpoints to accept Slack event payloads. You will just have to let Slack know where to reach it at.</p>
 <p><em>Tip: flottbot also exposes a <code>/event_health</code> endpoint for checking liveliness.</em></p>
 <p>Before configuring things inside of Slack, you'll want to make sure your bot is running, so Slack can verify the connection to your bot.</p>
 <p>At this point, your <code>config/bot.yml</code> should look like:</p>
 <p><code>config/bot.yml</code></p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">mybot
-chat_application</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">slack
-slack_token</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">${SLACK_TOKEN}
-slack_signing_secret</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">${SLACK_SIGNING_SECRET}
-slack_events_callback_path</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">/slack_events/v1/events
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">name: mybot
+chat_application: slack
+slack_token: ${SLACK_TOKEN}
+slack_signing_secret: ${SLACK_SIGNING_SECRET}
+slack_events_callback_path: /slack_events/v1/events
+</code></pre>
 <p><em>Note: the <code>${VAR}</code> syntax expects the values to be set in environment variables with their respective names.</em></p>
 <h3 id="run-your-bot-events-api">Run Your Bot (Events API)</h3>
 <p>It's beyond this document to go into details on how and where to host your bot so it's publicly accessible.</p>
@@ -629,13 +621,13 @@ slack_events_callback_path</span><span style="color:#abb2bf;">: </span><span sty
     </div>
 
     
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/book.js" type="text/javascript" charset="utf-8"></script>
     
 </body>
 

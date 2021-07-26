@@ -33,21 +33,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+    <link rel="shortcut icon" href="https://target.github.io/flottbot-docs/favicon.png">
 
     
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/variables.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/general.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/chrome.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/print.css" media="print">
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/tomorrow-night.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/ayu-highlight.css">
     
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/FontAwesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
@@ -342,21 +342,18 @@
 </ol>
 <p>To get your server id, <a href="https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-">check Discord's official knowledgebase article</a></p>
 <p>Now that you have both your bot token and server id, edit the following lines in <code>/config/bot.yml</code> to look like:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">chat_application</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">discord
-discord_token</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">${DISCORD_TOKEN}
-discord_server_id</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">${DISCORD_SERVER_ID}
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">chat_application: discord
+discord_token: ${DISCORD_TOKEN}
+discord_server_id: ${DISCORD_SERVER_ID}
+</code></pre>
 <p>Write some rules for your bot.</p>
 <p>Now, you'll need to export your Discord bot token and server id values as environment variables:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#cd74e8;">export </span><span style="color:#eb6772;">DISCORD_TOKEN</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">xxxxxxxxxxxxxxxxxx.xxxxxx.xxxxxxxxx.xxxxxxxxxx
-</span><span style="color:#cd74e8;">export </span><span style="color:#eb6772;">DISCORD_SERVER_ID</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">###############
-</span></code></pre>
+<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">export DISCORD_TOKEN=xxxxxxxxxxxxxxxxxx.xxxxxx.xxxxxxxxx.xxxxxxxxxx
+export DISCORD_SERVER_ID=###############
+</code></pre>
 <p>Now run your bot using docker with the following command (make sure docker is up and running):</p>
-<pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">docker</span><span style="color:#abb2bf;"> run</span><span style="color:#eb6772;"> --rm --name</span><span style="color:#abb2bf;"> mybot</span><span style="color:#eb6772;"> --env</span><span style="color:#abb2bf;"> DISCORD_TOKEN=$</span><span style="color:#eb6772;">DISCORD_TOKEN --env</span><span style="color:#abb2bf;"> DISCORD_SERVER_ID=$</span><span style="color:#eb6772;">DISCORD_SERVER_ID -v </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">PWD</span><span style="color:#9acc76;">&quot;</span><span style="color:#abb2bf;">/config:/config target/flottbot:latest /flottbot
-</span></code></pre>
+<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">docker run --rm --name mybot --env DISCORD_TOKEN=$DISCORD_TOKEN --env DISCORD_SERVER_ID=$DISCORD_SERVER_ID -v "$PWD"/config:/config target/flottbot:latest /flottbot
+</code></pre>
 <p>Your bot should now be online in the Discord server where you configured your bot.</p>
 
 
@@ -381,13 +378,13 @@ discord_server_id</span><span style="color:#abb2bf;">: </span><span style="color
     </div>
 
     
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/book.js" type="text/javascript" charset="utf-8"></script>
     
 </body>
 

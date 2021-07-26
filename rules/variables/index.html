@@ -33,21 +33,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+    <link rel="shortcut icon" href="https://target.github.io/flottbot-docs/favicon.png">
 
     
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/variables.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/general.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/chrome.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/print.css" media="print">
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/tomorrow-night.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/ayu-highlight.css">
     
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/FontAwesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
@@ -314,46 +314,44 @@
                     
     <h1>Variables</h1>
     <p>The below variables are set by default:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">${_raw_http_output}</span><span style="color:#abb2bf;"> raw output from an HTTP request action.
-</span><span style="color:#eb6772;">${_raw_http_status}</span><span style="color:#abb2bf;"> response code from an HTTP request action.
-</span><span style="color:#eb6772;">${_exec_output}</span><span style="color:#abb2bf;"> stdout output from an exec action.
-</span><span style="color:#eb6772;">${_exec_status}</span><span style="color:#abb2bf;"> the status code from an exec action.
-</span><span style="color:#eb6772;">${_raw_user_input}</span><span style="color:#abb2bf;"> raw message from a user captured by the bot when a match is found.
-</span><span style="color:#eb6772;">${_channel.id}</span><span style="color:#abb2bf;"> channel ID where the message originated from.
-</span><span style="color:#eb6772;">${_channel.name}</span><span style="color:#abb2bf;"> channel name where the message originated from </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_is_thread_message}</span><span style="color:#abb2bf;"> indicates that the rule was triggered from within a message thread, returns </span><span style="color:#9acc76;">&quot;true&quot;</span><span style="color:#abb2bf;"> or </span><span style="color:#9acc76;">&quot;false&quot;
-</span><span style="color:#eb6772;">${_source.link}</span><span style="color:#abb2bf;"> will provide you with a link to the original message </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">2</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_source.timestamp}</span><span style="color:#abb2bf;"> will provide the timestamp of the original message
-</span><span style="color:#eb6772;">${_source.thread_timestamp}</span><span style="color:#abb2bf;"> will provide the timestamp of the parent message </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">2</span><span style="color:#cd74e8;">]
-</span></code></pre>
+<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">${_raw_http_output} raw output from an HTTP request action.
+${_raw_http_status} response code from an HTTP request action.
+${_exec_output} stdout output from an exec action.
+${_exec_status} the status code from an exec action.
+${_raw_user_input} raw message from a user captured by the bot when a match is found.
+${_channel.id} channel ID where the message originated from.
+${_channel.name} channel name where the message originated from [^1]
+${_is_thread_message} indicates that the rule was triggered from within a message thread, returns "true" or "false"
+${_source.link} will provide you with a link to the original message [^2]
+${_source.timestamp} will provide the timestamp of the original message
+${_source.thread_timestamp} will provide the timestamp of the parent message [^2]
+</code></pre>
 <ul>
 <li><sup class="footnote-reference"><a href="#1">1</a></sup>: for Slack, this might be an empty string if it originated from a direct message</li>
 <li><sup class="footnote-reference"><a href="#2">2</a></sup>: this feature is currently only available for Slack</li>
 </ul>
 <p>In addition, the following user-specific variables - populated with details of the user that triggered a rule match via a message - are available:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-sh" data-lang="sh"><span style="color:#eb6772;">${_user.email}
+<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">${_user.email}
 ${_user.name}
-${_user.firstname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.lastname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.id} 
-${_user.team} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.teamid} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.color} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.realname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.tz} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.tzlabel} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.tzoffset} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.realnamenormalized} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.displayname} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.displaynamenormalized} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.skype} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.phone} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.title} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.statustext} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span><span style="color:#eb6772;">${_user.statusemoji} </span><span style="color:#cd74e8;">[</span><span style="color:#adb7c9;">^</span><span style="color:#abb2bf;">1</span><span style="color:#cd74e8;">]
-</span></code></pre>
+${_user.firstname} [^1]
+${_user.lastname} [^1]
+${_user.id} 
+${_user.team} [^1]
+${_user.teamid} [^1]
+${_user.color} [^1]
+${_user.realname} [^1]
+${_user.tz} [^1]
+${_user.tzlabel} [^1]
+${_user.tzoffset} [^1]
+${_user.realnamenormalized} [^1]
+${_user.displayname} [^1]
+${_user.displaynamenormalized} [^1]
+${_user.skype} [^1]
+${_user.phone} [^1]
+${_user.title} [^1]
+${_user.statustext} [^1]
+${_user.statusemoji} [^1]
+</code></pre>
 <ul>
 <li><sup class="footnote-reference"><a href="#1">1</a></sup>: Only available for Slack, currently. See https://api.slack.com/types/user for more information</li>
 </ul>
@@ -380,13 +378,13 @@ ${_user.team} </span><span style="color:#cd74e8;">[</span><span style="color:#ad
     </div>
 
     
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/book.js" type="text/javascript" charset="utf-8"></script>
     
 </body>
 

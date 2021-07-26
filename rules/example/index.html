@@ -33,21 +33,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
-    <link rel="shortcut icon" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;favicon.png">
+    <link rel="shortcut icon" href="https://target.github.io/flottbot-docs/favicon.png">
 
     
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;variables.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;general.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;chrome.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;print.css" media="print">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/variables.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/general.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/chrome.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/print.css" media="print">
     <!-- Highlight.js Stylesheets -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;tomorrow-night.css">
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;ayu-highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/highlight.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/tomorrow-night.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/ayu-highlight.css">
     
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;FontAwesome&#x2F;css&#x2F;font-awesome.min.css">
+    <link rel="stylesheet" href="https://target.github.io/flottbot-docs/FontAwesome/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
         rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
@@ -315,144 +315,144 @@
     <h1>Examples</h1>
     <h2 id="hello">Hello</h2>
 <p>This rule will simply listen for the word &quot;hello&quot;, and respond with a greeting.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># metadata
-</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">hello
-active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># activate rule
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml"># metadata
+name: hello
+active: true # activate rule
 
-# trigger &amp; arguments
-</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">hello
-args</span><span style="color:#abb2bf;">:
-</span><span style="font-style:italic;color:#5f697a;"># no required args, as we&#39;re just looking for the match and nothing else.
+# trigger & arguments
+respond: hello
+args:
+# no required args, as we're just looking for the match and nothing else.
 
 # actions
-</span><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this rule takes no actions, just collects and responds with whats laid out in the format_output section
+actions: # this rule takes no actions, just collects and responds with whats laid out in the format_output section
 
 # response
-</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;what&#39;s up?&quot; </span><span style="font-style:italic;color:#5f697a;"># message to send to your user when they say hello
-</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false </span><span style="font-style:italic;color:#5f697a;"># allow messaging inside channels
-</span><span style="color:#eb6772;">output_to_rooms</span><span style="color:#abb2bf;">: </span><span style="font-style:italic;color:#5f697a;"># this is an array of rooms/channels you want messages to be sent into.
-  </span><span style="color:#abb2bf;">- </span><span style="color:#9acc76;">mychannel </span><span style="font-style:italic;color:#5f697a;"># EDIT this (Slack channel you want the bot to listen &amp; respond in)
+format_output: "what's up?" # message to send to your user when they say hello
+direct_message_only: false # allow messaging inside channels
+output_to_rooms: # this is an array of rooms/channels you want messages to be sent into.
+  - mychannel # EDIT this (Slack channel you want the bot to listen & respond in)
 
 #help
-</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">hello </span><span style="font-style:italic;color:#5f697a;"># help/usage text for the echo rule
-</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># see help_text in help message
-</span></code></pre><h2 id="joke">Joke</h2>
+help_text: hello # help/usage text for the echo rule
+include_in_help: true # see help_text in help message
+</code></pre>
+<h2 id="joke">Joke</h2>
 <p>This rule will listen for the word &quot;joke&quot;, and respond with a setup and a punchline from an open source joke API. See the syntax for the GET HTTP request in this rule.</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">joke
-active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># whether the rule is active
-</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">joke
-args</span><span style="color:#abb2bf;">:
-</span><span style="font-style:italic;color:#5f697a;"># no required args, as we&#39;re just looking for the match and nothing else
-</span><span style="color:#eb6772;">reaction</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">eyes
-actions</span><span style="color:#abb2bf;">:
-  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">joke http request
-    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
-    url</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke </span><span style="font-style:italic;color:#5f697a;"># url to talk to
-    </span><span style="color:#eb6772;">expose_json_fields</span><span style="color:#abb2bf;">:
-      </span><span style="color:#eb6772;">setup</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.setup&#39;
-      </span><span style="color:#eb6772;">punchline</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.punchline&#39;
-    </span><span style="color:#eb6772;">update_reaction</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">white_check_mark
-direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;${setup}</span><span style="color:#5ebfcc;">\n\n</span><span style="color:#9acc76;">${punchline}&quot;
-</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">joke </span><span style="font-style:italic;color:#5f697a;"># help/usage text
-</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># hide it from help, because you only want admins to have jokes
-</span></code></pre><h2 id="number">Number</h2>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">name: joke
+active: true # whether the rule is active
+respond: joke
+args:
+# no required args, as we're just looking for the match and nothing else
+reaction: eyes
+actions:
+  - name: joke http request
+    type: GET
+    url: https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke # url to talk to
+    expose_json_fields:
+      setup: '.setup'
+      punchline: '.punchline'
+    update_reaction: white_check_mark
+direct_message_only: false
+format_output: "${setup}\n\n${punchline}"
+help_text: joke # help/usage text
+include_in_help: true # hide it from help, because you only want admins to have jokes
+</code></pre>
+<h2 id="number">Number</h2>
 <p>This rule will listen for the word &quot;number&quot;, run a ruby script <code>random.rb</code> that outputs a random number between 0-100 and make an http GET request to an API that returns a fun fact about that random number.</p>
 <p><code>random.rb</code> contents:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-ruby" data-lang="ruby"><span style="color:#abb2bf;">random </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">rand</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">..</span><span style="color:#db9d63;">100</span><span style="color:#abb2bf;">)
-</span><span style="color:#5ebfcc;">puts</span><span style="color:#abb2bf;"> random
-</span></code></pre><pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">number
-active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># whether the rule is active
-</span><span style="color:#eb6772;">respond</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">number
-args</span><span style="color:#abb2bf;">:
-</span><span style="font-style:italic;color:#5f697a;"># no required args, as we&#39;re just looking for the match and nothing else
-</span><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">:
-  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">random number generator script
-    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">exec
-    cmd</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">ruby config/scripts/random.rb
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">number facts http request
-    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
-    url</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">http://numbersapi.com/${_exec_output}?json </span><span style="font-style:italic;color:#5f697a;"># url to talk to
-    </span><span style="color:#eb6772;">expose_json_fields</span><span style="color:#abb2bf;">:
-      </span><span style="color:#eb6772;">number</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.number&#39;
-      </span><span style="color:#eb6772;">text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.text&#39;
-</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;Fun fact about ${number}:</span><span style="color:#5ebfcc;">\n\n</span><span style="color:#9acc76;">${text}&quot;
-</span><span style="color:#eb6772;">help_text</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">number </span><span style="font-style:italic;color:#5f697a;"># help/usage text
-</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true </span><span style="font-style:italic;color:#5f697a;"># hide it from help, because you only want admins to have jokes
-</span></code></pre><h2 id="schedule">Schedule</h2>
+<pre data-lang="ruby" class="language-ruby "><code class="language-ruby" data-lang="ruby">random = rand(1..100)
+puts random
+</code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">name: number
+active: true # whether the rule is active
+respond: number
+args:
+# no required args, as we're just looking for the match and nothing else
+actions:
+  - name: random number generator script
+    type: exec
+    cmd: ruby config/scripts/random.rb
+  - name: number facts http request
+    type: GET
+    url: http://numbersapi.com/${_exec_output}?json # url to talk to
+    expose_json_fields:
+      number: '.number'
+      text: '.text'
+direct_message_only: false
+format_output: "Fun fact about ${number}:\n\n${text}"
+help_text: number # help/usage text
+include_in_help: true # hide it from help, because you only want admins to have jokes
+</code></pre>
+<h2 id="schedule">Schedule</h2>
 <p>This rule will run on a schedule and message a specific channel/user specified every 10 seconds (dont leave this running long!).</p>
-<pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># meta
-</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">schedule
-active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml"># meta
+name: schedule
+active: true
 
-</span><span style="font-style:italic;color:#5f697a;"># trigger and args
-</span><span style="color:#eb6772;">schedule</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;@every 10s&#39;
-</span><span style="font-style:italic;color:#5f697a;"># example working cron specs:
+# trigger and args
+schedule: '@every 10s'
+# example working cron specs:
 # - 0 * * * * (at minute 0)
 # - @every 1m
 # - @every 10s
 # example breaking cron specs:
 # - */1 * * * * (at every minute)
 
-</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;The scheduled rule is running.&quot;
+format_output: "The scheduled rule is running."
 
-</span><span style="color:#eb6772;">output_to_rooms</span><span style="color:#abb2bf;">:
-  - </span><span style="color:#9acc76;">&quot;bot-dev&quot;
+output_to_rooms:
+  - "bot-dev"
 
-</span><span style="color:#eb6772;">output_to_users</span><span style="color:#abb2bf;">:
-  - </span><span style="color:#9acc76;">&quot;jane.doe&quot;
+output_to_users:
+  - "jane.doe"
 
-</span><span style="font-style:italic;color:#5f697a;"># help
-</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-</span></code></pre><h2 id="fotd">FOTD</h2>
+# help
+include_in_help: false
+</code></pre>
+<h2 id="fotd">FOTD</h2>
 <p>This rule will run on a schedule and post a fact about the current day scraped from wikipedia to the #bot-dev channel every hour on the hour.</p>
 <p><code>random.sh</code> contents:</p>
-<pre style="background-color:#2b303b;">
-<code class="language-bash" data-lang="bash"><span style="color:#5ebfcc;">echo </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">RANDOM </span><span style="color:#abb2bf;">% $</span><span style="color:#eb6772;">1</span><span style="color:#abb2bf;"> + 1 </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">bc
-</span></code></pre><pre style="background-color:#2b303b;">
-<code class="language-yaml" data-lang="yaml"><span style="font-style:italic;color:#5f697a;"># meta
-</span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">fact of the day
-active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">true
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">echo $RANDOM % $1 + 1 | bc
+</code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml"># meta
+name: fact of the day
+active: true
 
-</span><span style="font-style:italic;color:#5f697a;"># trigger and args
-</span><span style="color:#eb6772;">schedule</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;@every 1h&#39;
-</span><span style="font-style:italic;color:#5f697a;"># actions
-</span><span style="color:#eb6772;">actions</span><span style="color:#abb2bf;">:
-  - </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">today in history http request
-    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
-    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">https://history.muffinlabs.com/date
-    expose_json_fields</span><span style="color:#abb2bf;">:
-      </span><span style="color:#eb6772;">num_of_events</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
-</span><span style="color:#9acc76;">        {{len .data.Events}}
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">random number based on number of events from API
-    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">exec
-    cmd</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">bash config/scripts/random.sh ${num_of_events}
-  </span><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">name</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">today in history http request
-    type</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">GET
-    url</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">https://history.muffinlabs.com/date
-    expose_json_fields</span><span style="color:#abb2bf;">:
-      </span><span style="color:#eb6772;">date</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;.date&#39;
-      </span><span style="color:#eb6772;">year</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
-</span><span style="color:#9acc76;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.year}}{{ end }}{{ end }}
-      </span><span style="color:#eb6772;">event</span><span style="color:#abb2bf;">: </span><span style="color:#cd74e8;">|-
-</span><span style="color:#9acc76;">        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.text}}{{ end }}{{ end }}
+# trigger and args
+schedule: '@every 1h'
+# actions
+actions:
+  - name: today in history http request
+    type: GET
+    url: https://history.muffinlabs.com/date
+    expose_json_fields:
+      num_of_events: |-
+        {{len .data.Events}}
+  - name: random number based on number of events from API
+    type: exec
+    cmd: bash config/scripts/random.sh ${num_of_events}
+  - name: today in history http request
+    type: GET
+    url: https://history.muffinlabs.com/date
+    expose_json_fields:
+      date: '.date'
+      year: |-
+        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.year}}{{ end }}{{ end }}
+      event: |-
+        {{ range $index, $element := .data.Events }}{{ if eq $index ${_exec_output} }}{{.text}}{{ end }}{{ end }}
 
 
-</span><span style="font-style:italic;color:#5f697a;"># response
-</span><span style="color:#eb6772;">format_output</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&quot;On ${date} in the year ${year}: ${event}&quot;
-</span><span style="color:#eb6772;">direct_message_only</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-</span><span style="color:#eb6772;">output_to_rooms</span><span style="color:#abb2bf;">:
-  - </span><span style="color:#9acc76;">&quot;bot-dev&quot;
+# response
+format_output: "On ${date} in the year ${year}: ${event}"
+direct_message_only: false
+output_to_rooms:
+  - "bot-dev"
 
-</span><span style="font-style:italic;color:#5f697a;"># help
-</span><span style="color:#eb6772;">include_in_help</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">false
-</span></code></pre>
+# help
+include_in_help: false
+</code></pre>
+
 
                 </main>
             </div>
@@ -526,13 +526,13 @@ active</span><span style="color:#abb2bf;">: </span><span style="color:#db9d63;">
     </div>
 
     
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;search_index.en.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;mark.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;searcher.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;highlight.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;book.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/search_index.en.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/searcher.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://target.github.io/flottbot-docs/book.js" type="text/javascript" charset="utf-8"></script>
     
 </body>
 
