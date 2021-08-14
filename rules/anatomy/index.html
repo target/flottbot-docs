@@ -368,9 +368,12 @@ output_to_rooms: # this is an array of rooms/channels you want messages to be se
 output_to_users: # this is an array of users you want messages to be sent to directly in Slack.
   - John.Doe
 
+respond_to_bots: false # allow responding to other bots
+
 # help
 help_text: echo <message> # help/usage text for the echo rule
 include_in_help: true # see help_text in help message
+disable_no_match_help: false # toggle whether to show help when no match was found
 </code></pre>
 <ul>
 <li><strong>name</strong> (<em>string</em>) Choose a name of the rule. This should match the name of yaml file, should be short and descriptive.</li>
@@ -400,8 +403,10 @@ include_in_help: true # see help_text in help message
 <li><strong>limit_to_rooms</strong> (<em>yaml array</em>) An array of rooms where the rule can get triggered.</li>
 <li><strong>output_to_rooms</strong> (<em>yaml array</em>) An array of rooms you want messages to be sent into.</li>
 <li><strong>output_to_users</strong> (<em>yaml array</em>) An array of specific users you want messages to be to.</li>
+<li><strong>respond_to_bots</strong> (<em>boolean</em>) If set, other bots are able to trigger your bot.</li>
 <li><strong>help_text</strong> (<em>string</em>) This is the response we show to the user when they interact with the bot and no match occurs. We often like to put bot usage instructions for the rule here.</li>
 <li><strong>include_in_help</strong> (<em>boolean</em>) If set to true, this will include the help text set above in the help message. Setting to false is good for when you're trying to hide some rules/functionality to end users (perhaps admin-only functions).</li>
+<li><strong>disable_no_match_help</strong> (<em>boolean</em>) If set to true, no help message will be shown when the bot is addressed but unable to find a matching rule.</li>
 </ul>
 
 
