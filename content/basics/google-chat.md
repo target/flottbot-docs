@@ -5,7 +5,7 @@ weight = 3
 
 ## Overview
 
-The Google Chat remote only supports the Cloud Pub/Sub. This remote consumes a Pub/Sub subscriber to pull events from Google Chat.
+The Google Chat remote only supports the Cloud Pub/Sub. This remote consumes a Pub/Sub subscriber that pushes and pulls events from Google Chat API. [Google Chat API is only available to Google Workspace users](https://developers.google.com/chat/quickstart/gcf-app#google_chat_api_is_only_available_to_google_workspace_users).
 
 ## Known Limitations
 
