@@ -27,7 +27,7 @@
     -->
     <!-- Book generated using mdBook -->
     <meta charset="UTF-8">
-    <title>Flottbot Basics - Flottbot Documentation</title>
+    <title>Google Chat - Flottbot Documentation</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,7 +122,7 @@
                 </li>
                 
                 
-                <li class="active" >
+                <li >
                     
                     <strong><a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;" class="subsection-title">
                             
@@ -152,7 +152,7 @@
                             </a>
                         </li>
                         
-                        <li >
+                        <li class="active" >
                             <a href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;google-chat&#x2F;" class="page-title">
                                 
                                 Google Chat
@@ -319,15 +319,30 @@
             <div id="content" class="content">
                 <main>
                     
-    <h1>Flottbot Basics</h1>
-    <p>Discover what this Flottbot thing is all about and the ideas behind it.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ol>
-<li>Docker (highly recommended) installed and running</li>
-<li>Git installed on your machine</li>
-<li>Text editor</li>
-<li>A general desire to build chat bots</li>
-</ol>
+    <h1>Google Chat</h1>
+    <h2 id="overview">Overview</h2>
+<p>The Google Chat remote only supports the Cloud Pub/Sub. This remote consumes a Pub/Sub subscriber that pushes and pulls events from Google Chat API. <a href="https://developers.google.com/chat/quickstart/gcf-app#google_chat_api_is_only_available_to_google_workspace_users">Google Chat API is only available to Google Workspace users</a>.</p>
+<h2 id="known-limitations">Known Limitations</h2>
+<p>Google Chat doesn't expose every message to bots. As a result, Flottbot's <code>hear</code> rules will not work. Insted, bots can only be referenced with @ mentions or direct communication.</p>
+<h2 id="configure-google-chat">Configure Google Chat</h2>
+<p>To enable Google Chat you will need to create a Google Cloud project. See Google's documentation for <a href="https://developers.google.com/chat/how-tos/pub-sub">Using Cloud Pub/Sub as an endpoint for your bot</a>.</p>
+<p>Once you've completed the <a href="https://developers.google.com/chat/how-tos/pub-sub#create_a_pubsub-enabled_google_cloud_project">create a Pub/Sub topic</a> step, store the GCP project and subscription IDs in your config.</p>
+<ul>
+<li><code>google_chat_project_id</code> - GCP project ID</li>
+<li><code>google_chat_subscription_id</code> - Cloud pub/sub subscription ID</li>
+</ul>
+<p>Once you've completed the <a href="https://developers.google.com/chat/how-tos/pub-sub#enable_the_google_chat_api">enable the Google Chat API</a> step, download the JSON file containing your bot's key. In your bot's config, set to the path of this downloaded credentials file. For more information in obtaining the bot key, follow this <a href="https://developers.google.com/chat/how-tos/service-accounts#creating_and_using_a_service_account">creating and using a service account</a> guide.</p>
+<ul>
+<li><code>google_chat_credentials</code> - path to service account JSON credentials file</li>
+</ul>
+<p>Example configuration:</p>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">name: flottbot # EDIT this (name of your bot)
+
+chat_application: google_chat
+google_chat_credentials: config/service-account.json
+google_chat_project_id: flottbot
+google_chat_subscription_id: flottbot-sub
+</code></pre>
 
 
                 </main>
@@ -337,46 +352,13 @@
         <nav class="nav-wide-wrapper" aria-label="Page navigation">
             
     
-    
-    
-    
-    
-        
-            
-        
-    
-    
-        
-            
-        
-    
-    
-        
-            
-        
-    
-    
-        
-            
-        
-    
-    
-        
-            
-                
-                    <a class="previous" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;about&#x2F;"><i class="fa fa-angle-left"></i></a>
-                
-                
-                
-            
-        
+        <a class="previous" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;discord&#x2F;"><i class="fa fa-angle-left"></i></a>
     
 
 
             
     
-        
-        <a class="next" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;quick-start&#x2F;"><i class="fa fa-angle-right"></i></a>
+        <a class="next" href="https:&#x2F;&#x2F;target.github.io&#x2F;flottbot-docs&#x2F;basics&#x2F;customization&#x2F;"><i class="fa fa-angle-right"></i></a>
     
 
         </nav>
