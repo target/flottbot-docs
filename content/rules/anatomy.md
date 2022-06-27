@@ -70,9 +70,9 @@ disable_no_match_help: false # toggle whether to show help when no match was fou
 
 * **name** (_string_) Choose a name of the rule. This should match the name of yaml file, should be short and descriptive.
 * **active** (_boolean_) If set to true, the bot will look for the match in the rooms it is in and take stated actions.
-* **respond** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for.
+* **respond** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for. Regex rules with [named capture groups](https://pkg.go.dev/regexp/syntax#:~:text=named%20%26%20numbered%20capturing%20group) will be processed as arguments.
   * **args** (_yaml array_) The number of items in this array determines how many args you're trying to capture after the match is found. Each argument captured after the match will be mapped to a variable name you assign in this array. Optional arguments (denoted with a `?` suffix) have to be listed last - their variable name will not contain the `?`.
-* **hear** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for. Hear will match any occurrence of the pattern in the room regardless of whether the bot is addressed. This trigger takes no arguments.
+* **hear** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for. Hear will match any occurrence of the pattern in the room regardless of whether the bot is addressed. Regex rules with [named capture groups](https://pkg.go.dev/regexp/syntax#:~:text=named%20%26%20numbered%20capturing%20group) will be processed as arguments.
 * **schedule** (_string_) [Cronspec](https://godoc.org/github.com/robfig/cron#hdr-CRON_Expression_Format) for when you want a rule to run on a schedule.
 * **reaction** (_string_) Any time a rule is matched by the bot, it will add this reaction to the message that triggered the rule.
   * Slack: A string value of an [emoji](https://www.webpagefx.com/tools/emoji-cheat-sheet/) reaction that exists in the server. For example, putting a value of `white_check_mark` would add the reaction of ✅.
