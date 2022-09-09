@@ -167,3 +167,61 @@ output_to_rooms:
 # help
 include_in_help: false
 ```
+
+## Application Deployments
+
+This rule contains named capture groups and will expose each capture group as an argument that can be used throughout the rule.
+
+```yaml
+# meta
+name: deployments
+active: true
+
+respond: /deploy (?P<application>\S+)@(?P<version>\S+) to (?P<environment>\S+)/
+
+# actions
+actions:
+  - name: example deployment command
+    type: exec
+    cmd: echo "deploy-cmd -a ${application} -e ${environment} -v ${version}"
+
+# response
+format_output: "Successfully deployed ${application} to ${environment}"
+direct_message_only: false
+
+# help
+include_in_help: false
+```
+
+## Greatness Joke
+
+This rule contains a captured group named `person` that when heard will return a Chuck Norris like joke about that person.
+
+```yaml
+# meta
+name: greatness-joke
+active: true
+
+# trigger and args
+hear: /(?P<person>\S+) is so great/
+
+# actions
+actions:
+  - name: praise
+    type: GET
+    url: http://api.icndb.com/jokes/random
+    query_data:
+      limitTo: "[nerdy]"
+      firstName: ""
+      lastName: "${person}"
+    expose_json_fields:
+      joke: '.value.joke'
+
+# response
+format_output: "${joke}"
+direct_message_only: false
+
+# help
+help_text: <name> is so great
+include_in_help: true
+```
