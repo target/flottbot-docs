@@ -34,10 +34,6 @@ debug: true
 # true: enable logging to console
 # false: disable logging
 
-log_json: false
-# true: logs will be in JSON format
-# false: logs will be in plain text
-
 metrics: true
 # true:  enable metrics collection through prometheus
 # false: disable metrics collection through prometheus
@@ -55,6 +51,5 @@ custom_help_text: "Sorry, I didn't get that. Try sending me one of the following
 * **cli** (optional _boolean_) - if this flag is set to true, the bot can be interacted in command line / terminal (useful for testing rules).
 * **scheduler** (optional _boolean_) - if this flag is set to true, the bot will enable scheduled messages to be sent to specific channels/users.
 * **debug** (optional _boolean_) - if this flag is set to true, the bot to log with more verbosity.
-* **log_json** (optional _boolean_) - if this flag is set to true, the bot will log in JSON format.
 * **metrics** (optional _string_) - if this flag is set to true, the bot will expose metrics on rule executions on a local prometheus server endpoint.
 * **custom_help_text** (optional _string_) - this is a global help text. Caution, if this field is set it will override all `help_text` fields set in your rules.
