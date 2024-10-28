@@ -340,6 +340,10 @@ schedule: "@every 10s" # cronspec for when you want a rule to be triggered on a 
 # - @every 1m
 # - @every 10s
 
+# Respond to a reaction added or removed from a message in channel
+reactions_added: "question" # the text name of the emoji used, can be a regexp with multiple like `(plusone|plus_one|plus1)`
+reactions_removed: "question" # the text name of the emoji used, can be a regexp with multiple like `(plusone|plus_one|plus1)`
+
 reaction: eyes # this will prompt the bot to add an emoji reaction to the message that triggered the rule. This emoji reaction can be modified later when actions are taken.
 
 # actions
@@ -392,6 +396,8 @@ disable_no_match_help: false # toggle whether to show help when no match was fou
 </li>
 <li><strong>hear</strong> (<em>string</em>) Choose a string to match or regex pattern that this rule should trigger actions for. Hear will match any occurrence of the pattern in the room regardless of whether the bot is addressed. Regex rules with <a href="https://pkg.go.dev/regexp/syntax#:%7E:text=named%20%26%20numbered%20capturing%20group">named capture groups</a> will be processed as arguments.</li>
 <li><strong>schedule</strong> (<em>string</em>) <a href="https://godoc.org/github.com/robfig/cron#hdr-CRON_Expression_Format">Cronspec</a> for when you want a rule to run on a schedule.</li>
+<li><strong>reaction_added</strong> (<em>string</em>) Choose a string to match or regex pattern that this rule should trigger actions for. Regex rules with <a href="https://pkg.go.dev/regexp/syntax#:%7E:text=named%20%26%20numbered%20capturing%20group">named capture groups</a> will be processed as arguments.</li>
+<li><strong>reaction_removed</strong> (<em>string</em>) Choose a string to match or regex pattern that this rule should trigger actions for.  Regex rules with <a href="https://pkg.go.dev/regexp/syntax#:%7E:text=named%20%26%20numbered%20capturing%20group">named capture groups</a> will be processed as arguments.</li>
 <li><strong>reaction</strong> (<em>string</em>) Any time a rule is matched by the bot, it will add this reaction to the message that triggered the rule.
 <ul>
 <li>Slack: A string value of an <a href="https://www.webpagefx.com/tools/emoji-cheat-sheet/">emoji</a> reaction that exists in the server. For example, putting a value of <code>white_check_mark</code> would add the reaction of ✅.</li>
