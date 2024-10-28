@@ -25,6 +25,10 @@ schedule: "@every 10s" # cronspec for when you want a rule to be triggered on a 
 # - @every 1m
 # - @every 10s
 
+# Respond to a reaction added or removed from a message in channel
+reactions_added: "question" # the text name of the emoji used, can be a regexp with multiple like `(plusone|plus_one|plus1)`
+reactions_removed: "question" # the text name of the emoji used, can be a regexp with multiple like `(plusone|plus_one|plus1)`
+
 reaction: eyes # this will prompt the bot to add an emoji reaction to the message that triggered the rule. This emoji reaction can be modified later when actions are taken.
 
 # actions
@@ -74,6 +78,8 @@ disable_no_match_help: false # toggle whether to show help when no match was fou
   * **args** (_yaml array_) The number of items in this array determines how many args you're trying to capture after the match is found. Each argument captured after the match will be mapped to a variable name you assign in this array. Optional arguments (denoted with a `?` suffix) have to be listed last - their variable name will not contain the `?`.
 * **hear** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for. Hear will match any occurrence of the pattern in the room regardless of whether the bot is addressed. Regex rules with [named capture groups](https://pkg.go.dev/regexp/syntax#:~:text=named%20%26%20numbered%20capturing%20group) will be processed as arguments.
 * **schedule** (_string_) [Cronspec](https://godoc.org/github.com/robfig/cron#hdr-CRON_Expression_Format) for when you want a rule to run on a schedule.
+* **reaction_added** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for. Regex rules with [named capture groups](https://pkg.go.dev/regexp/syntax#:~:text=named%20%26%20numbered%20capturing%20group) will be processed as arguments.
+* **reaction_removed** (_string_) Choose a string to match or regex pattern that this rule should trigger actions for.  Regex rules with [named capture groups](https://pkg.go.dev/regexp/syntax#:~:text=named%20%26%20numbered%20capturing%20group) will be processed as arguments.
 * **reaction** (_string_) Any time a rule is matched by the bot, it will add this reaction to the message that triggered the rule.
   * Slack: A string value of an [emoji](https://www.webpagefx.com/tools/emoji-cheat-sheet/) reaction that exists in the server. For example, putting a value of `white_check_mark` would add the reaction of ✅.
   * Discord: A string value of an [emoji](https://www.webpagefx.com/tools/emoji-cheat-sheet/) reaction that exists in the server. For example, putting a value of ✅ would add the reaction of ✅.
